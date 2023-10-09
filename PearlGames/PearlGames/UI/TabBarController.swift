@@ -42,7 +42,7 @@ extension TabBarController {
 //            setupNavBarApperance(navigationController)
         }
 
-        tabBar.tintColor = .orange
+        tabBar.tintColor = .white
         viewControllers = navigationControllers
     }
     

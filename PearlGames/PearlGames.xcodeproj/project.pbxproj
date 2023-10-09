@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		4416925B2AD408CE00F04F0E /* AppearanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4416925A2AD408CE00F04F0E /* AppearanceViewController.swift */; };
+		4416925F2AD45F0500F04F0E /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4416925E2AD45F0500F04F0E /* Spinner.swift */; };
+		441692612AD45FC500F04F0E /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441692602AD45FC500F04F0E /* SearchController.swift */; };
+		441692632AD46F6100F04F0E /* WishlistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441692622AD46F6100F04F0E /* WishlistView.swift */; };
 		447F24832AD14C2800119BA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447F24822AD14C2800119BA6 /* AppDelegate.swift */; };
 		447F24852AD14C2800119BA6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447F24842AD14C2800119BA6 /* SceneDelegate.swift */; };
 		447F248C2AD14C2900119BA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 447F248B2AD14C2900119BA6 /* Assets.xcassets */; };
@@ -28,6 +31,9 @@
 
 /* Begin PBXFileReference section */
 		4416925A2AD408CE00F04F0E /* AppearanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceViewController.swift; sourceTree = "<group>"; };
+		4416925E2AD45F0500F04F0E /* Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
+		441692602AD45FC500F04F0E /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
+		441692622AD46F6100F04F0E /* WishlistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistView.swift; sourceTree = "<group>"; };
 		447F247F2AD14C2800119BA6 /* PearlGames.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PearlGames.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		447F24822AD14C2800119BA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		447F24842AD14C2800119BA6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -136,6 +142,8 @@
 			isa = PBXGroup;
 			children = (
 				447F24AD2AD153E400119BA6 /* TabBarController.swift */,
+				4416925E2AD45F0500F04F0E /* Spinner.swift */,
+				441692602AD45FC500F04F0E /* SearchController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -199,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				447F24B72AD1714500119BA6 /* WishlistViewController.swift */,
+				441692622AD46F6100F04F0E /* WishlistView.swift */,
 			);
 			path = WishlistViewController;
 			sourceTree = "<group>";
@@ -299,16 +308,19 @@
 				447F24B42AD156E500119BA6 /* GamesViewController.swift in Sources */,
 				447F24BF2AD191D700119BA6 /* Bundle.swift in Sources */,
 				447F24AC2AD152C400119BA6 /* Router.swift in Sources */,
+				4416925F2AD45F0500F04F0E /* Spinner.swift in Sources */,
 				447F24B22AD1543900119BA6 /* ScreenFactory.swift in Sources */,
 				447F24B02AD1541100119BA6 /* Di.swift in Sources */,
 				447F24832AD14C2800119BA6 /* AppDelegate.swift in Sources */,
 				447F24AE2AD153E400119BA6 /* TabBarController.swift in Sources */,
 				4416925B2AD408CE00F04F0E /* AppearanceViewController.swift in Sources */,
+				441692612AD45FC500F04F0E /* SearchController.swift in Sources */,
 				447F24B82AD1714500119BA6 /* WishlistViewController.swift in Sources */,
 				447F24BC2AD1916600119BA6 /* UIColor.swift in Sources */,
 				447F24852AD14C2800119BA6 /* SceneDelegate.swift in Sources */,
 				447F24BA2AD1720700119BA6 /* SearchGamesViewController.swift in Sources */,
 				447F24B62AD1704D00119BA6 /* SettingsViewController.swift in Sources */,
+				441692632AD46F6100F04F0E /* WishlistView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

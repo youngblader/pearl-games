@@ -8,6 +8,15 @@
 import UIKit
 
 final class WishlistViewController: UIViewController {
+    // LoadView
+    private var wishlistView: WishlistView {
+        return self.view as! WishlistView
+    }
+    
+    override func loadView() {
+        self.view = WishlistView(frame: UIScreen.main.bounds)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -19,6 +28,9 @@ extension WishlistViewController {
     private func setup() {
         self.title = "Wishlist"
         
+        
+        self.navigationController?.navigationItem.searchController = wishlistView.searchController
+
         self.navigationItem.largeTitleDisplayMode = .always
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }

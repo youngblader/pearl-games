@@ -86,7 +86,7 @@
 			children = (
 				447F24962AD14C5E00119BA6 /* App */,
 				447F249A2AD14C8200119BA6 /* UI */,
-				447F24972AD14C6D00119BA6 /* Controllers */,
+				447F24972AD14C6D00119BA6 /* Scenes */,
 				447F24982AD14C7300119BA6 /* Networking */,
 				447F249C2AD14CC300119BA6 /* Models */,
 				447F24992AD14C7B00119BA6 /* Extensions */,
@@ -107,7 +107,7 @@
 			path = App;
 			sourceTree = "<group>";
 		};
-		447F24972AD14C6D00119BA6 /* Controllers */ = {
+		447F24972AD14C6D00119BA6 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
 				447F24AA2AD1517F00119BA6 /* GamesViewController */,
@@ -119,7 +119,7 @@
 				447F24A42AD1503000119BA6 /* SettingsViewController */,
 				447F249D2AD14E7600119BA6 /* AppearanceViewController */,
 			);
-			path = Controllers;
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 		447F24982AD14C7300119BA6 /* Networking */ = {

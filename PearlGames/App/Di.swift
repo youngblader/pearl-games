@@ -32,9 +32,9 @@ final class Di {
     }
     
     //MARK: Providers
-//    var menuProvider: MenuProviderImpl {
-//        return MenuProviderImpl(menuService: menuService, menuArhiver: menuArchiverService, router: router)
-//    }
+    var settingsProvider: SettingsProviderImpl {
+        return SettingsProviderImpl(router: router)
+    }
 }
 
 extension Di {

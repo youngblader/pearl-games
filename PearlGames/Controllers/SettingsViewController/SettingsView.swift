@@ -9,6 +9,8 @@ import UIKit
 import SnapKit
 
 final class SettingsView: UIView {
+    private let settingsTableView = SettingsTableView()
+    
     var onButtonTapped: (()->())?
     
     private let settingsVersionsLabel: UILabel = {
@@ -55,14 +57,15 @@ final class SettingsView: UIView {
 
 extension SettingsView {
     private func setupViews() {
+        self.addSubview(settingsTableView)
         self.addSubview(settingsVersionsLabel)
-        self.addSubview(appearanceButton)
     }
     
     private func setupConstraints() {
-        appearanceButton.snp.makeConstraints { make in
-            make.top.equalTo(self.safeAreaLayoutGuide).inset(20)
-            make.centerX.equalTo(self)
+        settingsTableView.snp.makeConstraints { make in
+            make.top.equalTo(self.safeAreaLayoutGuide)
+            make.left.right.equalTo(self)
+            make.bottom.equalTo(settingsVersionsLabel.snp.top).offset(10)
         }
 
         settingsVersionsLabel.snp.makeConstraints { make in

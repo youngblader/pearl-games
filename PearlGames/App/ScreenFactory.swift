@@ -16,6 +16,8 @@ protocol ScreenFactory {
     func createSettingsController() -> SettingsViewController
     func createWishlistController() -> WishlistViewController
     func createAppearanceController() -> AppearanceViewController
+    func createGameDetailsController() -> GameDetailsViewController
+    func createGamesCategoryController() -> GamesCategoryViewController
 }
 
 final class ScreenFactoryImpl: ScreenFactory {
@@ -26,13 +28,13 @@ final class ScreenFactoryImpl: ScreenFactory {
     }
     
     func createGamesController() -> GamesViewController {
-        return GamesViewController()
+        return GamesViewController(provider: Di.shared.gamesProvider)
     }
     
     func createSearchGamesController() -> SearchGamesViewController {
         return SearchGamesViewController()
     }
-
+    
     func createSettingsController() -> SettingsViewController {
         return SettingsViewController(provider: Di.shared.settingsProvider)
     }
@@ -43,5 +45,13 @@ final class ScreenFactoryImpl: ScreenFactory {
     
     func createAppearanceController() -> AppearanceViewController {
         return AppearanceViewController()
+    }
+    
+    func createGameDetailsController() -> GameDetailsViewController {
+        return GameDetailsViewController()
+    }
+    
+    func createGamesCategoryController() -> GamesCategoryViewController {
+        return GamesCategoryViewController()
     }
 }

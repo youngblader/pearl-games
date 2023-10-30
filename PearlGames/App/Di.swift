@@ -32,6 +32,10 @@ final class Di {
     }
     
     //MARK: Providers
+    var gamesProvider: GamesProviderImpl {
+        return GamesProviderImpl(router: router)
+    }
+
     var settingsProvider: SettingsProviderImpl {
         return SettingsProviderImpl(router: router)
     }

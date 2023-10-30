@@ -17,12 +17,12 @@ enum colorStyle {
 }
 
 final class TextLabel: UILabel {
-    public private(set) var textLabel: String
-    public private(set) var color: colorStyle
-    public private(set) var weight: UIFont.Weight
-    public private(set) var size: CGFloat
-    public private(set) var aligment: NSTextAlignment
-    public private(set) var linesNumber: Int
+    private(set) var textLabel: String
+    private(set) var color: colorStyle
+    private(set) var weight: UIFont.Weight
+    private(set) var size: CGFloat
+    private(set) var aligment: NSTextAlignment
+    private(set) var linesNumber: Int
     
     init(label: String = "", size: CGFloat = 16, color: colorStyle = colorStyle.black, weight: UIFont.Weight = .regular, aligment: NSTextAlignment = .left, linesNumber: Int = 0) {
         self.textLabel = label

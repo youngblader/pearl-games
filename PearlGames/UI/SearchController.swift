@@ -40,10 +40,4 @@ extension SearchController: UISearchControllerDelegate, UISearchResultsUpdating 
         
         onSearchGames?(searchText)
     }
-    
-//    func didPresentSearchController(_ searchController: UISearchController) {
-//        DispatchQueue.main.async {
-//            searchController.searchBar.becomeFirstResponder()
-//        }
-//    }
 }

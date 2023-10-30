@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 final class GamesView: UIView {
-    private let gamePreviewTableView = GamesPreviewTableView()
+    let gamePreviewTableView = GamesPreviewTableView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)

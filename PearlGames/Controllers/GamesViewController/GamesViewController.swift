@@ -9,7 +9,7 @@ import UIKit
 
 final class GamesViewController: UIViewController {
     private let gamesProvider: GamesProvider
-
+    
     // LoadView
     private var gamesView: GamesView {
         return self.view as! GamesView
@@ -21,6 +21,10 @@ final class GamesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        gamesView.gamePreviewTableView.onTappedGameCell = {
+            self.presentGameDetailsController()
+        }
     }
     
     init(provider: GamesProvider) {
@@ -30,6 +34,10 @@ final class GamesViewController: UIViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func presentGameDetailsController() {
+        gamesProvider.router.navigateToGameDetailsController(self)
     }
 }
 

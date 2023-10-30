@@ -28,6 +28,8 @@ enum GamesPreviewSections: Int, CaseIterable {
 }
 
 final class GamesPreviewTableView: UITableView {
+    var onTappedGameCell: (()->())?
+    
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: .zero, style: .plain)
         
@@ -64,6 +66,10 @@ extension GamesPreviewTableView: UITableViewDelegate, UITableViewDataSource {
         if let category {
             cell.dividerView.update(category.title)
             print("HERES", category.title)
+        }
+        
+        cell.onTappedGameCell = {
+            self.onTappedGameCell?()
         }
 
         return cell

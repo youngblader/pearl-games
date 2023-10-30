@@ -14,11 +14,17 @@ final class GamesPreviewCell: UITableViewCell {
     private let gamesCollectionView = GamesCollectionView()
     let dividerView = DividerView()
     
+    var onTappedGameCell: (()->())?
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         setupViews()
         setupConsraints()
+        
+        gamesCollectionView.onTappedGameCell = {
+            self.onTappedGameCell?()
+        }
     }
     
     required init?(coder: NSCoder) {

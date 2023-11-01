@@ -27,7 +27,6 @@ final class TabBarController: UITabBarController {
         super.viewDidLoad()
         
         setupTabBar()
-//        setupTabBarAppearance()
     }
 }
 
@@ -39,7 +38,6 @@ extension TabBarController {
             let navigationController = setupUINavigationController(controller)
 
             navigationControllers.append(navigationController)
-//            setupNavBarApperance(navigationController)
         }
 
         tabBar.tintColor = .white
@@ -56,21 +54,4 @@ extension TabBarController {
         
         return navigationController
     }
-    
-//    private func setupTabBarAppearance() {
-//        let tabBarAppearance = UITabBarAppearance()
-//        tabBarAppearance.configureWithDefaultBackground()
-//
-//        tabBar.standardAppearance = tabBarAppearance
-//        tabBar.scrollEdgeAppearance = tabBarAppearance
-//    }
-    
-//    private func setupNavBarApperance(_ controller: UINavigationController) {
-//        let navBarAppearance = UINavigationBarAppearance()
-//        navBarAppearance.configureWithDefaultBackground()
-//
-//        controller.navigationBar.standardAppearance = navBarAppearance
-//        controller.navigationBar.compactAppearance = navBarAppearance
-//        controller.navigationBar.scrollEdgeAppearance = navBarAppearance
-//    }
 }

@@ -7,7 +7,19 @@
 
 import UIKit
 
-enum colorStyle {
+enum TypeLabel {
+    case regular
+    case semiBold
+    case bold
+    case extraBold
+    case extraLight
+    case light
+    case black
+    case medium
+    case thin
+}
+
+enum ColorStyle {
     case white
     case black
     case gray
@@ -18,24 +30,24 @@ enum colorStyle {
 
 final class TextLabel: UILabel {
     private(set) var textLabel: String
-    private(set) var color: colorStyle
-    private(set) var weight: UIFont.Weight
+    private(set) var color: ColorStyle
+    private(set) var typeLabel: TypeLabel
     private(set) var size: CGFloat
     private(set) var aligment: NSTextAlignment
     private(set) var linesNumber: Int
     
-    init(label: String = "", size: CGFloat = 16, color: colorStyle = colorStyle.black, weight: UIFont.Weight = .regular, aligment: NSTextAlignment = .left, linesNumber: Int = 0) {
+    init(label: String = "", size: CGFloat = 16, color: ColorStyle = ColorStyle.black, typeLabel: TypeLabel = .semiBold, aligment: NSTextAlignment = .left, linesNumber: Int = 0) {
+
         self.textLabel = label
         self.size = size
         self.color = color
-        self.weight = weight
+        self.typeLabel = typeLabel
         self.aligment = aligment
         self.linesNumber = linesNumber
         
         super.init(frame: .zero)
-
-        self.configureLabel()
-        self.configureLabelColor()
+        
+        configure()
     }
     
     required init?(coder: NSCoder) {
@@ -44,6 +56,12 @@ final class TextLabel: UILabel {
 }
 
 extension TextLabel {
+    private func configure() {
+        configureLabelProperties()
+        configureLabelStyle()
+        configureLabelColor()
+    }
+
     private func configureLabelColor() {
         switch color {
         case .black:
@@ -61,10 +79,32 @@ extension TextLabel {
         }
     }
     
-    private func configureLabel() {
+    private func configureLabelStyle() {
+        switch typeLabel {
+        case .regular:
+            self.font = UIFont(name: "Poppins-Regular", size: size)
+        case .semiBold:
+            self.font = UIFont(name: "Poppins-SemiBold", size: size)
+        case .bold:
+            self.font = UIFont(name: "Poppins-Bold", size: size)
+        case .extraBold:
+            self.font = UIFont(name: "Poppins-ExtraBold", size: size)
+        case .extraLight:
+            self.font = UIFont(name: "Poppins-ExtraLight", size: size)
+        case .light:
+            self.font = UIFont(name: "Poppins-Light", size: size)
+        case .black:
+            self.font = UIFont(name: "Poppins-Black", size: size)
+        case .medium:
+            self.font = UIFont(name: "Poppins-Medium", size: size)
+        case .thin:
+            self.font = UIFont(name: "Poppins-Thin", size: size)
+        }
+    }
+    
+    private func configureLabelProperties() {
         self.text = textLabel
         self.numberOfLines = linesNumber
         self.textAlignment = aligment
-        self.font = UIFont.systemFont(ofSize: size, weight: weight)
     }
 }

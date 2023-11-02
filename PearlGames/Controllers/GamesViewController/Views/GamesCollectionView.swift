@@ -10,7 +10,7 @@ import UIKit
 final class GamesCollectionView: UICollectionView {
     private var games: [Game] = []
     
-    var onTappedGameCell: (()->())?
+    var onTappedGameCell: ((Int)->())?
 
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         let layout = UICollectionViewFlowLayout()
@@ -28,8 +28,6 @@ final class GamesCollectionView: UICollectionView {
         
         self.delegate = self
         self.dataSource = self
-        
-//        self.backgroundColor = .yellow
         
         self.register(GameCell.self, forCellWithReuseIdentifier: GameCell.reuseId)
     }
@@ -49,8 +47,10 @@ extension GamesCollectionView: UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath)
         
+        let game = games[indexPath.row]
+        
         cell?.showAnimation {
-            self.onTappedGameCell?()
+            self.onTappedGameCell?(game.id)
         }
     }
 
@@ -60,7 +60,6 @@ extension GamesCollectionView: UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GameCell.reuseId, for: indexPath) as! GameCell
-        
         
         let game = games[indexPath.row]
         

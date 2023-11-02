@@ -30,7 +30,7 @@ private enum GamesPreviewSections: Int, CaseIterable {
 final class GamesPreviewTableView: UITableView {
     private var gamesPreviewData: GamesPreviewData = GamesPreviewData(new: [], comingSoon: [], newReleased: [], popularGames: [])
     
-    var onTappedGameCell: (()->())?
+    var onTappedGameCell: ((Int)->())?
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: .zero, style: .plain)
@@ -104,8 +104,8 @@ extension GamesPreviewTableView: UITableViewDelegate, UITableViewDataSource {
         
         cell.update(categoryGames)
         
-        cell.onTappedGameCell = {
-            self.onTappedGameCell?()
+        cell.onTappedGameCell = { gameId in
+            self.onTappedGameCell?(gameId)
         }
 
         return cell

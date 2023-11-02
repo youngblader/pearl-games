@@ -12,7 +12,7 @@ protocol Router {
     
     func navigateToAppearanceController(_ from: UIViewController)
     func navigateToGamesCategoryController(_ from: UIViewController)
-    func navigateToGameDetailsController(_ from: UIViewController)
+    func navigateToGameDetailsController(_ gameId: Int, _ from: UIViewController)
     func dismiss(_ from: UIViewController)
 }
 
@@ -25,8 +25,9 @@ final class RouterImpl: Router {
         from.navigationController?.pushViewController(vc, animated: true)
     }
     
-    func navigateToGameDetailsController(_ from: UIViewController) {
+    func navigateToGameDetailsController(_ gameId: Int, _ from: UIViewController) {
         let vc = di.screenFactory.createGameDetailsController()
+        vc.gameId = gameId
         
         from.navigationController?.pushViewController(vc, animated: true)
     }

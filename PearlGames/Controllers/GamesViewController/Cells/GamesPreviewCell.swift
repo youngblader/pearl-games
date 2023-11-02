@@ -14,7 +14,7 @@ final class GamesPreviewCell: UITableViewCell {
     private let gamesCollectionView = GamesCollectionView()
     let dividerView = DividerView()
     
-    var onTappedGameCell: (()->())?
+    var onTappedGameCell: ((Int)->())?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -22,8 +22,8 @@ final class GamesPreviewCell: UITableViewCell {
         setupViews()
         setupConsraints()
         
-        gamesCollectionView.onTappedGameCell = {
-            self.onTappedGameCell?()
+        gamesCollectionView.onTappedGameCell = { gameId in
+            self.onTappedGameCell?(gameId)
         }
     }
     

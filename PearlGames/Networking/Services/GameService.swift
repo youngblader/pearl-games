@@ -8,10 +8,10 @@
 import Foundation
 
 protocol GameService {
+    func fetchCoomingGames(page: Int, size: Int) async throws -> [Game]
+    func fetchNewReleasedGames(page: Int, size: Int) async throws -> [Game]
+    func fetchPopularGames(page: Int, size: Int) async throws -> [Game]
     func fetchPreviewGames() async throws -> [Game]
-    func fetchCoomingGames() async throws -> [Game]
-    func fetchNewReleasedGames() async throws -> [Game]
-    func fetchPopularGames() async throws -> [Game]
     func fetchSearchGames(_ value: String) async throws -> [Game]
 }
 
@@ -20,19 +20,23 @@ final class GameServiceImpl: GameService, API {
         return []
     }
     
-    func fetchCoomingGames() async throws -> [Game] {
-        return try await request(endpoint: GamesEndpoint.getCoomingGames, responseModel: GamesResponse.self).results
+    func fetchCoomingGames(page: Int, size: Int) async throws -> [Game] {
+        return try await request(endpoint: GamesEndpoint.getCoomingGames(page: page, size: size), responseModel: GamesResponse.self).results
     }
     
-    func fetchNewReleasedGames() async throws -> [Game] {
-        return try await request(endpoint: GamesEndpoint.getNewReleasedGames, responseModel: GamesResponse.self).results
+    func fetchNewReleasedGames(page: Int, size: Int) async throws -> [Game] {
+        return try await request(endpoint: GamesEndpoint.getNewReleasedGames(page: page, size: size), responseModel: GamesResponse.self).results
     }
     
-    func fetchPopularGames() async throws -> [Game] {
-        return try await request(endpoint: GamesEndpoint.getPopularGames, responseModel: GamesResponse.self).results
+    func fetchPopularGames(page: Int, size: Int) async throws -> [Game] {
+        return try await request(endpoint: GamesEndpoint.getPopularGames(page: page, size: size), responseModel: GamesResponse.self).results
     }
     
     func fetchSearchGames(_ value: String) async throws -> [Game] {
-        return try await request(endpoint: GamesEndpoint.getSearchGames(value), responseModel: GamesResponse.self).results
+        return try await request(endpoint: GamesEndpoint.getSearchGames(searchText: value), responseModel: GamesResponse.self).results
+    }
+    
+    func fetchGameDetails(_ id: Int) async throws -> [Game] {
+        return try await request(endpoint: GamesEndpoint.getGameDetails(gameId: id), responseModel: GamesResponse.self).results // тут скорее другая модель будет
     }
 }

@@ -8,6 +8,7 @@
 import UIKit
 
 final class GameDetailsViewController: UIViewController {
+    var gameId: Int?
     
     // LoadView
     private var gameDetailsView: GameDetailsView {
@@ -20,5 +21,7 @@ final class GameDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("gameId", gameId)
     }
 }

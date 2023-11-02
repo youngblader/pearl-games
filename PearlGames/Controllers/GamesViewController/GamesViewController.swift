@@ -24,8 +24,8 @@ final class GamesViewController: UIViewController {
         
         fetchGames()
         
-        gamesView.gamePreviewTableView.onTappedGameCell = {
-            self.presentGameDetailsController()
+        gamesView.gamePreviewTableView.onTappedGameCell = { id in
+            self.presentGameDetailsController(id)
         }
     }
     
@@ -42,11 +42,11 @@ final class GamesViewController: UIViewController {
         Task {
             gamesView.state = .loading
             do {
-                async let comingGames = gamesProvider.gameService.fetchCoomingGames()
-                async let newReleasedGames = gamesProvider.gameService.fetchNewReleasedGames()
-                async let popularGames = gamesProvider.gameService.fetchPopularGames()
+                async let comingGames = gamesProvider.gameService.fetchCoomingGames(page: 1, size: 5)
+                async let newReleasedGames = gamesProvider.gameService.fetchNewReleasedGames(page: 1, size: 5)
+                async let popularGames = gamesProvider.gameService.fetchPopularGames(page: 1, size: 5)
                 
-                let data: GamesPreviewData = try await GamesPreviewData(new: [], comingSoon: comingGames, newReleased: newReleasedGames, popularGames: popularGames)
+                let data = try await GamesPreviewData(new: [], comingSoon: comingGames, newReleased: newReleasedGames, popularGames: popularGames)
                 
                 gamesView.update(data)
             } catch {
@@ -56,7 +56,7 @@ final class GamesViewController: UIViewController {
         }
     }
     
-    private func presentGameDetailsController() {
-        gamesProvider.router.navigateToGameDetailsController(self)
+    private func presentGameDetailsController(_ gameId: Int) {
+        gamesProvider.router.navigateToGameDetailsController(gameId, self)
     }
 }

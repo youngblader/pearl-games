@@ -12,8 +12,8 @@ import SnapKit
 enum GamesState {
     case loading
     case loaded(GamesPreviewData)
-    case noData(stateError)
-    case error(stateError)
+    case noData(GamesStateError)
+    case error(GamesStateError)
 }
 
 final class GamesView: UIView {

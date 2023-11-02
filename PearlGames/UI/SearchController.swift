@@ -8,18 +8,33 @@
 import UIKit
 
 final class SearchController: UISearchController {
+    private var searchTimer = Timer()
     var onSearchGames: ((String)->())?
+    
+    var searchText: String = "" {
+        didSet {
+            searchTimer.invalidate()
+            
+            searchTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { _ in
+                self.onSearchGames?(self.searchText)
+            }
+            
+//            searchTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { _ in
+//                self.onSearchGames?(self.searchText)
+//            })
+        }
+    }
     
     override init(searchResultsController: UIViewController?) {
         super.init(searchResultsController: nil)
-    
-        self.searchBar.placeholder = "Search"
+        
+        self.delegate = self
+        self.searchResultsUpdater = self
         
         self.obscuresBackgroundDuringPresentation = false
         self.hidesNavigationBarDuringPresentation = false
         
-        self.delegate = self
-        self.searchResultsUpdater = self
+        self.searchBar.placeholder = "Search"
     }
     
     required init?(coder: NSCoder) {
@@ -34,10 +49,10 @@ final class SearchController: UISearchController {
 
 extension SearchController: UISearchControllerDelegate, UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        guard let searchText = searchController.searchBar.text else {
+        guard let text = searchController.searchBar.text else {
             return
         }
         
-        onSearchGames?(searchText)
+        self.searchText = text
     }
 }

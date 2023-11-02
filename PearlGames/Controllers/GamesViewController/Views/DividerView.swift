@@ -9,8 +9,8 @@ import UIKit
 import SnapKit
 
 final class DividerView: UIView {
-    private let titleLabel = TextLabel(size: 20, color: .lightGray, weight: .bold)
-    private let navigateLabel = TextLabel(label: "See All", size: 16, color: .lightGray, weight: .medium)
+    private let titleLabel = TextLabel(size: 18, color: .lightGray, typeLabel: .semiBold)
+    private let navigateLabel = TextLabel(label: "See All", size: 14, color: .gray, typeLabel: .semiBold)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -33,9 +33,6 @@ extension DividerView {
     private func setupViews() {
         self.addSubview(titleLabel)
         self.addSubview(navigateLabel)
-        
-        self.backgroundColor = .red
-        
     }
     
     private func setupConstraints() {
@@ -44,7 +41,7 @@ extension DividerView {
             make.left.equalTo(self).inset(16)
         }
         
-        navigateLabel.snp.makeConstraints { make in
+        navigateLabel.snp.makeConstraints { make in // это будет кнопкой
             make.top.bottom.equalTo(self)
             make.right.equalTo(self).inset(16)
         }

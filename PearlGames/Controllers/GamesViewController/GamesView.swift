@@ -8,8 +8,48 @@
 import UIKit
 import SnapKit
 
+//State Pattern
+enum GamesState {
+    case loading
+    case loaded(GamesPreviewData)
+    case noData(stateError)
+    case error(stateError)
+}
+
 final class GamesView: UIView {
     let gamePreviewTableView = GamesPreviewTableView()
+    
+    private let errorLabel = TextLabel(size: 14, color: .textGray, typeLabel: .semiBold, aligment: .center)
+    
+    private let acitvityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView()
+        
+        indicator.hidesWhenStopped = true
+        indicator.startAnimating()
+        
+        return indicator
+    }()
+    
+    //State
+    var state: GamesState = .loading {
+        didSet {
+            switch state {
+            case .loading:
+                gamePreviewTableView.backgroundView = acitvityIndicator
+            case .loaded(let data):
+                gamePreviewTableView.update(data)
+            case .error(let value):
+                updateTableViewBackgroundView(value.rawValue)
+            case .noData(let value):
+                updateTableViewBackgroundView(value.rawValue)
+            }
+        }
+    }
+    
+    private func updateTableViewBackgroundView(_ text: String) {
+        errorLabel.text = text
+        gamePreviewTableView.backgroundView = errorLabel
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -20,6 +60,15 @@ final class GamesView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    //MARK: Public update
+    func update(_ data: GamesPreviewData) {
+        if data.new.isEmpty && data.comingSoon.isEmpty && data.newReleased.isEmpty && data.popularGames.isEmpty {
+            state = .noData(.noData)
+        } else {
+            state = .loaded(data)
+        }
     }
 }
 

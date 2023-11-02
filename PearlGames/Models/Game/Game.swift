@@ -7,30 +7,39 @@
 
 import Foundation
 
+
+//MARK: - GamesPreviewData
+struct GamesPreviewData {
+    let new: [Game]
+    let comingSoon: [Game]
+    let newReleased: [Game]
+    let popularGames: [Game]
+}
+
 // MARK: - Game
 struct Game: Codable {
     let slug, name: String
     let playtime: Int
     let platforms: [Platform]
-    let stores: [Store]
-    let released: String
+    let stores: [Store]?
+    let released: String?
     let tba: Bool
-    let backgroundImage: String
+    let backgroundImage: String?
     let rating: Double
     let ratingTop: Int
     let ratings: [Rating]
     let ratingsCount, reviewsTextCount, added: Int
-    let addedByStatus: AddedByStatus
+    let addedByStatus: AddedByStatus?
     let metacritic: Int?
     let suggestionsCount: Int
     let updated: String
     let id: Int
     let score, clip: String?
-    let tags: [Tag]
+    let tags: [Tag]?
     let esrbRating: EsrbRating?
     let userGame: String?
     let reviewsCount: Int
-    let saturatedColor, dominantColor: Color
+    let saturatedColor, dominantColor: String //Color
     let shortScreenshots: [ShortScreenshot]
     let parentPlatforms: [Platform]
     let genres: [Genre]
@@ -61,13 +70,13 @@ struct Game: Codable {
 
 // MARK: - AddedByStatus
 struct AddedByStatus: Codable {
-    let yet, owned, beaten, toplay: Int
-    let dropped, playing: Int
+    let yet, owned, beaten, toplay: Int?
+    let dropped, playing: Int?
 }
 
-enum Color: String, Codable {
-    case string
-}
+//enum Color: String, Codable {
+//    case string
+//}
 
 // MARK: - EsrbRating
 struct EsrbRating: Codable {
@@ -124,7 +133,7 @@ struct Tag: Codable {
     let name, slug: String
     let language: Language
     let gamesCount: Int
-    let imageBackground: String
+    let imageBackground: String?
 
     enum CodingKeys: String, CodingKey {
         case id, name, slug, language

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4416925B2AD408CE00F04F0E /* AppearanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4416925A2AD408CE00F04F0E /* AppearanceViewController.swift */; };
-		4416925F2AD45F0500F04F0E /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4416925E2AD45F0500F04F0E /* Spinner.swift */; };
 		441692612AD45FC500F04F0E /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441692602AD45FC500F04F0E /* SearchController.swift */; };
 		441692632AD46F6100F04F0E /* WishlistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441692622AD46F6100F04F0E /* WishlistView.swift */; };
 		441692652AD471A200F04F0E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441692642AD471A200F04F0E /* SettingsView.swift */; };
@@ -73,7 +72,6 @@
 
 /* Begin PBXFileReference section */
 		4416925A2AD408CE00F04F0E /* AppearanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceViewController.swift; sourceTree = "<group>"; };
-		4416925E2AD45F0500F04F0E /* Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
 		441692602AD45FC500F04F0E /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		441692622AD46F6100F04F0E /* WishlistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistView.swift; sourceTree = "<group>"; };
 		441692642AD471A200F04F0E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -302,7 +300,6 @@
 			isa = PBXGroup;
 			children = (
 				447F24AD2AD153E400119BA6 /* TabBarController.swift */,
-				4416925E2AD45F0500F04F0E /* Spinner.swift */,
 				441692602AD45FC500F04F0E /* SearchController.swift */,
 				44D9765A2AEBDEA8003D5DAB /* TextLabel.swift */,
 			);
@@ -557,7 +554,6 @@
 				44D976622AED071A003D5DAB /* GameDetailsViewController.swift in Sources */,
 				447F24BF2AD191D700119BA6 /* Bundle.swift in Sources */,
 				447F24AC2AD152C400119BA6 /* Router.swift in Sources */,
-				4416925F2AD45F0500F04F0E /* Spinner.swift in Sources */,
 				44D9765B2AEBDEA8003D5DAB /* TextLabel.swift in Sources */,
 				44D976522AEBD8E3003D5DAB /* GamesPreviewTableView.swift in Sources */,
 				447F24B22AD1543900119BA6 /* ScreenFactory.swift in Sources */,

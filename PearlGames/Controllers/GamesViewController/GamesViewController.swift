@@ -22,6 +22,8 @@ final class GamesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        fetchGames()
+        
         gamesView.gamePreviewTableView.onTappedGameCell = {
             self.presentGameDetailsController()
         }
@@ -36,11 +38,25 @@ final class GamesViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private func fetchGames() {
+        Task {
+            gamesView.state = .loading
+            do {
+                async let comingGames = gamesProvider.gameService.fetchCoomingGames()
+                async let newReleasedGames = gamesProvider.gameService.fetchNewReleasedGames()
+                async let popularGames = gamesProvider.gameService.fetchPopularGames()
+                
+                let data: GamesPreviewData = try await GamesPreviewData(new: [], comingSoon: comingGames, newReleased: newReleasedGames, popularGames: popularGames)
+                
+                gamesView.update(data)
+            } catch {
+                gamesView.state = .error(.failed)
+                print(error)
+            }
+        }
+    }
+    
     private func presentGameDetailsController() {
         gamesProvider.router.navigateToGameDetailsController(self)
     }
-}
-
-extension GamesViewController {
-    
 }

@@ -8,7 +8,7 @@
 import UIKit
 
 final class GamesCollectionView: UICollectionView {
-    private let games: [Game] = []
+    private var games: [Game] = []
     
     var onTappedGameCell: (()->())?
 
@@ -17,7 +17,9 @@ final class GamesCollectionView: UICollectionView {
         
         layout.scrollDirection = .horizontal
         layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
-        layout.itemSize = CGSize(width: 120, height: 120)
+        layout.itemSize = CGSize(width: 120, height: 140)
+        
+        layout.minimumLineSpacing = 16
         
         super.init(frame: .zero, collectionViewLayout: layout)
         
@@ -27,7 +29,7 @@ final class GamesCollectionView: UICollectionView {
         self.delegate = self
         self.dataSource = self
         
-        self.backgroundColor = .yellow
+//        self.backgroundColor = .yellow
         
         self.register(GameCell.self, forCellWithReuseIdentifier: GameCell.reuseId)
     }
@@ -37,8 +39,9 @@ final class GamesCollectionView: UICollectionView {
     }
     
     //MARK: Public update
-    func update() {
-        
+    func update(_ games: [Game]) {
+        self.games = games
+        self.reloadData()
     }
 }
 
@@ -52,11 +55,16 @@ extension GamesCollectionView: UICollectionViewDelegate, UICollectionViewDataSou
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return games.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GameCell.reuseId, for: indexPath) as! GameCell
+        
+        
+        let game = games[indexPath.row]
+        
+        cell.update(game)
         
         return cell
     }

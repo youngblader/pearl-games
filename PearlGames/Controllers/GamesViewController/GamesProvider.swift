@@ -9,13 +9,16 @@ import Foundation
 
 protocol GamesProvider {
     var router: Router { get }
+    var gameService: GameService { get set }
 }
 
 final class GamesProviderImpl: GamesProvider {
+    var gameService: GameService
     var router: Router
     
     //MARK: Dependencies
-    init(router: Router) {
+    init(gameService: GameService, router: Router) {
+        self.gameService = gameService
         self.router = router
     }
 }

@@ -32,7 +32,8 @@ final class GamesPreviewCell: UITableViewCell {
     }
     
     //MARK: Public update
-    func update() {
+    func update(_ games: [Game]) {
+        gamesCollectionView.update(games)
     }
 }
 

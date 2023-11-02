@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum GamesPreviewSections: Int, CaseIterable {
+private enum GamesPreviewSections: Int, CaseIterable {
     case new = 0
     case comingSoon = 1
     case popularGames = 2
@@ -28,6 +28,8 @@ enum GamesPreviewSections: Int, CaseIterable {
 }
 
 final class GamesPreviewTableView: UITableView {
+    private var gamesPreviewData: GamesPreviewData = GamesPreviewData(new: [], comingSoon: [], newReleased: [], popularGames: [])
+    
     var onTappedGameCell: (()->())?
     
     override init(frame: CGRect, style: UITableView.Style) {
@@ -35,6 +37,8 @@ final class GamesPreviewTableView: UITableView {
         
         self.delegate = self
         self.dataSource = self
+        
+        self.separatorStyle = .none
         
         self.register(GamesPreviewCell.self, forCellReuseIdentifier: GamesPreviewCell.reuseId)
     }
@@ -44,8 +48,9 @@ final class GamesPreviewTableView: UITableView {
     }
     
     // MARK: Public update
-    func update(_ games: [Game]) {
-        
+    func update(_ data: GamesPreviewData) {
+        self.gamesPreviewData = data
+        self.reloadData()
     }
 }
 
@@ -55,18 +60,49 @@ extension GamesPreviewTableView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        let section = GamesPreviewSections(rawValue: section)
+        
+        switch (section) {
+        case .new:
+            return gamesPreviewData.new.isEmpty ? 0 : 1
+        case .comingSoon:
+            return gamesPreviewData.comingSoon.isEmpty ? 0 : 1
+        case .newReleases:
+            return gamesPreviewData.newReleased.isEmpty ? 0 : 1
+        case .popularGames:
+            return gamesPreviewData.popularGames.isEmpty ? 0 : 1
+        default:
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: GamesPreviewCell.reuseId, for: indexPath) as! GamesPreviewCell
         
-        let category = GamesPreviewSections(rawValue: indexPath.section)
+        let gamesCategory = GamesPreviewSections(rawValue: indexPath.section)
         
-        if let category {
-            cell.dividerView.update(category.title)
-            print("HERES", category.title)
+        if let title = gamesCategory?.title {
+            cell.dividerView.update(title)
         }
+        
+        var categoryGames: [Game] {
+            switch gamesCategory {
+            case .new:
+                return gamesPreviewData.new
+            case .comingSoon:
+                return gamesPreviewData.comingSoon
+            case .newReleases:
+                return gamesPreviewData.newReleased
+            case .popularGames:
+                return gamesPreviewData.popularGames
+            case .none:
+                return []
+            }
+        }
+        
+        cell.selectionStyle = .none
+        
+        cell.update(categoryGames)
         
         cell.onTappedGameCell = {
             self.onTappedGameCell?()

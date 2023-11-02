@@ -28,8 +28,7 @@ extension WishlistViewController {
     private func setup() {
         self.title = "Wishlist"
         
-        
-        self.navigationController?.navigationItem.searchController = wishlistView.searchController
+        self.navigationItem.searchController = wishlistView.searchController
 
         self.navigationItem.largeTitleDisplayMode = .always
         self.navigationController?.navigationBar.prefersLargeTitles = true

@@ -8,7 +8,7 @@
 import UIKit
 
 final class WishlistView: UIView {
-    let searchController = SearchController(searchResultsController: nil)
+    lazy var searchController = SearchController(searchResultsController: nil)
     
     override init(frame: CGRect) {
         super.init(frame: frame)

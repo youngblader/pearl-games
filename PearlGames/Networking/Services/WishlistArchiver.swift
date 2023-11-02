@@ -30,6 +30,7 @@ final class WishlistArchiverImpl: WishlistArchiver {
     
     func retrieve() -> [Game] {
         guard let data = UserDefaults.standard.data(forKey: key) else { return [] }
+        
         do {
             let array = try decoder.decode([Game].self, from: data)
             

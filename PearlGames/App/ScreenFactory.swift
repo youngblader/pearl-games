@@ -28,11 +28,11 @@ final class ScreenFactoryImpl: ScreenFactory {
     }
     
     func createGamesController() -> GamesViewController {
-        return GamesViewController(provider: Di.shared.gamesProvider)
+        return GamesViewController(provider: di.gamesProvider)
     }
     
     func createSearchGamesController() -> SearchGamesViewController {
-        return SearchGamesViewController()
+        return SearchGamesViewController(provider: di.searchGamesProvider)
     }
     
     func createSettingsController() -> SettingsViewController {

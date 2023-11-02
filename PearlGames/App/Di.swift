@@ -11,19 +11,15 @@ final class Di {
     static let shared = Di()
 
     //MARK: Services
-//    private let cartService: CartService
-//    private let menuService: MenuService
-//    private let benefitService: BenefitsService
-//    private let menuArchiverService: MenuArchiver
+    private let gameService: GameService
+    private let wishlistArchiver: WishlistArchiver
     
     private var router: Router
     var screenFactory: ScreenFactory
     
     init() {
-//        cartService = CartServiceImpl()
-//        menuService = MenuServiceImpl()
-//        benefitService = BenefitsServiceImpl()
-//        menuArchiverService = MenuArchiverServiceImpl()
+        gameService = GameServiceImpl()
+        wishlistArchiver = WishlistArchiverImpl()
         router = RouterImpl()
         
         screenFactory = ScreenFactoryImpl()
@@ -33,11 +29,15 @@ final class Di {
     
     //MARK: Providers
     var gamesProvider: GamesProviderImpl {
-        return GamesProviderImpl(router: router)
+        return GamesProviderImpl(gameService: gameService, router: router)
     }
 
     var settingsProvider: SettingsProviderImpl {
         return SettingsProviderImpl(router: router)
+    }
+    
+    var searchGamesProvider: SearchGamesProviderImpl {
+        return SearchGamesProviderImpl(gameService: gameService, router: router)
     }
 }
 

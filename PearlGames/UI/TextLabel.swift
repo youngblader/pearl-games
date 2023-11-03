@@ -36,7 +36,7 @@ final class TextLabel: UILabel {
     private(set) var aligment: NSTextAlignment
     private(set) var linesNumber: Int
     
-    init(label: String = "", size: CGFloat = 16, color: ColorStyle = ColorStyle.black, typeLabel: TypeLabel = .semiBold, aligment: NSTextAlignment = .left, linesNumber: Int = 0) {
+    init(label: String = "", size: CGFloat = 16, color: ColorStyle = ColorStyle.white, typeLabel: TypeLabel = .semiBold, aligment: NSTextAlignment = .left, linesNumber: Int = 0) {
 
         self.textLabel = label
         self.size = size

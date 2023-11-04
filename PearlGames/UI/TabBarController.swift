@@ -47,6 +47,8 @@ extension TabBarController {
     private func setupUINavigationController(_ controller: NavigationController) -> UINavigationController {
         let navigationController = UINavigationController(rootViewController: controller.screen)
         
+        navigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Poppins-SemiBold", size: 16)!]
+        
         let image = UIImage(systemName: controller.image)
         let tabItem = UITabBarItem(title: controller.title, image: image, selectedImage: nil)
         

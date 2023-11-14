@@ -26,6 +26,8 @@ enum ColorStyle {
     case lightGray
     case textGray
     case borderColor
+    case green
+    case yellow
 }
 
 final class TextLabel: UILabel {
@@ -76,6 +78,10 @@ extension TextLabel {
             self.textColor = UIColor.borderColor
         case .white:
             self.textColor = UIColor.white
+        case .green:
+            self.textColor = UIColor.green
+        case .yellow:
+            self.textColor = UIColor.yellow
         }
     }
     

@@ -16,4 +16,6 @@ extension UIColor {
     static let borderButtonColor = UIColor(red: 0.96, green: 0.96, blue: 0.96, alpha: 1.00)
     static let backgroundBlack = UIColor(red: 55/255, green: 53/255, blue: 53/255, alpha: 1)
     static let lightBlack =  UIColor(red: 0.09, green: 0.10, blue: 0.11, alpha: 1.00)
+    static let yellow = UIColor(red: 0.99, green: 0.79, blue: 0.32, alpha: 1.00)
+    static let green = UIColor(red: 0.43, green: 0.78, blue: 0.29, alpha: 1.00)
 }

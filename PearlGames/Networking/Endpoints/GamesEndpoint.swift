@@ -82,7 +82,7 @@ extension GamesEndpoint: Endpoint {
         case .getWhatsNewGames, .getCoomingGames, .getNewReleasedGames, .getPopularGames, .getSearchGames:
             return "/api/games"
         case .getGameDetails(let id):
-            return "api/games/(\(id)"
+            return "/api/games/\(id)"
         }
     }
 }

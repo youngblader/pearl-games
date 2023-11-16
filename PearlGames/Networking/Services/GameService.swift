@@ -13,6 +13,8 @@ protocol GameService {
     func fetchPopularGames(page: Int, size: Int) async throws -> [Game]
     func fetchPreviewGames() async throws -> [Game]
     func fetchSearchGames(_ value: String) async throws -> [Game]
+    func fetchGameDetails(_ id: Int) async throws -> GameDetails
+    func fetchCategoryGames(_ category: GameCategory) async throws -> [Game]
 }
 
 final class GameServiceImpl: GameService, API {
@@ -36,7 +38,24 @@ final class GameServiceImpl: GameService, API {
         return try await request(endpoint: GamesEndpoint.getSearchGames(searchText: value), responseModel: GamesResponse.self).results
     }
     
-    func fetchGameDetails(_ id: Int) async throws -> [Game] {
-        return try await request(endpoint: GamesEndpoint.getGameDetails(gameId: id), responseModel: GamesResponse.self).results // тут скорее другая модель будет
+    func fetchGameDetails(_ id: Int) async throws -> GameDetails {
+        return try await request(endpoint: GamesEndpoint.getGameDetails(gameId: id), responseModel: GameDetails.self)
+    }
+    
+    func fetchCategoryGames(_ category: GameCategory) async throws -> [Game] {
+        let gamesCategory = GamesCategory(rawValue: category.index)
+        
+        switch gamesCategory {
+        case .new:
+            return []
+        case .comingSoon:
+            return try await fetchCoomingGames(page: 1, size: 20)
+        case .newReleases:
+            return try await fetchNewReleasedGames(page: 1, size: 20)
+        case .popularGames:
+            return try await fetchPopularGames(page: 1, size: 20)
+        default:
+            return []
+        }
     }
 }

@@ -16,7 +16,7 @@ final class GameCell: UICollectionViewCell {
         let image = UIImageView()
         
         image.contentMode = .scaleAspectFill
-        image.layer.cornerRadius = 10
+        image.layer.cornerRadius = 25
         image.layer.masksToBounds = true
         
         image.widthAnchor.constraint(equalToConstant: 100).isActive = true

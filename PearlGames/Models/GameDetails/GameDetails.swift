@@ -38,12 +38,12 @@ struct GameDetails: Codable {
     let saturatedColor, dominantColor: String
     let parentPlatforms: [ParentPlatform]
     let platforms: [PlatformElement]
-    let stores: [DetailGameStore]
+    let stores: [DetailGameStores]
     let developers, genres, tags, publishers: [Developer]
     let esrbRating: DetailGameEsrbRating
     let clip: String?
     let descriptionRaw: String
-
+    
     enum CodingKeys: String, CodingKey {
         case id, slug, name
         case nameOriginal = "name_original"
@@ -103,7 +103,7 @@ struct Developer: Codable {
     let imageBackground: String
     let domain: String?
     let language: String?
-
+    
     enum CodingKeys: String, CodingKey {
         case id, name, slug
         case gamesCount = "games_count"
@@ -141,7 +141,7 @@ struct PlatformElement: Codable {
     let platform: PlatformPlatform
     let releasedAt: String
     let requirements: Requirements
-
+    
     enum CodingKeys: String, CodingKey {
         case platform
         case releasedAt = "released_at"
@@ -157,7 +157,7 @@ struct PlatformPlatform: Codable {
     let yearStart: Int?
     let gamesCount: Int
     let imageBackground: String
-
+    
     enum CodingKeys: String, CodingKey {
         case id, name, slug, image
         case yearEnd = "year_end"
@@ -180,9 +180,25 @@ struct DetailGameRating: Codable {
     let percent: Double
 }
 
-// MARK: - Store
-struct DetailGameStore: Codable {
+// MARK: - Stores
+struct DetailGameStores: Codable {
     let id: Int
     let url: String
-    let store: Developer
+    let store: DetailsGameStore
+}
+
+// MARK: - DetailsGameStore
+struct DetailsGameStore: Codable {
+    let id: Int
+    let name, slug: String
+    let gamesCount: Int
+    let imageBackground: String
+    let domain: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case id, name, slug
+        case gamesCount = "games_count"
+        case imageBackground = "image_background"
+        case domain
+    }
 }

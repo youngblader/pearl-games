@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 
 final class AppearanceView: UIView {
+    private let appIconsTitleLabel = TextLabel(label: "App Icon", size: 12, color: .textGray, typeLabel: .regular)
     private let appIconsCollectionView = AppIconsCollectionView()
 
     override init(frame: CGRect) {
@@ -26,12 +27,20 @@ final class AppearanceView: UIView {
 extension AppearanceView {
     private func setupViews() {
         self.backgroundColor = .black
+        
+        self.addSubview(appIconsTitleLabel)
         self.addSubview(appIconsCollectionView)
     }
     
     private func setupConstraints() {
+        appIconsTitleLabel.snp.makeConstraints { make in
+            make.top.equalTo(self)
+            make.left.right.equalTo(self)
+        }
+        
         appIconsCollectionView.snp.makeConstraints { make in
-            make.top.left.right.equalTo(self)
+            make.top.equalTo(appIconsTitleLabel.snp.bottom).offset(10)
+            make.left.right.equalTo(self)
         }
     }
 }

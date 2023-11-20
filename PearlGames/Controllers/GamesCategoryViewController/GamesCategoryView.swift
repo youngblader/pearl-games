@@ -30,23 +30,6 @@ final class GamesCategoryView: UIView {
         return indicator
     }()
     
-    //State
-    var state: GamesCategoryState = .loading {
-        didSet {
-            switch state {
-            case .loading:
-                gamesCategoryCollectionView.backgroundView = acitvityIndicator
-            case .loaded(let data):
-                gamesCategoryCollectionView.backgroundView = nil
-                gamesCategoryCollectionView.update(data)
-            case .error(let value):
-                updateTableViewBackgroundView(value.rawValue)
-            case .noData(let value):
-                updateTableViewBackgroundView(value.rawValue)
-            }
-        }
-    }
-    
     private lazy var arrowUpButton: UIButton = {
         let button = UIButton()
         
@@ -63,12 +46,31 @@ final class GamesCategoryView: UIView {
         button.widthAnchor.constraint(equalToConstant: 50).isActive = true
         button.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
+        button.transform = CGAffineTransform(scaleX: 0.001, y: 0.001)
+        
         button.addTarget(self, action: #selector(arrowUpButtonTapped), for: .touchUpInside)
         
         #warning("Навесить transform, врубать и отрубать при скроле, навесить ивенты на скролл коллекции")
         
         return button
     }()
+    
+    //State
+    var state: GamesCategoryState = .loading {
+        didSet {
+            switch state {
+            case .loading:
+                gamesCategoryCollectionView.backgroundView = acitvityIndicator
+            case .loaded(let data):
+                gamesCategoryCollectionView.backgroundView = nil
+                gamesCategoryCollectionView.update(data)
+            case .error(let value):
+                updateTableViewBackgroundView(value.rawValue)
+            case .noData(let value):
+                updateTableViewBackgroundView(value.rawValue)
+            }
+        }
+    }
     
     private func updateTableViewBackgroundView(_ text: String) {
         errorLabel.text = text

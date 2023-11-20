@@ -22,6 +22,7 @@ final class GamesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setup()
         fetchGames()
         
         gamesView.gamePreviewTableView.onTappedGameCell = { id in
@@ -66,5 +67,11 @@ final class GamesViewController: UIViewController {
     
     private func presentGamesCategoryController(_ category: GameCategory) {
         gamesProvider.router.navigateToGamesCategoryController(category, self)
+    }
+}
+
+extension GamesViewController {
+    private func setup() {
+        self.navigationItem.largeTitleDisplayMode = .never
     }
 }

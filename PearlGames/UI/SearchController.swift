@@ -11,17 +11,13 @@ final class SearchController: UISearchController {
     private var searchTimer = Timer()
     var onSearchGames: ((String)->())?
     
-    var searchText: String = "" {
+    private var searchText: String = "" {
         didSet {
             searchTimer.invalidate()
             
             searchTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { _ in
                 self.onSearchGames?(self.searchText)
             }
-            
-//            searchTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { _ in
-//                self.onSearchGames?(self.searchText)
-//            })
         }
     }
     

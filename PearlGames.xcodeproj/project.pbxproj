@@ -15,6 +15,16 @@
 		4416926A2AD56A9E00F04F0E /* AppearanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441692692AD56A9E00F04F0E /* AppearanceView.swift */; };
 		4416926E2AD56C6200F04F0E /* AppIconsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4416926D2AD56C6200F04F0E /* AppIconsCollectionView.swift */; };
 		441692712AD56D9200F04F0E /* AppIconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441692702AD56D9200F04F0E /* AppIconCell.swift */; };
+		444F8FEF2AFE703200C80F5E /* GamesDetailsMetaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444F8FEE2AFE703200C80F5E /* GamesDetailsMetaView.swift */; };
+		444F8FF12AFE7C9000C80F5E /* RatingDistributionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444F8FF02AFE7C9000C80F5E /* RatingDistributionCell.swift */; };
+		444F8FF32AFF71FA00C80F5E /* GameDetailsTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444F8FF22AFF71FA00C80F5E /* GameDetailsTableHeaderView.swift */; };
+		444F8FF52AFF797900C80F5E /* MetacriticScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444F8FF42AFF797900C80F5E /* MetacriticScoreView.swift */; };
+		444F8FFB2AFF9DB200C80F5E /* StoresCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444F8FFA2AFF9DB200C80F5E /* StoresCollectionView.swift */; };
+		444F8FFE2AFFE8E100C80F5E /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444F8FFD2AFFE8E100C80F5E /* WebView.swift */; };
+		444F90002AFFE8EC00C80F5E /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444F8FFF2AFFE8EC00C80F5E /* WebViewController.swift */; };
+		444F90022AFFEB0A00C80F5E /* WebKitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444F90012AFFEB0A00C80F5E /* WebKitView.swift */; };
+		444F90052AFFEC4500C80F5E /* WebViewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444F90042AFFEC4500C80F5E /* WebViewProvider.swift */; };
+		444F90092B0384A900C80F5E /* StoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444F90082B0384A900C80F5E /* StoreCell.swift */; };
 		4467E93B2ADE8ACC0037949C /* GamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4467E93A2ADE8ACC0037949C /* GamesViewController.swift */; };
 		4467E9412ADEDD920037949C /* SettingsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4467E9402ADEDD920037949C /* SettingsTableView.swift */; };
 		4467E9442ADEDFA80037949C /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4467E9432ADEDFA80037949C /* SettingCell.swift */; };
@@ -58,6 +68,22 @@
 		448344562AF2646100C481CA /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4483444D2AF2646100C481CA /* Poppins-Medium.ttf */; };
 		448344572AF2646100C481CA /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4483444E2AF2646100C481CA /* Poppins-Bold.ttf */; };
 		448344592AF3B33200C481CA /* GamesStateError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448344582AF3B33200C481CA /* GamesStateError.swift */; };
+		4483445C2AF3D7B200C481CA /* GameDetailsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4483445B2AF3D7B200C481CA /* GameDetailsProvider.swift */; };
+		448344602AF4F42700C481CA /* GameDetailsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4483445F2AF4F42700C481CA /* GameDetailsTableView.swift */; };
+		448344622AF4F9C400C481CA /* RatingDistributionCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448344612AF4F9C400C481CA /* RatingDistributionCollectionView.swift */; };
+		448344642AF4FC5C00C481CA /* GameDetailsAboutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448344632AF4FC5C00C481CA /* GameDetailsAboutCell.swift */; };
+		448344662AF4FCD500C481CA /* GameDetailsMetaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448344652AF4FCD500C481CA /* GameDetailsMetaCell.swift */; };
+		448344682AF4FD4D00C481CA /* GameDetailsHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448344672AF4FD4D00C481CA /* GameDetailsHeaderCell.swift */; };
+		4483446D2AF5109300C481CA /* GameDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4483446C2AF5109300C481CA /* GameDetails.swift */; };
+		4483446F2AF5202D00C481CA /* GamesCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4483446E2AF5202D00C481CA /* GamesCategory.swift */; };
+		448344722AF524EC00C481CA /* GamesCategoryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448344712AF524EC00C481CA /* GamesCategoryProvider.swift */; };
+		448344752AF52A3E00C481CA /* GamesCategoryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448344742AF52A3E00C481CA /* GamesCategoryCollectionView.swift */; };
+		448344782AF52A6D00C481CA /* GameCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448344772AF52A6D00C481CA /* GameCategoryCell.swift */; };
+		448390F12B0624A500D2C4DD /* WishlistProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448390F02B0624A500D2C4DD /* WishlistProvider.swift */; };
+		448390F62B0624FC00D2C4DD /* WishlistTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448390F52B0624FC00D2C4DD /* WishlistTableView.swift */; };
+		448390F82B06255D00D2C4DD /* WishlistGameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448390F72B06255D00D2C4DD /* WishlistGameCell.swift */; };
+		448390FA2B08D9D600D2C4DD /* GameDetailsFooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448390F92B08D9D600D2C4DD /* GameDetailsFooterCell.swift */; };
+		448390FD2B08F5CA00D2C4DD /* SettingsIconGenerator in Frameworks */ = {isa = PBXBuildFile; productRef = 448390FC2B08F5CA00D2C4DD /* SettingsIconGenerator */; };
 		44D9764E2AEBD1F4003D5DAB /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D9764D2AEBD1F4003D5DAB /* Game.swift */; };
 		44D976502AEBD8C6003D5DAB /* GamesCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D9764F2AEBD8C6003D5DAB /* GamesCollectionView.swift */; };
 		44D976522AEBD8E3003D5DAB /* GamesPreviewTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D976512AEBD8E3003D5DAB /* GamesPreviewTableView.swift */; };
@@ -80,6 +106,16 @@
 		441692692AD56A9E00F04F0E /* AppearanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceView.swift; sourceTree = "<group>"; };
 		4416926D2AD56C6200F04F0E /* AppIconsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconsCollectionView.swift; sourceTree = "<group>"; };
 		441692702AD56D9200F04F0E /* AppIconCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconCell.swift; sourceTree = "<group>"; };
+		444F8FEE2AFE703200C80F5E /* GamesDetailsMetaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesDetailsMetaView.swift; sourceTree = "<group>"; };
+		444F8FF02AFE7C9000C80F5E /* RatingDistributionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingDistributionCell.swift; sourceTree = "<group>"; };
+		444F8FF22AFF71FA00C80F5E /* GameDetailsTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailsTableHeaderView.swift; sourceTree = "<group>"; };
+		444F8FF42AFF797900C80F5E /* MetacriticScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetacriticScoreView.swift; sourceTree = "<group>"; };
+		444F8FFA2AFF9DB200C80F5E /* StoresCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoresCollectionView.swift; sourceTree = "<group>"; };
+		444F8FFD2AFFE8E100C80F5E /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		444F8FFF2AFFE8EC00C80F5E /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		444F90012AFFEB0A00C80F5E /* WebKitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebKitView.swift; sourceTree = "<group>"; };
+		444F90042AFFEC4500C80F5E /* WebViewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewProvider.swift; sourceTree = "<group>"; };
+		444F90082B0384A900C80F5E /* StoreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreCell.swift; sourceTree = "<group>"; };
 		4467E93A2ADE8ACC0037949C /* GamesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesViewController.swift; sourceTree = "<group>"; };
 		4467E9402ADEDD920037949C /* SettingsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableView.swift; sourceTree = "<group>"; };
 		4467E9432ADEDFA80037949C /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
@@ -123,6 +159,21 @@
 		4483444D2AF2646100C481CA /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		4483444E2AF2646100C481CA /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		448344582AF3B33200C481CA /* GamesStateError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesStateError.swift; sourceTree = "<group>"; };
+		4483445B2AF3D7B200C481CA /* GameDetailsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailsProvider.swift; sourceTree = "<group>"; };
+		4483445F2AF4F42700C481CA /* GameDetailsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailsTableView.swift; sourceTree = "<group>"; };
+		448344612AF4F9C400C481CA /* RatingDistributionCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingDistributionCollectionView.swift; sourceTree = "<group>"; };
+		448344632AF4FC5C00C481CA /* GameDetailsAboutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailsAboutCell.swift; sourceTree = "<group>"; };
+		448344652AF4FCD500C481CA /* GameDetailsMetaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailsMetaCell.swift; sourceTree = "<group>"; };
+		448344672AF4FD4D00C481CA /* GameDetailsHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailsHeaderCell.swift; sourceTree = "<group>"; };
+		4483446C2AF5109300C481CA /* GameDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetails.swift; sourceTree = "<group>"; };
+		4483446E2AF5202D00C481CA /* GamesCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesCategory.swift; sourceTree = "<group>"; };
+		448344712AF524EC00C481CA /* GamesCategoryProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesCategoryProvider.swift; sourceTree = "<group>"; };
+		448344742AF52A3E00C481CA /* GamesCategoryCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesCategoryCollectionView.swift; sourceTree = "<group>"; };
+		448344772AF52A6D00C481CA /* GameCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCategoryCell.swift; sourceTree = "<group>"; };
+		448390F02B0624A500D2C4DD /* WishlistProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistProvider.swift; sourceTree = "<group>"; };
+		448390F52B0624FC00D2C4DD /* WishlistTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistTableView.swift; sourceTree = "<group>"; };
+		448390F72B06255D00D2C4DD /* WishlistGameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistGameCell.swift; sourceTree = "<group>"; };
+		448390F92B08D9D600D2C4DD /* GameDetailsFooterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailsFooterCell.swift; sourceTree = "<group>"; };
 		44D9764D2AEBD1F4003D5DAB /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		44D9764F2AEBD8C6003D5DAB /* GamesCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesCollectionView.swift; sourceTree = "<group>"; };
 		44D976512AEBD8E3003D5DAB /* GamesPreviewTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesPreviewTableView.swift; sourceTree = "<group>"; };
@@ -141,6 +192,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				448390FD2B08F5CA00D2C4DD /* SettingsIconGenerator in Frameworks */,
 				447F24A32AD14EE200119BA6 /* SDWebImage in Frameworks */,
 				447F24A02AD14EB500119BA6 /* SnapKit in Frameworks */,
 			);
@@ -163,6 +215,25 @@
 				441692702AD56D9200F04F0E /* AppIconCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		444F8FFC2AFFE8C300C80F5E /* WebViewController */ = {
+			isa = PBXGroup;
+			children = (
+				444F8FFF2AFFE8EC00C80F5E /* WebViewController.swift */,
+				444F8FFD2AFFE8E100C80F5E /* WebView.swift */,
+				444F90042AFFEC4500C80F5E /* WebViewProvider.swift */,
+				444F90032AFFEB1700C80F5E /* Views */,
+			);
+			path = WebViewController;
+			sourceTree = "<group>";
+		};
+		444F90032AFFEB1700C80F5E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				444F90012AFFEB0A00C80F5E /* WebKitView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		4467E9392ADE8ABD0037949C /* GamesViewController */ = {
@@ -217,6 +288,9 @@
 			children = (
 				44D976612AED071A003D5DAB /* GameDetailsViewController.swift */,
 				44D976632AED0740003D5DAB /* GameDetailsView.swift */,
+				4483445B2AF3D7B200C481CA /* GameDetailsProvider.swift */,
+				4483445E2AF3D81900C481CA /* Cells */,
+				4483445D2AF3D80F00C481CA /* Views */,
 			);
 			path = GameDetailsViewController;
 			sourceTree = "<group>";
@@ -266,6 +340,7 @@
 		447F24972AD14C6D00119BA6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				444F8FFC2AFFE8C300C80F5E /* WebViewController */,
 				4483440B2AEF9BD600C481CA /* GamesCategoryViewController */,
 				4467E94B2AE2DEBE0037949C /* GameDetailsViewController */,
 				4467E9392ADE8ABD0037949C /* GamesViewController */,
@@ -311,7 +386,7 @@
 		447F249B2AD14C9600119BA6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				448344392AF25D9000C481CA /* fonts */,
+				448344392AF25D9000C481CA /* Fonts */,
 				447F248B2AD14C2900119BA6 /* Assets.xcassets */,
 				447F248D2AD14C2900119BA6 /* LaunchScreen.storyboard */,
 				447F24902AD14C2900119BA6 /* Info.plist */,
@@ -322,6 +397,8 @@
 		447F249C2AD14CC300119BA6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				448344702AF5203200C481CA /* GamesCategory */,
+				4483446B2AF5108600C481CA /* GameDetails */,
 				4483445A2AF3B33900C481CA /* GamesStateError */,
 				448344252AEFA31C00C481CA /* NetworkError */,
 				448344222AEFA2F800C481CA /* NetworkMethod */,
@@ -335,8 +412,8 @@
 			children = (
 				4416925A2AD408CE00F04F0E /* AppearanceViewController.swift */,
 				441692692AD56A9E00F04F0E /* AppearanceView.swift */,
-				4416926C2AD56C3C00F04F0E /* Cells */,
 				4416926B2AD56C3500F04F0E /* Views */,
+				4416926C2AD56C3C00F04F0E /* Cells */,
 			);
 			path = AppearanceViewController;
 			sourceTree = "<group>";
@@ -370,6 +447,9 @@
 			children = (
 				447F24B72AD1714500119BA6 /* WishlistViewController.swift */,
 				441692622AD46F6100F04F0E /* WishlistView.swift */,
+				448390F02B0624A500D2C4DD /* WishlistProvider.swift */,
+				448390F22B0624D700D2C4DD /* Views */,
+				448390F32B0624DF00D2C4DD /* Cells */,
 			);
 			path = WishlistViewController;
 			sourceTree = "<group>";
@@ -379,6 +459,9 @@
 			children = (
 				4483440C2AEF9C1800C481CA /* GamesCategoryViewController.swift */,
 				4483440E2AEF9C2E00C481CA /* GamesCategoryView.swift */,
+				448344712AF524EC00C481CA /* GamesCategoryProvider.swift */,
+				448344732AF52A2B00C481CA /* Views */,
+				448344762AF52A5C00C481CA /* Cells */,
 			);
 			path = GamesCategoryViewController;
 			sourceTree = "<group>";
@@ -440,7 +523,7 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		448344392AF25D9000C481CA /* fonts */ = {
+		448344392AF25D9000C481CA /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
 				4483444A2AF2646100C481CA /* Poppins-Black.ttf */,
@@ -453,7 +536,7 @@
 				448344472AF2646100C481CA /* Poppins-SemiBold.ttf */,
 				448344482AF2646100C481CA /* Poppins-Thin.ttf */,
 			);
-			path = fonts;
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		4483445A2AF3B33900C481CA /* GamesStateError */ = {
@@ -462,6 +545,80 @@
 				448344582AF3B33200C481CA /* GamesStateError.swift */,
 			);
 			path = GamesStateError;
+			sourceTree = "<group>";
+		};
+		4483445D2AF3D80F00C481CA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4483445F2AF4F42700C481CA /* GameDetailsTableView.swift */,
+				448344612AF4F9C400C481CA /* RatingDistributionCollectionView.swift */,
+				444F8FEE2AFE703200C80F5E /* GamesDetailsMetaView.swift */,
+				444F8FF22AFF71FA00C80F5E /* GameDetailsTableHeaderView.swift */,
+				444F8FF42AFF797900C80F5E /* MetacriticScoreView.swift */,
+				444F8FFA2AFF9DB200C80F5E /* StoresCollectionView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4483445E2AF3D81900C481CA /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				448344672AF4FD4D00C481CA /* GameDetailsHeaderCell.swift */,
+				448390F92B08D9D600D2C4DD /* GameDetailsFooterCell.swift */,
+				448344632AF4FC5C00C481CA /* GameDetailsAboutCell.swift */,
+				448344652AF4FCD500C481CA /* GameDetailsMetaCell.swift */,
+				444F8FF02AFE7C9000C80F5E /* RatingDistributionCell.swift */,
+				444F90082B0384A900C80F5E /* StoreCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		4483446B2AF5108600C481CA /* GameDetails */ = {
+			isa = PBXGroup;
+			children = (
+				4483446C2AF5109300C481CA /* GameDetails.swift */,
+			);
+			path = GameDetails;
+			sourceTree = "<group>";
+		};
+		448344702AF5203200C481CA /* GamesCategory */ = {
+			isa = PBXGroup;
+			children = (
+				4483446E2AF5202D00C481CA /* GamesCategory.swift */,
+			);
+			path = GamesCategory;
+			sourceTree = "<group>";
+		};
+		448344732AF52A2B00C481CA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				448344742AF52A3E00C481CA /* GamesCategoryCollectionView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		448344762AF52A5C00C481CA /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				448344772AF52A6D00C481CA /* GameCategoryCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		448390F22B0624D700D2C4DD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				448390F52B0624FC00D2C4DD /* WishlistTableView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		448390F32B0624DF00D2C4DD /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				448390F72B06255D00D2C4DD /* WishlistGameCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		44D9765C2AEBEAFA003D5DAB /* Game */ = {
@@ -492,6 +649,7 @@
 			packageProductDependencies = (
 				447F249F2AD14EB500119BA6 /* SnapKit */,
 				447F24A22AD14EE200119BA6 /* SDWebImage */,
+				448390FC2B08F5CA00D2C4DD /* SettingsIconGenerator */,
 			);
 			productName = PearlGames;
 			productReference = 447F247F2AD14C2800119BA6 /* PearlGames.app */;
@@ -524,6 +682,7 @@
 			packageReferences = (
 				447F249E2AD14EB400119BA6 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				447F24A12AD14EE200119BA6 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				448390FB2B08F5CA00D2C4DD /* XCRemoteSwiftPackageReference "SettingsIconGenerator" */,
 			);
 			productRefGroup = 447F24802AD14C2800119BA6 /* Products */;
 			projectDirPath = "";
@@ -561,6 +720,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				44D9765E2AEBEB0B003D5DAB /* GameResponse.swift in Sources */,
+				448344642AF4FC5C00C481CA /* GameDetailsAboutCell.swift in Sources */,
+				444F8FF32AFF71FA00C80F5E /* GameDetailsTableHeaderView.swift in Sources */,
 				448344242AEFA30500C481CA /* NetworkMethod.swift in Sources */,
 				44D976622AED071A003D5DAB /* GameDetailsViewController.swift in Sources */,
 				447F24BF2AD191D700119BA6 /* Bundle.swift in Sources */,
@@ -568,46 +729,69 @@
 				44D9765B2AEBDEA8003D5DAB /* TextLabel.swift in Sources */,
 				44D976522AEBD8E3003D5DAB /* GamesPreviewTableView.swift in Sources */,
 				447F24B22AD1543900119BA6 /* ScreenFactory.swift in Sources */,
+				444F8FEF2AFE703200C80F5E /* GamesDetailsMetaView.swift in Sources */,
 				44D976542AEBD905003D5DAB /* GameCell.swift in Sources */,
+				444F8FF52AFF797900C80F5E /* MetacriticScoreView.swift in Sources */,
+				448344682AF4FD4D00C481CA /* GameDetailsHeaderCell.swift in Sources */,
 				441692652AD471A200F04F0E /* SettingsView.swift in Sources */,
+				4483446D2AF5109300C481CA /* GameDetails.swift in Sources */,
 				441692712AD56D9200F04F0E /* AppIconCell.swift in Sources */,
 				448344592AF3B33200C481CA /* GamesStateError.swift in Sources */,
 				447F24B02AD1541100119BA6 /* Di.swift in Sources */,
 				4467E93B2ADE8ACC0037949C /* GamesViewController.swift in Sources */,
+				448344782AF52A6D00C481CA /* GameCategoryCell.swift in Sources */,
+				444F8FFE2AFFE8E100C80F5E /* WebView.swift in Sources */,
 				4416926E2AD56C6200F04F0E /* AppIconsCollectionView.swift in Sources */,
+				448390F82B06255D00D2C4DD /* WishlistGameCell.swift in Sources */,
+				444F8FFB2AFF9DB200C80F5E /* StoresCollectionView.swift in Sources */,
+				448344752AF52A3E00C481CA /* GamesCategoryCollectionView.swift in Sources */,
 				4483440D2AEF9C1800C481CA /* GamesCategoryViewController.swift in Sources */,
 				4483442F2AEFA3B500C481CA /* GamesEndpoint.swift in Sources */,
+				4483445C2AF3D7B200C481CA /* GameDetailsProvider.swift in Sources */,
+				448390F62B0624FC00D2C4DD /* WishlistTableView.swift in Sources */,
 				4483440F2AEF9C2E00C481CA /* GamesCategoryView.swift in Sources */,
 				441692682AD55D8800F04F0E /* SettingsProvider.swift in Sources */,
 				44D9764E2AEBD1F4003D5DAB /* Game.swift in Sources */,
 				4483442D2AEFA39200C481CA /* Endpoint.swift in Sources */,
 				447F24832AD14C2800119BA6 /* AppDelegate.swift in Sources */,
 				44D976592AEBDB50003D5DAB /* DividerView.swift in Sources */,
+				448390F12B0624A500D2C4DD /* WishlistProvider.swift in Sources */,
+				448344602AF4F42700C481CA /* GameDetailsTableView.swift in Sources */,
 				448344382AF10D8000C481CA /* SearchGamesProvider.swift in Sources */,
 				447F24AE2AD153E400119BA6 /* TabBarController.swift in Sources */,
 				448344292AEFA36500C481CA /* API.swift in Sources */,
+				448344662AF4FCD500C481CA /* GameDetailsMetaCell.swift in Sources */,
 				44D976602AEC0474003D5DAB /* UIView+showAnimation.swift.swift in Sources */,
 				448344192AEFA1BC00C481CA /* WishlistArchiver.swift in Sources */,
+				448390FA2B08D9D600D2C4DD /* GameDetailsFooterCell.swift in Sources */,
 				4467E94D2AE2DF050037949C /* SearchGameView.swift in Sources */,
 				44D976562AEBD923003D5DAB /* GamesPreviewCell.swift in Sources */,
 				4416925B2AD408CE00F04F0E /* AppearanceViewController.swift in Sources */,
 				441692612AD45FC500F04F0E /* SearchController.swift in Sources */,
 				448344352AF10B3E00C481CA /* SearchGameCell.swift in Sources */,
+				4483446F2AF5202D00C481CA /* GamesCategory.swift in Sources */,
 				4416926A2AD56A9E00F04F0E /* AppearanceView.swift in Sources */,
+				444F90022AFFEB0A00C80F5E /* WebKitView.swift in Sources */,
 				447F24B82AD1714500119BA6 /* WishlistViewController.swift in Sources */,
 				447F24BC2AD1916600119BA6 /* UIColor.swift in Sources */,
 				448344332AF10AFE00C481CA /* SearchGamesTableView.swift in Sources */,
+				444F90092B0384A900C80F5E /* StoreCell.swift in Sources */,
+				444F90052AFFEC4500C80F5E /* WebViewProvider.swift in Sources */,
 				447F24852AD14C2800119BA6 /* SceneDelegate.swift in Sources */,
 				448344272AEFA32500C481CA /* NetworkError.swift in Sources */,
 				44D976642AED0740003D5DAB /* GameDetailsView.swift in Sources */,
 				44D976502AEBD8C6003D5DAB /* GamesCollectionView.swift in Sources */,
 				4467E9482ADFE4740037949C /* GamesView.swift in Sources */,
 				4467E9412ADEDD920037949C /* SettingsTableView.swift in Sources */,
+				448344622AF4F9C400C481CA /* RatingDistributionCollectionView.swift in Sources */,
 				447F24BA2AD1720700119BA6 /* SearchGamesViewController.swift in Sources */,
 				4467E9442ADEDFA80037949C /* SettingCell.swift in Sources */,
 				447F24B62AD1704D00119BA6 /* SettingsViewController.swift in Sources */,
+				448344722AF524EC00C481CA /* GamesCategoryProvider.swift in Sources */,
 				441692632AD46F6100F04F0E /* WishlistView.swift in Sources */,
 				4467E94A2ADFE4850037949C /* GamesProvider.swift in Sources */,
+				444F8FF12AFE7C9000C80F5E /* RatingDistributionCell.swift in Sources */,
+				444F90002AFFE8EC00C80F5E /* WebViewController.swift in Sources */,
 				448344212AEFA26300C481CA /* GameService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -743,8 +927,10 @@
 		447F24942AD14C2900119BA6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "AppIcon 1 AppIcon 2 AppIcon 3 AppIcon 4 AppIcon 5";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -776,8 +962,10 @@
 		447F24952AD14C2900119BA6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "AppIcon 1 AppIcon 2 AppIcon 3 AppIcon 4 AppIcon 5";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -846,6 +1034,14 @@
 				minimumVersion = 5.9.0;
 			};
 		};
+		448390FB2B08F5CA00D2C4DD /* XCRemoteSwiftPackageReference "SettingsIconGenerator" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparrowcode/SettingsIconGenerator";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -858,6 +1054,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 447F24A12AD14EE200119BA6 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
+		};
+		448390FC2B08F5CA00D2C4DD /* SettingsIconGenerator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 448390FB2B08F5CA00D2C4DD /* XCRemoteSwiftPackageReference "SettingsIconGenerator" */;
+			productName = SettingsIconGenerator;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

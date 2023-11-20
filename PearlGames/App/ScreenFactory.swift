@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol ScreenFactory {
     var di: Di! { get set }
@@ -17,7 +18,8 @@ protocol ScreenFactory {
     func createWishlistController() -> WishlistViewController
     func createAppearanceController() -> AppearanceViewController
     func createGameDetailsController() -> GameDetailsViewController
-    func createGamesCategoryController() -> GamesCategoryViewController
+    func createGamesCategoryController(_ category: GameCategory) -> GamesCategoryViewController
+    func createWebViewController(_ url: String) -> WebViewController //UINavigationController
 }
 
 final class ScreenFactoryImpl: ScreenFactory {
@@ -36,11 +38,11 @@ final class ScreenFactoryImpl: ScreenFactory {
     }
     
     func createSettingsController() -> SettingsViewController {
-        return SettingsViewController(provider: Di.shared.settingsProvider)
+        return SettingsViewController(provider: di.settingsProvider)
     }
     
     func createWishlistController() -> WishlistViewController {
-        return WishlistViewController()
+        return WishlistViewController(provider: di.wishlistProvider)
     }
     
     func createAppearanceController() -> AppearanceViewController {
@@ -48,10 +50,19 @@ final class ScreenFactoryImpl: ScreenFactory {
     }
     
     func createGameDetailsController() -> GameDetailsViewController {
-        return GameDetailsViewController()
+        return GameDetailsViewController(provider: di.gameDetailsProvider)
     }
     
-    func createGamesCategoryController() -> GamesCategoryViewController {
-        return GamesCategoryViewController()
+    func createGamesCategoryController(_ category: GameCategory) -> GamesCategoryViewController {
+        return GamesCategoryViewController(provider: di.gamesCategoryProvider, category: category)
+    }
+    
+    func createWebViewController(_ url: String) -> WebViewController {
+        let vc = WebViewController(provider: di.webViewProvider)
+        
+        vc.gameUrl = url
+       
+        return vc
+        //UINavigationController(rootViewController: vc)
     }
 }

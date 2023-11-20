@@ -7,14 +7,21 @@
 
 import UIKit
 
+enum SettingOptionType {
+    case theme, appearance
+}
+
 struct SettingsOption {
     let title: String
     let icon: String
     let iconBackgroundColor: UIColor
+    let optionType: SettingOptionType
 }
 
 final class SettingsTableView: UITableView {
-    private let settingsOptions: [SettingsOption] = [SettingsOption(title: "General", icon: "house", iconBackgroundColor: .systemPink), SettingsOption(title: "Theme", icon: "house", iconBackgroundColor: .systemYellow), SettingsOption(title: "Appearance", icon: "house", iconBackgroundColor: .systemCyan)]
+    private let settingsOptions: [SettingsOption] = [SettingsOption(title: "Theme", icon: "diamond.circle.fill", iconBackgroundColor: .systemPurple, optionType: .theme), SettingsOption(title: "Appearance", icon: "circle.lefthalf.filled", iconBackgroundColor: .systemTeal, optionType: .appearance)]
+    
+    var onButtonTapped: ((SettingOptionType)->())?
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: .zero, style: .insetGrouped)
@@ -28,14 +35,17 @@ final class SettingsTableView: UITableView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    //MARK: Public update
-    func update() {
-        
-    }
 }
 
 extension SettingsTableView: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let settingsOptionType = settingsOptions[indexPath.row].optionType
+        
+        self.onButtonTapped?(settingsOptionType)
+    }
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -43,10 +53,6 @@ extension SettingsTableView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return settingsOptions.count
     }
-    
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        
-//    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SettingCell.reuseId, for: indexPath) as! SettingCell

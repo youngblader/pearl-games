@@ -7,29 +7,13 @@
 
 import UIKit
 import SnapKit
+import SettingsIconGenerator
 
 final class SettingCell: UITableViewCell {
     static var reuseId = "SettingCell"
-    
-    private let iconImageContainerView: UIView = {
-        let view = UIView()
-        
-        view.layer.cornerRadius = 4
-        
-        return view
-    }()
-    
-    private let iconImageView: UIImageView = {
-        let imageView = UIImageView()
-        
-        return imageView
-    }()
-    
-    private let settingLabel: UILabel = {
-        let label = UILabel()
-        
-        return label
-    }()
+
+    private let iconImageView = UIImageView()
+    private let settingsLabel = TextLabel(size: 14, typeLabel: .medium, linesNumber: 1)
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -40,48 +24,32 @@ final class SettingCell: UITableViewCell {
         setupConstraints()
     }
     
-    override func prepareForReuse() {
-        super.prepareForReuse()
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-    }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     //MARK: Public update
     func update(_ option: SettingsOption) {
-        settingLabel.text = option.title
-        iconImageView.image = UIImage(named: option.icon)
-        iconImageContainerView.backgroundColor = option.iconBackgroundColor
+        settingsLabel.text = option.title
+        iconImageView.image = UIImage.generateSettingsIcon(option.icon, backgroundColor: option.iconBackgroundColor)
     }
 }
 
 extension SettingCell {
     private func setupViews() {
-        contentView.addSubview(iconImageContainerView)
-        contentView.addSubview(settingLabel)
-        
-        iconImageContainerView.addSubview(iconImageView)
+        contentView.addSubview(iconImageView)
+        contentView.addSubview(settingsLabel)
     }
     
     private func setupConstraints() {
-        iconImageContainerView.snp.makeConstraints { make in
-            make.left.equalTo(contentView).inset(20)
-            make.centerY.equalTo(contentView)
-        }
-        
         iconImageView.snp.makeConstraints { make in
-            make.top.left.right.bottom.equalTo(iconImageContainerView).inset(12)
-            make.centerX.centerY.equalTo(iconImageContainerView)
+            make.left.equalTo(contentView).inset(10)
+            make.top.bottom.equalTo(contentView).inset(5)
         }
-        
-        settingLabel.snp.makeConstraints { make in
+
+        settingsLabel.snp.makeConstraints { make in
+            make.left.equalTo(iconImageView.snp.right).offset(10)
             make.centerY.equalTo(contentView)
-            make.left.equalTo(iconImageContainerView.snp.right).offset(10)
         }
     }
 }

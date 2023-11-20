@@ -9,7 +9,7 @@ import UIKit
 
 final class SettingsViewController: UIViewController {
     private let settingsProvider: SettingsProvider
-
+    
     // LoadView
     private var settingsView: SettingsView {
         return self.view as! SettingsView
@@ -34,13 +34,18 @@ final class SettingsViewController: UIViewController {
         setup()
         settingsView.update()
         
-        settingsView.onButtonTapped = {
-            self.presentAppearanceViewController()
+        settingsView.onButtonTapped = { type in
+            self.onSettingsOptionTapped(type)
         }
     }
     
-    private func presentAppearanceViewController() {
-        settingsProvider.router.navigateToAppearanceController(self)
+    private func onSettingsOptionTapped(_ type: SettingOptionType) {
+        switch type {
+        case .appearance:
+            settingsProvider.router.navigateToAppearanceController(self)
+        case .theme:
+            return
+        }
     }
 }
 

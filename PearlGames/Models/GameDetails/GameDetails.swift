@@ -40,7 +40,7 @@ struct GameDetails: Codable {
     let platforms: [PlatformElement]
     let stores: [DetailGameStores]
     let developers, genres, tags, publishers: [Developer]
-    let esrbRating: DetailGameEsrbRating
+    let esrbRating: DetailGameEsrbRating?
     let clip: String?
     let descriptionRaw: String
     

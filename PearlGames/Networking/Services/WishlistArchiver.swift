@@ -8,9 +8,9 @@
 import Foundation
 
 protocol WishlistArchiver {
-    func save(_ game: [Game])
-    func retrieve() -> [Game]
-    func remove() -> [Game]
+    func save(_ game: [GameDetails])
+    func retrieve() -> [GameDetails]
+    func remove() -> [GameDetails]
 }
 
 final class WishlistArchiverImpl: WishlistArchiver {
@@ -19,30 +19,30 @@ final class WishlistArchiverImpl: WishlistArchiver {
     
     private let key = "Wishlist"
     
-    func save(_ game: [Game]) {
+    func save(_ game: [GameDetails]) {
         do {
             let data = try encoder.encode(game)
             UserDefaults.standard.set(data, forKey: key)
         } catch {
-            print(error)
+            print("ERROR", error)
         }
     }
     
-    func retrieve() -> [Game] {
+    func retrieve() -> [GameDetails] {
         guard let data = UserDefaults.standard.data(forKey: key) else { return [] }
         
         do {
-            let array = try decoder.decode([Game].self, from: data)
+            let array = try decoder.decode([GameDetails].self, from: data)
             
             return array
         } catch {
-            print(error)
+            print("ERROR", error)
         }
         
         return []
     }
     
-    func remove() -> [Game] {
+    func remove() -> [GameDetails] {
         UserDefaults.standard.removeObject(forKey: key)
         return []
     }

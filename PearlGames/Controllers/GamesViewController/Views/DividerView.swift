@@ -9,8 +9,32 @@ import UIKit
 import SnapKit
 
 final class DividerView: UIView {
-    private let titleLabel = TextLabel(size: 18, color: .lightGray, typeLabel: .semiBold)
-    private let navigateLabel = TextLabel(label: "See All", size: 14, color: .gray, typeLabel: .semiBold)
+    var onGameCategoryTapped: (()->())?
+    
+    private let titleLabel = TextLabel(size: 18, color: .white, typeLabel: .semiBold)
+    
+    private lazy var navigateButton: UIButton = {
+        let button = UIButton()
+        
+        button.setImage(UIImage(systemName: "chevron.right"), for: .normal)
+        
+        button.imageView?.layer.transform = CATransform3DMakeScale(0.7, 0.7, 0.7)
+        
+        button.tintColor = .white
+        
+        button.backgroundColor = .lightBlack
+        button.layer.borderColor = UIColor.borderButtonColor.withAlphaComponent(0.2).cgColor
+        
+        button.layer.cornerRadius = 14
+        button.layer.borderWidth = 1
+        
+        button.widthAnchor.constraint(equalToConstant: 28).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 28).isActive = true
+        
+        button.addTarget(self, action: #selector(gameCategoryTapped(sender:)), for: .touchUpInside)
+        
+        return button
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,12 +51,20 @@ final class DividerView: UIView {
     func update(_ title: String) {
         titleLabel.text = title
     }
+    
+    @objc private func gameCategoryTapped(sender: UIButton) {
+        sender.showAnimation {
+            self.onGameCategoryTapped?()
+        }
+    }
 }
 
 extension DividerView {
     private func setupViews() {
         self.addSubview(titleLabel)
-        self.addSubview(navigateLabel)
+        self.addSubview(navigateButton)
+        
+//        self.backgroundColor = .green
     }
     
     private func setupConstraints() {
@@ -41,9 +73,9 @@ extension DividerView {
             make.left.equalTo(self).inset(16)
         }
         
-        navigateLabel.snp.makeConstraints { make in // это будет кнопкой
+        navigateButton.snp.makeConstraints { make in
             make.top.bottom.equalTo(self)
-            make.right.equalTo(self).inset(16)
+            make.right.equalTo(self) //.inset(10)
         }
     }
 }

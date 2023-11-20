@@ -11,7 +11,7 @@ final class GamesCollectionView: UICollectionView {
     private var games: [Game] = []
     
     var onTappedGameCell: ((Int)->())?
-
+    
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         let layout = UICollectionViewFlowLayout()
         
@@ -44,6 +44,14 @@ final class GamesCollectionView: UICollectionView {
 }
 
 extension GamesCollectionView: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        cell.alpha = 0
+        
+        UIView.animate(withDuration: 1.0) {
+            cell.alpha = 1
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath)
         
@@ -53,7 +61,7 @@ extension GamesCollectionView: UICollectionViewDelegate, UICollectionViewDataSou
             self.onTappedGameCell?(game.id)
         }
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return games.count
     }

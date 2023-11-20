@@ -27,6 +27,10 @@ final class GamesViewController: UIViewController {
         gamesView.gamePreviewTableView.onTappedGameCell = { id in
             self.presentGameDetailsController(id)
         }
+        
+        gamesView.gamePreviewTableView.onGameCategoryTapped = { category in
+            self.presentGamesCategoryController(category)
+        }
     }
     
     init(provider: GamesProvider) {
@@ -51,12 +55,16 @@ final class GamesViewController: UIViewController {
                 gamesView.update(data)
             } catch {
                 gamesView.state = .error(.failed)
-                print(error)
+                print("error", error)
             }
         }
     }
     
     private func presentGameDetailsController(_ gameId: Int) {
         gamesProvider.router.navigateToGameDetailsController(gameId, self)
+    }
+    
+    private func presentGamesCategoryController(_ category: GameCategory) {
+        gamesProvider.router.navigateToGamesCategoryController(category, self)
     }
 }

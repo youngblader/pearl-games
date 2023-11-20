@@ -12,16 +12,17 @@ final class AppIconCell: UICollectionViewCell {
     static var reuseId = "AppIconCell"
     
     private let appIconNameLabel = TextLabel(size: 12, typeLabel: .regular, aligment: .center, linesNumber: 1)
-    
+
     private let appIconImageView: UIImageView = {
         let imageView = UIImageView()
             
         imageView.contentMode = .scaleAspectFill
         
-        imageView.layer.cornerRadius = 12
+        imageView.layer.cornerRadius = 16
         imageView.layer.masksToBounds = true
         
-        imageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        imageView.widthAnchor.constraint(equalToConstant: 68).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 68).isActive = true
         
         return imageView
     }()
@@ -52,12 +53,12 @@ extension AppIconCell {
     
     private func setpConstraints() {
         appIconImageView.snp.makeConstraints { make in
-            make.top.left.right.equalTo(contentView)
+            make.centerX.equalTo(contentView)
         }
-        
+
         appIconNameLabel.snp.makeConstraints { make in
-            make.top.equalTo(appIconImageView.snp.bottom).offset(10)
-            make.left.right.bottom.equalTo(contentView)
+            make.top.equalTo(appIconImageView.snp.bottom).offset(8)
+            make.left.right.equalTo(contentView)
         }
     }
 }

@@ -40,9 +40,9 @@ final class WebViewController: UIViewController {
     }
     
     private func loadUrl(_ url: String) {
-        let url = URL(string: url)
-        let request = URLRequest(url: url!)
-
+        guard let url = URL(string: url) else { return }
+        
+        let request = URLRequest(url: url)
         webView.webKitView.load(request)
     }
 }

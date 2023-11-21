@@ -11,9 +11,9 @@ import Foundation
 struct GameDetails: Codable {
     let id: Int
     let slug, name, nameOriginal, description: String
-    let metacritic: Int
+    let metacritic: Int?
     let metacriticPlatforms: [MetacriticPlatform]
-    let released: String
+    let released: String?
     let tba: Bool
     let updated: String
     let backgroundImage, backgroundImageAdditional: String
@@ -139,7 +139,7 @@ struct ParentPlatform: Codable {
 // MARK: - PlatformElement
 struct PlatformElement: Codable {
     let platform: PlatformPlatform
-    let releasedAt: String
+    let releasedAt: String?
     let requirements: Requirements
     
     enum CodingKeys: String, CodingKey {

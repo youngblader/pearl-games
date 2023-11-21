@@ -40,7 +40,7 @@ struct Game: Codable {
     let userGame: String?
     let reviewsCount: Int
     let saturatedColor, dominantColor: String //Color
-    let shortScreenshots: [ShortScreenshot]
+    let shortScreenshots: [ShortScreenshot]?
     let parentPlatforms: [Platform]
     let genres: [Genre]
 

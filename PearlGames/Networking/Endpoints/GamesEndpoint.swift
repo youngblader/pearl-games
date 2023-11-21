@@ -31,14 +31,14 @@ extension GamesEndpoint: Endpoint {
         }
     }
     
+    //yy.mm.dd
     var parameters: [URLQueryItem] {
         switch self {
         case .getCoomingGames(let page, let size):
-            return [URLQueryItem(name: "dates", value: "2022-10-10,2023-10-10"),
+            return [URLQueryItem(name: "dates", value: "2023-11-21,2024-12-21"),
                     URLQueryItem(name: "ordering", value: "-added"),
                     URLQueryItem(name: "page", value: "\(page)"),
-                    URLQueryItem(name: "page_size", value: "\(size)"),
-                    URLQueryItem(name: "metacritic", value: "65,100")]
+                    URLQueryItem(name: "page_size", value: "\(size)")]
         case .getWhatsNewGames(let page, let size):
             return [URLQueryItem(name: "dates", value: "2022-10-10,2023-10-10"),
                     URLQueryItem(name: "ordering", value: "-added"),
@@ -46,20 +46,19 @@ extension GamesEndpoint: Endpoint {
                     URLQueryItem(name: "page_size", value: "\(size)"),
                     URLQueryItem(name: "metacritic", value: "65,100")]
         case .getNewReleasedGames(let page, let size):
-            return [URLQueryItem(name: "dates", value: "2022-10-10,2023-10-10"),
+            return [URLQueryItem(name: "dates", value: "2022-10-10,2023-11-21"),
                     URLQueryItem(name: "ordering", value: "-released"),
                     URLQueryItem(name: "page", value: "\(page)"),
                     URLQueryItem(name: "page_size", value: "\(size)"),
                     URLQueryItem(name: "metacritic", value: "65,100")]
-        case .getPopularGames(let page, let size):
-            return [URLQueryItem(name: "dates", value: "2022-10-10,2023-10-10"),
-                    URLQueryItem(name: "ordering", value: "-rating"),
+        case .getPopularGames(let page, let size): //2019-01-01,2019-12-31
+            return [URLQueryItem(name: "dates", value: "2023-01-01,2023-12-31"),
+                    URLQueryItem(name: "ordering", value: "-added"),
                     URLQueryItem(name: "page", value: "\(page)"),
                     URLQueryItem(name: "page_size", value: "\(size)"),
                     URLQueryItem(name: "metacritic", value: "65,100")]
         case .getSearchGames(let searchText):
             return [URLQueryItem(name: "search", value: "\(searchText)"),
-//                    URLQueryItem(name: "search_precise", value: false),
                     URLQueryItem(name: "search_exact", value: "true")]
         case .getGameDetails:
             return []

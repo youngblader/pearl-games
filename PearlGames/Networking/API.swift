@@ -59,7 +59,7 @@ extension API {
                     
                     return decodedResponse
                 } catch {
-                    print(error)
+                    print("!!!!ERROR", error)
                     throw NetworkError.decode
                 }
 

@@ -51,7 +51,7 @@ final class GamesCategoryViewController: UIViewController {
                 gamesCategoryView.update(games)
             } catch {
                 gamesCategoryView.state = .error(.failed)
-                print("error", error)
+                print("ERROR", error)
             }
         }
     }

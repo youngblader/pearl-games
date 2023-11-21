@@ -21,9 +21,9 @@ struct GameDetails: Codable {
     let rating: Double
     let ratingTop: Int
     let ratings: [DetailGameRating]
-    let reactions: [String: Int]
+    let reactions: [String: Int]?
     let added: Int
-    let addedByStatus: DetailGameAddedByStatus
+    let addedByStatus: DetailGameAddedByStatus?
     let playtime, screenshotsCount, moviesCount, creatorsCount: Int
     let achievementsCount, parentAchievementsCount: Int
     let redditURL: String
@@ -91,8 +91,9 @@ struct GameDetails: Codable {
 
 // MARK: - DetailGameAddedByStatus
 struct DetailGameAddedByStatus: Codable {
-    let yet, owned, beaten, toplay: Int
-    let dropped, playing: Int
+    let yet, owned, toplay: Int
+    let dropped, playing: Int?
+    let beaten: Int?
 }
 
 // MARK: - Developer

@@ -50,10 +50,6 @@ extension API {
             
             switch response.statusCode {
             case 200..<299:
-//                guard let decodedResponse = try? decoder.decode(responseModel, from: data) else {
-//                    throw NetworkError.decode
-//                }
-                
                 do {
                     let decodedResponse = try decoder.decode(responseModel, from: data)
                     
@@ -62,8 +58,6 @@ extension API {
                     print("!!!!ERROR", error)
                     throw NetworkError.decode
                 }
-
-//                return decodedResponse
             case 401:
                 throw NetworkError.unauthorized
             default:

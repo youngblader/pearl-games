@@ -60,7 +60,6 @@ final class WishlistView: UIView {
     
     //MARK: Public update
     func update(_ wishlistGames: [GameDetails], _ filtredGames: [GameDetails], _ isFiltering: Bool) {
-        print("HERE1")
         if wishlistGames.isEmpty {
             state = .noData(.noData)
         } else {

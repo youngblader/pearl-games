@@ -9,11 +9,6 @@ import UIKit
 import SnapKit
 import WebKit
 
-enum IndicatorAction {
-    case start
-    case stop
-}
-
 enum WebViewState {
     case loading
     case loaded
@@ -38,8 +33,8 @@ final class WebView: UIView {
         setupViews()
         setupConstraints()
         
-        webKitView.onIndicatorAction = { action in
-            self.handlingIndicatorAction(action)
+        webKitView.onWebViewStateAction = { action in
+            self.handlingStateWebViewAction(action)
         }
     }
     
@@ -47,11 +42,11 @@ final class WebView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func handlingIndicatorAction(_ action: IndicatorAction) {
-        switch action {
-        case .start:
+    private func handlingStateWebViewAction(_ stateAction: WebViewState) {
+        switch stateAction {
+        case .loading:
             activityIndicator.startAnimating()
-        case .stop:
+        case .loaded, .error:
             activityIndicator.stopAnimating()
         }
     }

@@ -9,8 +9,6 @@ import UIKit
 import SnapKit
 
 final class MetacriticScoreView: UIView {
-    private var metaScoreLabel = TextLabel(size: 14, typeLabel: .medium, aligment: .center)
-    
     private var numberOfMetacritic: Int = 0 {
         didSet {
             let scoreColor: UIColor = numberOfMetacritic >= 65 ? .green : .yellow
@@ -18,17 +16,32 @@ final class MetacriticScoreView: UIView {
             metaScoreLabel.text = String(numberOfMetacritic)
             
             metaScoreLabel.textColor = scoreColor
-            containerView.layer.borderColor = scoreColor.cgColor
+            metaScoreContainer.layer.borderColor = scoreColor.cgColor
         }
     }
     
-    private let containerView: UIView = {
+    private let metascoreTitleLabel = TextLabel(label: "Metascore", size: 14, color: .gray, typeLabel: .semiBold)
+    
+    private var metaScoreLabel = TextLabel(size: 14, typeLabel: .medium, aligment: .center)
+    
+    private let metaScoreContainer: UIView = {
         let view = UIView()
         
         view.layer.cornerRadius = 6
         view.layer.borderWidth = 1
         
         return view
+    }()
+    
+    private let containerStackView: UIStackView = {
+        let stack = UIStackView()
+        
+        stack.axis = .vertical
+        stack.distribution = .equalSpacing
+        stack.spacing = 10
+        stack.alignment = .leading
+        
+        return stack
     }()
 
     override init(frame: CGRect) {
@@ -44,24 +57,33 @@ final class MetacriticScoreView: UIView {
     
     //MARK: Public update
     func update(_ value: Int) {
+        if value == 0 {
+            self.isHidden = true
+            return
+        }
+
         self.numberOfMetacritic = value
     }
 }
 
 extension MetacriticScoreView {
     private func setupViews() {
-        self.addSubview(containerView)
-        containerView.addSubview(metaScoreLabel)
+        self.addSubview(containerStackView)
+        
+        containerStackView.addArrangedSubview(metascoreTitleLabel)
+        containerStackView.addArrangedSubview(metaScoreContainer)
+        
+        metaScoreContainer.addSubview(metaScoreLabel)
     }
     
     private func setupConstraints() {
-        containerView.snp.makeConstraints { make in
+        containerStackView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        
+
         metaScoreLabel.snp.makeConstraints { make in
-            make.top.bottom.equalTo(containerView).inset(2)
-            make.left.right.equalTo(containerView).inset(8)
+            make.top.bottom.equalTo(metaScoreContainer).inset(2)
+            make.left.right.equalTo(metaScoreContainer).inset(8)
         }
     }
 }

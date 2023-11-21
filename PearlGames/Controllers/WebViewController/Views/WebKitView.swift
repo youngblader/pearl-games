@@ -9,7 +9,7 @@ import UIKit
 import WebKit
 
 final class WebKitView: WKWebView {
-    var onIndicatorAction: ((IndicatorAction)->())?
+    var onWebViewStateAction: ((WebViewState)->())?
     
     override init(frame: CGRect, configuration: WKWebViewConfiguration) {
         let webConfiguration = WKWebViewConfiguration()
@@ -30,14 +30,14 @@ final class WebKitView: WKWebView {
 
 extension WebKitView: WKUIDelegate, WKNavigationDelegate {
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        onIndicatorAction?(.start)
+        onWebViewStateAction?(.loading)
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        onIndicatorAction?(.stop)
+        onWebViewStateAction?(.loaded)
     }
     
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
-        onIndicatorAction?(.stop)
+        onWebViewStateAction?(.error)
     }
 }

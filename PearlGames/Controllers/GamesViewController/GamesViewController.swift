@@ -51,7 +51,7 @@ final class GamesViewController: UIViewController {
                 async let newReleasedGames = gamesProvider.gameService.fetchNewReleasedGames(page: 1, size: 5)
                 async let popularGames = gamesProvider.gameService.fetchPopularGames(page: 1, size: 5)
                 
-                let data = try await GamesPreviewData(new: [], comingSoon: comingGames, newReleased: newReleasedGames, popularGames: popularGames)
+                let data = try await GamesPreviewData(comingSoon: comingGames, newReleased: newReleasedGames, popularGames: popularGames)
                 
                 gamesView.update(data)
             } catch {

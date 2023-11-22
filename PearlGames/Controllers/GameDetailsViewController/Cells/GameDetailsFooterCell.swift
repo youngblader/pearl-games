@@ -11,6 +11,7 @@ import SnapKit
 final class GameDetailsFooterCell: UITableViewCell {
     static var reuseId = "GameDetailsFooterCell"
     
+    #warning("REFACTOR URL")
     var websiteUrl: String? // make property
     var onUrlButtonTapped: ((String)->())?
 

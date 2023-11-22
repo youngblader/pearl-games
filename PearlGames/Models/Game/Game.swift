@@ -7,15 +7,6 @@
 
 import Foundation
 
-
-//MARK: - GamesPreviewData
-struct GamesPreviewData {
-    let new: [Game]
-    let comingSoon: [Game]
-    let newReleased: [Game]
-    let popularGames: [Game]
-}
-
 // MARK: - Game
 struct Game: Codable {
     let slug, name: String

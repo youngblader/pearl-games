@@ -8,7 +8,6 @@
 import Foundation
 
 enum GamesEndpoint {
-    case getWhatsNewGames(page: Int, size: Int)
     case getCoomingGames(page: Int, size: Int)
     case getNewReleasedGames(page: Int, size: Int)
     case getPopularGames(page: Int, size: Int)
@@ -19,14 +18,14 @@ enum GamesEndpoint {
 extension GamesEndpoint: Endpoint {
     var method: NetworkMethod {
         switch self {
-        case .getWhatsNewGames, .getCoomingGames, .getNewReleasedGames, .getPopularGames, .getSearchGames, .getGameDetails:
+        case .getCoomingGames, .getNewReleasedGames, .getPopularGames, .getSearchGames, .getGameDetails:
             return .get
         }
     }
     
     var body: [String: String]? {
         switch self {
-        case .getWhatsNewGames, .getCoomingGames, .getNewReleasedGames, .getPopularGames, .getSearchGames, .getGameDetails:
+        case .getCoomingGames, .getNewReleasedGames, .getPopularGames, .getSearchGames, .getGameDetails:
             return nil
         }
     }
@@ -39,12 +38,6 @@ extension GamesEndpoint: Endpoint {
                     URLQueryItem(name: "ordering", value: "-added"),
                     URLQueryItem(name: "page", value: "\(page)"),
                     URLQueryItem(name: "page_size", value: "\(size)")]
-        case .getWhatsNewGames(let page, let size):
-            return [URLQueryItem(name: "dates", value: "2022-10-10,2023-10-10"),
-                    URLQueryItem(name: "ordering", value: "-added"),
-                    URLQueryItem(name: "page", value: "\(page)"),
-                    URLQueryItem(name: "page_size", value: "\(size)"),
-                    URLQueryItem(name: "metacritic", value: "65,100")]
         case .getNewReleasedGames(let page, let size):
             return [URLQueryItem(name: "dates", value: "2022-10-10,2023-11-21"),
                     URLQueryItem(name: "ordering", value: "-released"),
@@ -68,7 +61,7 @@ extension GamesEndpoint: Endpoint {
     var headers: [String: String]? {
         let accessToken = ""
         switch self {
-        case .getWhatsNewGames, .getCoomingGames, .getNewReleasedGames, .getPopularGames, .getSearchGames, .getGameDetails:
+        case .getCoomingGames, .getNewReleasedGames, .getPopularGames, .getSearchGames, .getGameDetails:
             return [
                 "Authorization": "Bearer \(accessToken)",
                 "Content-Type": "application/json;charset=utf-8"
@@ -78,7 +71,7 @@ extension GamesEndpoint: Endpoint {
     
     var path: String {
         switch self {
-        case .getWhatsNewGames, .getCoomingGames, .getNewReleasedGames, .getPopularGames, .getSearchGames:
+        case .getCoomingGames, .getNewReleasedGames, .getPopularGames, .getSearchGames:
             return "/api/games"
         case .getGameDetails(let id):
             return "/api/games/\(id)"

@@ -8,15 +8,10 @@
 import Foundation
 
 enum GamesCategory: Int, CaseIterable {
-    case new = 0
-    case comingSoon = 1
-    case popularGames = 2
-    case newReleases = 3
+    case comingSoon, popularGames, newReleases
     
     var title: String {
         switch self {
-        case .new:
-            return "Whats New"
         case .comingSoon:
             return "Cooming Soon"
         case .popularGames:

@@ -64,7 +64,7 @@ final class GamesView: UIView {
     
     //MARK: Public update
     func update(_ data: GamesPreviewData) {
-        if data.new.isEmpty && data.comingSoon.isEmpty && data.newReleased.isEmpty && data.popularGames.isEmpty {
+        if data.comingSoon.isEmpty && data.newReleased.isEmpty && data.popularGames.isEmpty {
             state = .noData(.noData)
         } else {
             state = .loaded(data)

@@ -8,7 +8,7 @@
 import UIKit
 
 final class GamesPreviewTableView: UITableView {
-    private var gamesPreviewData: GamesPreviewData = GamesPreviewData(new: [], comingSoon: [], newReleased: [], popularGames: [])
+    private var gamesPreviewData: GamesPreviewData = GamesPreviewData(comingSoon: [], newReleased: [], popularGames: [])
     
     var onTappedGameCell: ((Int)->())? //onGameCellTapped
     var onGameCategoryTapped: ((GameCategory)->())?
@@ -44,8 +44,6 @@ extension GamesPreviewTableView: UITableViewDelegate, UITableViewDataSource {
         let section = GamesCategory(rawValue: section)
         
         switch (section) {
-        case .new:
-            return gamesPreviewData.new.isEmpty ? 0 : 1
         case .comingSoon:
             return gamesPreviewData.comingSoon.isEmpty ? 0 : 1
         case .newReleases:
@@ -74,8 +72,6 @@ extension GamesPreviewTableView: UITableViewDelegate, UITableViewDataSource {
         
         var categoryGamesData: [Game] {
             switch gamesCategorySection {
-            case .new:
-                return gamesPreviewData.new
             case .comingSoon:
                 return gamesPreviewData.comingSoon
             case .newReleases:

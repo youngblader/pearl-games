@@ -20,8 +20,6 @@ final class GameDetailsTableHeaderView: UIView {
         let image = UIImageView()
         
         image.clipsToBounds = true
-//        image.backgroundColor = .lightGray
-        #warning("streach header не скрыт когда игра == nil")
         image.contentMode = .scaleAspectFill
         
         return image
@@ -61,12 +59,6 @@ extension GameDetailsTableHeaderView {
     }
     
     func setupConstraints() {
-//        NSLayoutConstraint.activate([
-//            self.widthAnchor.constraint(equalTo: containerView.widthAnchor),
-//            self.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
-//            self.heightAnchor.constraint(equalTo: containerView.heightAnchor)
-//        ])
-        
         containerView.snp.makeConstraints { make in
             make.top.left.right.equalTo(self)
         }

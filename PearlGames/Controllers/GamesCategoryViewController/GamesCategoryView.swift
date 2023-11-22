@@ -16,9 +16,13 @@ enum GamesCategoryState {
     case error(GamesStateError)
 }
 
+enum ButtonEvent {
+    case show, hide
+}
+
 final class GamesCategoryView: UIView {
     let gamesCategoryCollectionView = GamesCategoryCollectionView()
-
+    
     private let errorLabel = TextLabel(size: 14, color: .textGray, typeLabel: .semiBold, aligment: .center)
     
     private let acitvityIndicator: UIActivityIndicatorView = {
@@ -50,8 +54,6 @@ final class GamesCategoryView: UIView {
         
         button.addTarget(self, action: #selector(arrowUpButtonTapped), for: .touchUpInside)
         
-        #warning("Навесить transform, врубать и отрубать при скроле, навесить ивенты на скролл коллекции")
-        
         return button
     }()
     
@@ -76,16 +78,33 @@ final class GamesCategoryView: UIView {
         errorLabel.text = text
         gamesCategoryCollectionView.backgroundView = errorLabel
     }
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         setupViews()
         setupConstraints()
+        
+        gamesCategoryCollectionView.onShowingArrowUpButton = { action in
+            self.showingArrowUpButton(action)
+        }
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func showingArrowUpButton(_ action: ButtonEvent) {
+        switch action {
+        case .show:
+            UIView.animate(withDuration: 0.2, delay: 0.25) {
+                self.arrowUpButton.transform = CGAffineTransform.identity
+            }
+        case .hide:
+            UIView.animate(withDuration: 0.2) {
+                self.arrowUpButton.transform = CGAffineTransform(scaleX: 0.001, y: 0.001)
+            }
+        }
     }
     
     //MARK: Public update
@@ -95,16 +114,6 @@ final class GamesCategoryView: UIView {
     
     //MARK: Actions
     @objc private func arrowUpButtonTapped() {
-        UIView.animate(withDuration: 0.6,
-            animations: {
-                self.arrowUpButton.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
-            },
-            completion: { _ in
-                UIView.animate(withDuration: 0.6) {
-                    self.arrowUpButton.transform = CGAffineTransform.identity
-                }
-            })
-        
         gamesCategoryCollectionView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
     }
 }

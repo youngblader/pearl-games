@@ -26,7 +26,7 @@ final class GamesCategoryViewController: UIViewController {
         setup()
         fetchCategoryGames()
         
-        gamesCategoryView.gamesCategoryCollectionView.onTappedGameCell = { id in
+        gamesCategoryView.gamesCategoryCollectionView.onGameCellTapped = { id in
             self.presentGameDetailsController(id)
         }
     }

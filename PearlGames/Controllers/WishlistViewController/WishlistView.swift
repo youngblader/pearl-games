@@ -20,7 +20,6 @@ final class WishlistView: UIView {
     var onWishlistGameTapped: ((Int)->())?
     
     lazy var searchController = SearchController(searchResultsController: nil)
-    
     private let wishlistTableView = WishlistTableView()
     
     private let errorLabel = TextLabel(size: 14, color: .textGray, typeLabel: .semiBold, aligment: .center)

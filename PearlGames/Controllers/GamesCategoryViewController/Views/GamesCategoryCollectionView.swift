@@ -10,7 +10,8 @@ import UIKit
 final class GamesCategoryCollectionView: UICollectionView {
     private var games: [Game] = []
     
-    var onTappedGameCell: ((Int)->())?
+    var onGameCellTapped: ((Int)->())?
+    var onShowingArrowUpButton: ((ButtonEvent)->())?
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         let layout = UICollectionViewFlowLayout()
@@ -44,15 +45,24 @@ final class GamesCategoryCollectionView: UICollectionView {
     }
 }
 
-#warning("Add pagination")
 extension GamesCategoryCollectionView: UICollectionViewDelegate, UICollectionViewDataSource {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let contentOffsetY = scrollView.contentOffset.y
+        
+        if contentOffsetY > 200 {
+            onShowingArrowUpButton?(.show)
+        } else {
+            onShowingArrowUpButton?(.hide)
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath)        
         
         let game = games[indexPath.row]
         
         cell?.showAnimation {
-            self.onTappedGameCell?(game.id)
+            self.onGameCellTapped?(game.id)
         }
     }
 

@@ -10,7 +10,7 @@ import UIKit
 final class GamesPreviewTableView: UITableView {
     private var gamesPreviewData: GamesPreviewData = GamesPreviewData(new: [], comingSoon: [], newReleased: [], popularGames: [])
     
-    var onTappedGameCell: ((Int)->())?
+    var onTappedGameCell: ((Int)->())? //onGameCellTapped
     var onGameCategoryTapped: ((GameCategory)->())?
     
     override init(frame: CGRect, style: UITableView.Style) {

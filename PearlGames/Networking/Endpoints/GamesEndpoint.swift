@@ -38,15 +38,14 @@ extension GamesEndpoint: Endpoint {
                     URLQueryItem(name: "ordering", value: "-added"),
                     URLQueryItem(name: "page", value: "\(page)"),
                     URLQueryItem(name: "page_size", value: "\(size)")]
-        case .getNewReleasedGames(let page, let size):
+        case .getNewReleasedGames(let page, let size): //2019-01-01,2019-12-31
             return [URLQueryItem(name: "dates", value: "2022-10-10,2023-11-21"),
                     URLQueryItem(name: "ordering", value: "-released"),
                     URLQueryItem(name: "page", value: "\(page)"),
                     URLQueryItem(name: "page_size", value: "\(size)"),
                     URLQueryItem(name: "metacritic", value: "65,100")]
-        case .getPopularGames(let page, let size): //2019-01-01,2019-12-31
-            return [URLQueryItem(name: "dates", value: "2023-01-01,2023-12-31"),
-                    URLQueryItem(name: "ordering", value: "-added"),
+        case .getPopularGames(let page, let size):
+            return [URLQueryItem(name: "ordering", value: "-added"),
                     URLQueryItem(name: "page", value: "\(page)"),
                     URLQueryItem(name: "page_size", value: "\(size)"),
                     URLQueryItem(name: "metacritic", value: "65,100")]

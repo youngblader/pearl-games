@@ -13,35 +13,47 @@ final class GameDetailsFooterCell: UITableViewCell {
     
     var websiteUrl: String? // make property
     var onUrlButtonTapped: ((String)->())?
+
+    private let containerStack: UIStackView = {
+        let stack = UIStackView()
+        
+        stack.axis = .vertical
+        stack.distribution = .equalSpacing
+        
+        return stack
+    }()
+
+    private let storesView = UIView()
     
+    private let websiteStackView: UIStackView = {
+        let stack = UIStackView()
+        
+        stack.axis = .vertical
+        stack.distribution = .equalSpacing
+        stack.spacing = 10
+        stack.alignment = .leading
+        
+        stack.layoutMargins = UIEdgeInsets(top: 10, left: 16, bottom: 0, right: 16)
+        stack.isLayoutMarginsRelativeArrangement = true
+        
+        return stack
+    }()
+
     private let storesCollectionView = StoresCollectionView()
-    
+
     private let titleLabel = TextLabel(label: "Where to buy", size: 14, color: .gray, typeLabel: .semiBold)
     private let websiteLabel = TextLabel(label: "Website", size: 14, color: .gray, typeLabel: .semiBold)
     
-    private let websiteButton: UIButton = {
+    private lazy var websiteButton: UIButton = {
         let button = UIButton()
         
-        button.titleLabel?.font = UIFont(name: "Poppins-SemiBold", size: 14)
+        button.titleLabel?.font = UIFont(name: "Poppins-Regular", size: 12)
         button.titleLabel?.textAlignment = .left
-        
-        button.backgroundColor = .red
         
         button.addTarget(self, action: #selector(onWebsiteButtonTapped), for: .touchUpInside)
         
         return button
     }()
-    
-//    private let headerStackView: UIStackView = {
-//        let stack = UIStackView()
-//
-//        stack.axis = .vertical
-//        stack.distribution = .equalSpacing
-//        stack.spacing = 10
-////        stack.alignment = .leading
-//
-//        return stack
-//    }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -57,8 +69,18 @@ final class GameDetailsFooterCell: UITableViewCell {
     //MARK: Public update
     func update(_ game: GameDetails) {
         self.websiteUrl = game.website
-        storesCollectionView.update(game.stores)
-        websiteButton.setTitle(game.website, for: .normal)
+        
+        if game.stores.isEmpty {
+            storesView.isHidden = true
+        } else {
+            storesCollectionView.update(game.stores)
+        }
+            
+        if game.website.isEmpty {
+            websiteStackView.isHidden = true
+        } else {
+            websiteButton.setTitle(game.website, for: .normal)
+        }
     }
     
     //MARK: Actions
@@ -71,42 +93,31 @@ final class GameDetailsFooterCell: UITableViewCell {
 
 extension GameDetailsFooterCell {
     private func setupViews() {
-        contentView.backgroundColor = .green
+        contentView.addSubview(containerStack)
         
-//        contentView.addSubview(headerStackView)
-//
-//        headerStackView.addArrangedSubview(titleLabel)
-//        headerStackView.addArrangedSubview(storesCollectionView)
-//        headerStackView.addArrangedSubview(websiteLabel)
-//        headerStackView.addArrangedSubview(websiteButton)
+        containerStack.addArrangedSubview(storesView)
+        containerStack.addArrangedSubview(websiteStackView)
         
-        contentView.addSubview(titleLabel)
-        contentView.addSubview(storesCollectionView)
-        contentView.addSubview(websiteLabel)
-        contentView.addSubview(websiteButton)
+        storesView.addSubview(titleLabel)
+        storesView.addSubview(storesCollectionView)
+        
+        websiteStackView.addArrangedSubview(websiteLabel)
+        websiteStackView.addArrangedSubview(websiteButton)
     }
     
     private func setupConstraints() {
-//        headerStackView.snp.makeConstraints { make in
-//            make.edges.equalToSuperview()
-//        }
+        containerStack.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
         titleLabel.snp.makeConstraints { make in
-            make.top.left.right.equalTo(contentView)
+            make.top.equalTo(storesView).inset(10)
+            make.left.right.equalTo(storesView).inset(16)
         }
 
         storesCollectionView.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(10)
-            make.left.right.equalTo(contentView)
-        }
-        
-        websiteLabel.snp.makeConstraints { make in
-            make.top.equalTo(storesCollectionView.snp.bottom).inset(16)
-            make.left.right.equalTo(contentView)
-        }
-        
-        websiteButton.snp.makeConstraints { make in
-            make.top.equalTo(websiteLabel.snp.bottom).inset(16)
-            make.left.right.bottom.equalTo(contentView)
+            make.top.equalTo(titleLabel.snp.bottom)
+            make.left.right.bottom.equalTo(storesView)
         }
     }
 }

@@ -114,7 +114,7 @@ final class GamesCategoryView: UIView {
     
     //MARK: Actions
     @objc private func arrowUpButtonTapped() {
-        gamesCategoryCollectionView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+        gamesCategoryCollectionView.scrollToItem(at: [0,0], at: .top, animated: true)
     }
 }
 

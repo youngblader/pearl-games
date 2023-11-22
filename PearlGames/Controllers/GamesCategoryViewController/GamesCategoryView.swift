@@ -66,9 +66,7 @@ final class GamesCategoryView: UIView {
             case .loaded(let data):
                 gamesCategoryCollectionView.backgroundView = nil
                 gamesCategoryCollectionView.update(data)
-            case .error(let value):
-                updateTableViewBackgroundView(value.rawValue)
-            case .noData(let value):
+            case .error(let value), .noData(let value):
                 updateTableViewBackgroundView(value.rawValue)
             }
         }

@@ -66,7 +66,7 @@ extension GameDetailsTableView: UITableViewDelegate, UITableViewDataSource, UISc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let section = GameDetailsSections.init(rawValue: indexPath.section)
         
-//        guard let gameDetails = game else { return UITableViewCell() }
+        //        guard let gameDetails = game else { return UITableViewCell() }
         
         if let gameDetails = game { #warning("не уверен")
             switch section {

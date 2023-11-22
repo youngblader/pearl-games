@@ -12,7 +12,7 @@ final class SettingsView: UIView {
     private let settingsTableView = SettingsTableView()
     private let versionLabel = TextLabel(size: 12, color: .lightGray, typeLabel: .regular, aligment: .center)
 
-    var onButtonTapped: ((SettingOptionType)->())?
+    var onSettingsCellTapped: ((SettingOptionType)->())?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -20,8 +20,8 @@ final class SettingsView: UIView {
         setupViews()
         setupConstraints()
         
-        settingsTableView.onButtonTapped = { type in
-            self.onButtonTapped?(type)
+        settingsTableView.onSettingsCellTapped = { type in
+            self.onSettingsCellTapped?(type)
         }
     }
     

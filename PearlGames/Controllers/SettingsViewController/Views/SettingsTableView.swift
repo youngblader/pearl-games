@@ -21,7 +21,7 @@ struct SettingsOption {
 final class SettingsTableView: UITableView {
     private let settingsOptions: [SettingsOption] = [SettingsOption(title: "Theme", icon: "diamond.circle.fill", iconBackgroundColor: .systemPurple, optionType: .theme), SettingsOption(title: "Appearance", icon: "circle.lefthalf.filled", iconBackgroundColor: .systemTeal, optionType: .appearance)]
     
-    var onButtonTapped: ((SettingOptionType)->())?
+    var onSettingsCellTapped: ((SettingOptionType)->())?
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: .zero, style: .insetGrouped)
@@ -43,7 +43,7 @@ extension SettingsTableView: UITableViewDelegate, UITableViewDataSource {
         
         let settingsOptionType = settingsOptions[indexPath.row].optionType
         
-        self.onButtonTapped?(settingsOptionType)
+        self.onSettingsCellTapped?(settingsOptionType)
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {

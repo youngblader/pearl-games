@@ -34,12 +34,12 @@ final class SettingsViewController: UIViewController {
         setup()
         settingsView.update()
         
-        settingsView.onButtonTapped = { type in
-            self.onSettingsOptionTapped(type)
+        settingsView.onSettingsCellTapped = { type in
+            self.onPresentSettingsOptionVC(type)
         }
     }
     
-    private func onSettingsOptionTapped(_ type: SettingOptionType) {
+    private func onPresentSettingsOptionVC(_ type: SettingOptionType) {
         switch type {
         case .appearance:
             settingsProvider.router.navigateToAppearanceController(self)

@@ -63,8 +63,6 @@ extension DividerView {
     private func setupViews() {
         self.addSubview(titleLabel)
         self.addSubview(navigateButton)
-        
-//        self.backgroundColor = .green
     }
     
     private func setupConstraints() {
@@ -75,7 +73,7 @@ extension DividerView {
         
         navigateButton.snp.makeConstraints { make in
             make.top.bottom.equalTo(self)
-            make.right.equalTo(self) //.inset(10)
+            make.right.equalTo(self)
         }
     }
 }

@@ -7,7 +7,32 @@
 
 import UIKit
 
+//State Pattern, moving to models?
+enum SearchGamesState {
+    case loading
+    case loaded([Game], [Game], Bool)
+    case filtred([Game], [Game], Bool) // мб убрать
+    case noFiltredData(GamesStateError)
+    case error(GamesStateError)
+}
+
+#warning("Fix state pattern bugs")
 final class SearchGamesViewController: UIViewController {
+    private let searchGamesProvider: SearchGamesProvider
+
+    private var previewSearchGames: [Game] = []
+    private var searchGames: [Game] = []
+    
+    // searchController properties
+    private var searchBarIsEmpty: Bool {
+        guard let text = searchGameView.searchController.searchBar.text else { return false }
+        return text.isEmpty
+    }
+    
+    private var isFiltering: Bool {
+        return searchGameView.searchController.isActive && !searchBarIsEmpty
+    }
+    
     // LoadView
     private var searchGameView: SearchGameView {
         return self.view as! SearchGameView
@@ -21,7 +46,60 @@ final class SearchGamesViewController: UIViewController {
         super.viewDidLoad()
         
         setup()
-        searchGameView.searchGamesController.update("Games..")
+        fetchPreviewSearchGames()
+        
+        searchGameView.searchController.onSearchGames = { text in
+            self.fetchSearchGames(text)
+        }
+        
+        searchGameView.searchGamesTableView.onTappedGameCell = { id in
+            self.presentGameDetailsController(id)
+        }
+    }
+    
+    init(provider: SearchGamesProvider) {
+        self.searchGamesProvider = provider
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func fetchPreviewSearchGames() {
+        Task {
+            searchGameView.state = .loading
+            do {
+                let games = try await searchGamesProvider.gameService.fetchPopularGames(page: 1, size: 20)
+                
+                self.previewSearchGames = games
+                searchGameView.update(games, searchGames, isFiltering)
+            } catch {
+                searchGameView.state = .error(.failed)
+                print("ERROR", error)
+            }
+        }
+    }
+    
+    private func fetchSearchGames(_ searchText: String) {
+        guard !searchText.isEmpty else { return }
+    
+        Task {
+            searchGameView.state = .loading
+            do {
+                let games = try await searchGamesProvider.gameService.fetchSearchGames(searchText)
+                
+                self.searchGames = games
+                searchGameView.update(previewSearchGames, games, isFiltering)
+            } catch {
+                searchGameView.state = .error(.failed)
+                print("ERROR", error)
+            }
+        }
+    }
+    
+    private func presentGameDetailsController(_ gameId: Int) {
+        searchGamesProvider.router.navigateToGameDetailsController(gameId, self)
     }
 }
 
@@ -29,7 +107,8 @@ extension SearchGamesViewController {
     private func setup() {
         self.title = "Explore"
         
-        self.navigationController?.navigationItem.searchController = searchGameView.searchGamesController
+        self.definesPresentationContext = true
+        self.navigationItem.searchController = searchGameView.searchController
         
         self.navigationItem.largeTitleDisplayMode = .always
         self.navigationController?.navigationBar.prefersLargeTitles = true

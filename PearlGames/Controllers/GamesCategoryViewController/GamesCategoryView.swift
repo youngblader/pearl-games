@@ -97,6 +97,7 @@ final class GamesCategoryView: UIView {
     func showingArrowUpButton(_ action: ButtonEvent) {
         switch action {
         case .show:
+            // delay for the half screen button bug
             UIView.animate(withDuration: 0.2, delay: 0.25) {
                 self.arrowUpButton.transform = CGAffineTransform.identity
             }

@@ -7,11 +7,11 @@
 
 import UIKit
 
-//State Pattern, moving to models?
+//State Pattern
 enum SearchGamesState {
     case loading
     case loaded([Game], [Game], Bool)
-    case filtred([Game], [Game], Bool) // мб убрать
+    case filtred([Game], [Game], Bool)
     case noFiltredData(GamesStateError)
     case error(GamesStateError)
 }
@@ -19,7 +19,7 @@ enum SearchGamesState {
 #warning("Fix state pattern bugs")
 final class SearchGamesViewController: UIViewController {
     private let searchGamesProvider: SearchGamesProvider
-
+    
     private var previewSearchGames: [Game] = []
     private var searchGames: [Game] = []
     
@@ -52,7 +52,7 @@ final class SearchGamesViewController: UIViewController {
             self.fetchSearchGames(text)
         }
         
-        searchGameView.searchGamesTableView.onTappedGameCell = { id in
+        searchGameView.searchGamesTableView.onGameCellTapped = { id in
             self.presentGameDetailsController(id)
         }
     }
@@ -83,7 +83,7 @@ final class SearchGamesViewController: UIViewController {
     
     private func fetchSearchGames(_ searchText: String) {
         guard !searchText.isEmpty else { return }
-    
+        
         Task {
             searchGameView.state = .loading
             do {
@@ -92,8 +92,8 @@ final class SearchGamesViewController: UIViewController {
                 self.searchGames = games
                 searchGameView.update(previewSearchGames, games, isFiltering)
             } catch {
-                searchGameView.state = .error(.failed)
                 print("ERROR", error)
+                searchGameView.state = .error(.failed)
             }
         }
     }

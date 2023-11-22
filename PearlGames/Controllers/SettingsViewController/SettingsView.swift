@@ -9,10 +9,10 @@ import UIKit
 import SnapKit
 
 final class SettingsView: UIView {
+    var onSettingsCellTapped: ((SettingOptionType)->())?
+    
     private let settingsTableView = SettingsTableView()
     private let versionLabel = TextLabel(size: 12, color: .lightGray, typeLabel: .regular, aligment: .center)
-
-    var onSettingsCellTapped: ((SettingOptionType)->())?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -50,7 +50,7 @@ extension SettingsView {
             make.left.right.equalTo(self)
             make.bottom.equalTo(versionLabel.snp.top).offset(10)
         }
-
+        
         versionLabel.snp.makeConstraints { make in
             make.left.right.equalTo(self)
             make.bottom.equalTo(self.safeAreaLayoutGuide).inset(20)

@@ -15,7 +15,7 @@ final class GameDetailsTableHeaderView: UIView {
     private var containerViewHeight = NSLayoutConstraint()
     
     private var containerView = UIView()
-  
+    
     private let gameImageView: UIImageView = {
         let image = UIImageView()
         
@@ -65,7 +65,7 @@ extension GameDetailsTableHeaderView {
         
         // Container View Constraints
         containerView.translatesAutoresizingMaskIntoConstraints = false
-
+        
         containerView.widthAnchor.constraint(equalTo: gameImageView.widthAnchor).isActive = true
         containerViewHeight = containerView.heightAnchor.constraint(equalTo: self.heightAnchor)
         containerViewHeight.isActive = true

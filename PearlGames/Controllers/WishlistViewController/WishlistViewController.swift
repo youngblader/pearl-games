@@ -9,7 +9,7 @@ import UIKit
 
 final class WishlistViewController: UIViewController {
     private let wishlistProvider: WishlistProvider
-
+    
     private var wishlistGames: [GameDetails] = []
     private var filtredWishlist: [GameDetails] = []
     
@@ -50,7 +50,7 @@ final class WishlistViewController: UIViewController {
         super.viewWillAppear(animated)
         let archivedGames = wishlistProvider.wishlistArchiver.retrieve()
         self.wishlistGames = archivedGames
-    
+        
         wishlistView.update(archivedGames, filtredWishlist, isFiltering)
     }
     
@@ -81,7 +81,7 @@ extension WishlistViewController {
         self.title = "Wishlist"
         
         self.navigationItem.searchController = wishlistView.searchController
-
+        
         self.navigationItem.largeTitleDisplayMode = .always
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }

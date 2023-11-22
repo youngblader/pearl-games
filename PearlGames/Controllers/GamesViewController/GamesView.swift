@@ -38,9 +38,7 @@ final class GamesView: UIView {
                 gamePreviewTableView.backgroundView = acitvityIndicator
             case .loaded(let data):
                 gamePreviewTableView.update(data)
-            case .error(let value):
-                updateTableViewBackgroundView(value.rawValue)
-            case .noData(let value):
+            case .error(let value), .noData(let value):
                 updateTableViewBackgroundView(value.rawValue)
             }
         }
@@ -64,7 +62,9 @@ final class GamesView: UIView {
     
     //MARK: Public update
     func update(_ data: GamesPreviewData) {
-        if data.comingSoon.isEmpty && data.newReleased.isEmpty && data.popularGames.isEmpty {
+        let isEmptyData = data.comingSoon.isEmpty && data.newReleased.isEmpty && data.popularGames.isEmpty
+        
+        if isEmptyData {
             state = .noData(.noData)
         } else {
             state = .loaded(data)

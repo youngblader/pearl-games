@@ -64,7 +64,7 @@ final class WishlistView: UIView {
         } else {
             state = .loaded(wishlistGames, filtredGames, isFiltering)
         }
-    
+        
         if filtredGames.isEmpty && isFiltering {
             state = .noFiltredData(.noResults)
             return

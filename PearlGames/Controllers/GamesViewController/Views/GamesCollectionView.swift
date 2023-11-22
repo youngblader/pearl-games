@@ -10,7 +10,7 @@ import UIKit
 final class GamesCollectionView: UICollectionView {
     private var games: [Game] = []
     
-    var onTappedGameCell: ((Int)->())?
+    var onGameCellTapped: ((Int)->())?
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         let layout = UICollectionViewFlowLayout()
@@ -58,7 +58,7 @@ extension GamesCollectionView: UICollectionViewDelegate, UICollectionViewDataSou
         let game = games[indexPath.row]
         
         cell?.showAnimation {
-            self.onTappedGameCell?(game.id)
+            self.onGameCellTapped?(game.id)
         }
     }
     

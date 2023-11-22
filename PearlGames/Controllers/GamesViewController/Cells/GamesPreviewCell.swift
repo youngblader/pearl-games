@@ -11,10 +11,10 @@ import SnapKit
 final class GamesPreviewCell: UITableViewCell {
     static var reuseId = "GamesPreviewCell"
     
-    private let gamesCollectionView = GamesCollectionView()
-    let dividerView = DividerView()
+    var onGamePreviewCellTapped: ((Int)->())?
     
-    var onTappedGameCell: ((Int)->())? //onGameCellTapped
+    let dividerView = DividerView()
+    private let gamesCollectionView = GamesCollectionView()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -22,8 +22,8 @@ final class GamesPreviewCell: UITableViewCell {
         setupViews()
         setupConsraints()
         
-        gamesCollectionView.onTappedGameCell = { gameId in
-            self.onTappedGameCell?(gameId)
+        gamesCollectionView.onGameCellTapped = { gameId in
+            self.onGamePreviewCellTapped?(gameId)
         }
     }
     

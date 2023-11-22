@@ -25,7 +25,7 @@ final class GamesViewController: UIViewController {
         setup()
         fetchGames()
         
-        gamesView.gamePreviewTableView.onTappedGameCell = { id in
+        gamesView.gamePreviewTableView.onGamePreviewCellTapped = { id in
             self.presentGameDetailsController(id)
         }
         
@@ -55,8 +55,8 @@ final class GamesViewController: UIViewController {
                 
                 gamesView.update(data)
             } catch {
-                gamesView.state = .error(.failed)
                 print("ERROR", error)
+                gamesView.state = .error(.failed)
             }
         }
     }

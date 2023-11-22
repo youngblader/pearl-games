@@ -36,10 +36,10 @@ extension TabBarController {
         
         for controller in controllers {
             let navigationController = setupUINavigationController(controller)
-
+            
             navigationControllers.append(navigationController)
         }
-
+        
         tabBar.tintColor = .white
         viewControllers = navigationControllers
     }

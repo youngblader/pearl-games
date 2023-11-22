@@ -11,13 +11,13 @@ import SettingsIconGenerator
 
 final class SettingCell: UITableViewCell {
     static var reuseId = "SettingCell"
-
+    
     private let iconImageView = UIImageView()
     private let settingsLabel = TextLabel(size: 14, typeLabel: .medium, linesNumber: 1)
-
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-
+        
         accessoryType = .disclosureIndicator
         
         setupViews()
@@ -46,7 +46,7 @@ extension SettingCell {
             make.left.equalTo(contentView).inset(10)
             make.top.bottom.equalTo(contentView).inset(5)
         }
-
+        
         settingsLabel.snp.makeConstraints { make in
             make.left.equalTo(iconImageView.snp.right).offset(10)
             make.centerY.equalTo(contentView)

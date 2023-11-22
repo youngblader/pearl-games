@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import UIKit
 
 protocol ScreenFactory {
     var di: Di! { get set }
@@ -19,7 +18,7 @@ protocol ScreenFactory {
     func createAppearanceController() -> AppearanceViewController
     func createGameDetailsController() -> GameDetailsViewController
     func createGamesCategoryController(_ category: GameCategory) -> GamesCategoryViewController
-    func createWebViewController(_ url: String) -> WebViewController //UINavigationController
+    func createWebViewController(_ url: String) -> WebViewController
 }
 
 final class ScreenFactoryImpl: ScreenFactory {
@@ -61,8 +60,7 @@ final class ScreenFactoryImpl: ScreenFactory {
         let vc = WebViewController(provider: di.webViewProvider)
         
         vc.gameUrl = url
-       
+        
         return vc
-        //UINavigationController(rootViewController: vc)
     }
 }

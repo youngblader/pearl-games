@@ -43,7 +43,7 @@ final class MetacriticScoreView: UIView {
         
         return stack
     }()
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -61,7 +61,7 @@ final class MetacriticScoreView: UIView {
             self.isHidden = true
             return
         }
-
+        
         self.numberOfMetacritic = value
     }
 }
@@ -80,7 +80,7 @@ extension MetacriticScoreView {
         containerStackView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-
+        
         metaScoreLabel.snp.makeConstraints { make in
             make.top.bottom.equalTo(metaScoreContainer).inset(2)
             make.left.right.equalTo(metaScoreContainer).inset(8)

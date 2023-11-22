@@ -34,7 +34,7 @@ struct Game: Codable {
     let shortScreenshots: [ShortScreenshot]?
     let parentPlatforms: [Platform]
     let genres: [Genre]
-
+    
     enum CodingKeys: String, CodingKey {
         case slug, name, playtime, platforms, stores, released, tba
         case backgroundImage = "background_image"
@@ -73,7 +73,7 @@ struct AddedByStatus: Codable {
 struct EsrbRating: Codable {
     let id: Int
     let name, slug, nameEn, nameRu: String
-
+    
     enum CodingKeys: String, CodingKey {
         case id, name, slug
         case nameEn = "name_en"
@@ -125,7 +125,7 @@ struct Tag: Codable {
     let language: Language
     let gamesCount: Int
     let imageBackground: String?
-
+    
     enum CodingKeys: String, CodingKey {
         case id, name, slug, language
         case gamesCount = "games_count"

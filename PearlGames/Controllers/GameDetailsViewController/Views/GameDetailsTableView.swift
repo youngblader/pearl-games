@@ -99,6 +99,7 @@ extension GameDetailsTableView: UITableViewDelegate, UITableViewDataSource, UISc
                 
                 cell.onUrlButtonTapped = { url in
                     self.onUrlButtonTapped?(url)
+#warning("rename")
                 }
                 
                 return cell

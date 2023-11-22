@@ -9,7 +9,7 @@ import UIKit
 
 final class Di {
     static let shared = Di() // neeed?
-
+    
     //MARK: Services
     private let gameService: GameService
     private let wishlistArchiver: WishlistArchiver
@@ -31,7 +31,7 @@ final class Di {
     var gamesProvider: GamesProviderImpl {
         return GamesProviderImpl(gameService: gameService, router: router)
     }
-
+    
     var settingsProvider: SettingsProviderImpl {
         return SettingsProviderImpl(router: router)
     }

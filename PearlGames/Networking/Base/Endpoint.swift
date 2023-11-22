@@ -21,13 +21,13 @@ extension Endpoint {
     var scheme: String {
         return "https"
     }
-
+    
     var host: String {
         return "api.rawg.io"
-      
+        
     }
     
-//    var path: String {
-//        return "/api/rest"
-//    }
+    //    var path: String {
+    //        return "/api/rest"
+    //    }
 }

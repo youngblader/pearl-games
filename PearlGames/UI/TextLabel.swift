@@ -39,7 +39,7 @@ final class TextLabel: UILabel {
     private(set) var linesNumber: Int
     
     init(label: String = "", size: CGFloat = 16, color: ColorStyle = .white, typeLabel: TypeLabel = .semiBold, aligment: NSTextAlignment = .left, linesNumber: Int = 0) {
-
+        
         self.textLabel = label
         self.size = size
         self.color = color
@@ -63,7 +63,7 @@ extension TextLabel {
         configureLabelStyle()
         configureLabelColor()
     }
-
+    
     private func configureLabelColor() {
         switch color {
         case .black:

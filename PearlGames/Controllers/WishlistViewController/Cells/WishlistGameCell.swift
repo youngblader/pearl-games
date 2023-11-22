@@ -26,7 +26,7 @@ final class WishlistGameCell: UITableViewCell {
         
         imageView.widthAnchor.constraint(equalToConstant: 90).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: 85).isActive = true
-      
+        
         return imageView
     }()
     
@@ -44,7 +44,7 @@ final class WishlistGameCell: UITableViewCell {
     //MARK: Public update
     func update(_ game: GameDetails) {
         gameNameLabel.text = game.name
-    
+        
         gameImageView.sd_setImage(with: URL(string: game.backgroundImage ))
         
         if let genre = game.genres.first?.name {
@@ -68,7 +68,7 @@ extension WishlistGameCell {
             make.centerY.equalTo(contentView)
             make.top.bottom.equalTo(contentView).inset(10)
         }
-
+        
         containerView.snp.makeConstraints { make in
             make.top.right.bottom.equalTo(contentView).inset(16)
             make.left.equalTo(gameImageView.snp.right).offset(10)

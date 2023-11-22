@@ -12,7 +12,7 @@ final class SearchGamesTableView: UITableView {
     private var searchGames: [Game] = []
     private var isFiltering: Bool = false
     
-    var onTappedGameCell: ((Int)->())?
+    var onGameCellTapped: ((Int)->())?
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: .plain)
@@ -53,7 +53,7 @@ extension SearchGamesTableView: UITableViewDelegate, UITableViewDataSource {
         }
         
         cell?.showAnimation {
-            self.onTappedGameCell?(game.id)
+            self.onGameCellTapped?(game.id)
         }
     }
     

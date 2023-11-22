@@ -10,7 +10,7 @@ import UIKit
 final class GamesPreviewTableView: UITableView {
     private var gamesPreviewData: GamesPreviewData = GamesPreviewData(comingSoon: [], newReleased: [], popularGames: [])
     
-    var onTappedGameCell: ((Int)->())? //onGameCellTapped
+    var onGamePreviewCellTapped: ((Int)->())?
     var onGameCategoryTapped: ((GameCategory)->())?
     
     override init(frame: CGRect, style: UITableView.Style) {
@@ -87,10 +87,10 @@ extension GamesPreviewTableView: UITableViewDelegate, UITableViewDataSource {
         
         cell.update(categoryGamesData)
         
-        cell.onTappedGameCell = { gameId in
-            self.onTappedGameCell?(gameId)
+        cell.onGamePreviewCellTapped = { gameId in
+            self.onGamePreviewCellTapped?(gameId)
         }
-
+        
         return cell
     }
 }

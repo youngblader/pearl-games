@@ -21,7 +21,7 @@ final class GameCell: UICollectionViewCell {
         
         image.widthAnchor.constraint(equalToConstant: 100).isActive = true
         image.heightAnchor.constraint(equalToConstant: 110).isActive = true
-
+        
         return image
     }()
     

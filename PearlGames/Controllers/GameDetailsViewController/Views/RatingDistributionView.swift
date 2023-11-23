@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class RatingDistributionView: UIView {
+final class RatingDistributionView: UIStackView {
     private let titleLabel = TextLabel(label: "Rating Distribution", size: 14, color: .gray, typeLabel: .semiBold)
     
     private let ratingDistributionCollectionView =  RatingDistributionCollectionView()
@@ -17,10 +17,9 @@ final class RatingDistributionView: UIView {
         super.init(frame: frame)
         
         setupViews()
-        setupConstraints()
     }
     
-    required init?(coder: NSCoder) {
+    required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -36,19 +35,11 @@ final class RatingDistributionView: UIView {
 
 extension RatingDistributionView {
     private func setupViews() {
+        self.distribution = .equalSpacing
+        self.axis = .vertical
+        self.spacing = 10
+        
         self.addSubview(titleLabel)
         self.addSubview(ratingDistributionCollectionView)
-    }
-    
-    private func setupConstraints() {
-        titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(self)
-            make.left.right.equalTo(self).inset(16)
-        }
-        
-        ratingDistributionCollectionView.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(10)
-            make.left.right.bottom.equalTo(self)
-        }
     }
 }

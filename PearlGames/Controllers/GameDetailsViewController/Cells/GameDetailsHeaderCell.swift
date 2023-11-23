@@ -28,6 +28,7 @@ final class GameDetailsHeaderCell: UITableViewCell {
     
     private let descriptionLabel = TextLabel(size: 14, color: .white, typeLabel: .regular)
     
+    private let aboutGameView = UIView()
     private let ratingDistributionView = RatingDistributionView()
     
     private let headerStackView: UIStackView = {
@@ -41,15 +42,12 @@ final class GameDetailsHeaderCell: UITableViewCell {
         return stack
     }()
     
-    private let aboutStackView: UIStackView = {
+    private let contentStackView: UIStackView = {
         let stack = UIStackView()
         
-        stack.distribution = .equalSpacing
         stack.axis = .vertical
+        stack.distribution = .equalSpacing
         stack.spacing = 10
-        
-        stack.layoutMargins = UIEdgeInsets(top: 10, left: 16, bottom: 0, right: 16)
-        stack.isLayoutMarginsRelativeArrangement = true
         
         return stack
     }()
@@ -108,11 +106,13 @@ extension GameDetailsHeaderCell {
         headerStackView.addArrangedSubview(gameNameLabel)
         headerStackView.addArrangedSubview(favouriteButton)
         
-        contentView.addSubview(ratingDistributionView)
-        contentView.addSubview(aboutStackView)
+        contentView.addSubview(contentStackView)
+       
+        contentStackView.addArrangedSubview(ratingDistributionView)
+        contentStackView.addArrangedSubview(aboutGameView)
         
-        aboutStackView.addArrangedSubview(aboutSubTitleLabel)
-        aboutStackView.addArrangedSubview(descriptionLabel)
+        aboutGameView.addSubview(aboutSubTitleLabel)
+        aboutGameView.addSubview(descriptionLabel)
     }
     
     private func setupConstraints() {
@@ -125,14 +125,20 @@ extension GameDetailsHeaderCell {
             make.top.equalTo(playTimeLabel.snp.bottom).offset(10)
         }
         
-        ratingDistributionView.snp.makeConstraints { make in
-            make.top.equalTo(gameNameLabel.snp.bottom).offset(10)
-            make.left.right.equalTo(contentView)
+        contentStackView.snp.makeConstraints { make in
+            make.top.equalTo(headerStackView.snp.bottom).offset(10)
+            make.left.right.bottom.equalTo(contentView)
         }
         
-        aboutStackView.snp.makeConstraints { make in
-            make.top.equalTo(ratingDistributionView.snp.bottom)
-            make.left.right.bottom.equalTo(contentView)
+        aboutSubTitleLabel.snp.makeConstraints { make in
+            make.top.equalTo(aboutGameView)
+            make.left.right.equalTo(aboutGameView).inset(16)
+        }
+        
+        descriptionLabel.snp.makeConstraints { make in
+            make.top.equalTo(aboutSubTitleLabel.snp.bottom)
+            make.left.right.equalTo(aboutGameView).inset(16)
+            make.bottom.equalTo(aboutGameView)
         }
     }
 }

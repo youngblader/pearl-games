@@ -12,20 +12,20 @@ enum GamesEndpoint {
     case getNewReleasedGames(page: Int, size: Int)
     case getPopularGames(page: Int, size: Int)
     case getSearchGames(searchText: String)
-    case getGameDetails(gameId: Int)
+    case getGame(gameId: Int)
 }
 
 extension GamesEndpoint: Endpoint {
     var method: NetworkMethod {
         switch self {
-        case .getCoomingGames, .getNewReleasedGames, .getPopularGames, .getSearchGames, .getGameDetails:
+        case .getCoomingGames, .getNewReleasedGames, .getPopularGames, .getSearchGames, .getGame:
             return .get
         }
     }
     
     var body: [String: String]? {
         switch self {
-        case .getCoomingGames, .getNewReleasedGames, .getPopularGames, .getSearchGames, .getGameDetails:
+        case .getCoomingGames, .getNewReleasedGames, .getPopularGames, .getSearchGames, .getGame:
             return nil
         }
     }
@@ -52,7 +52,7 @@ extension GamesEndpoint: Endpoint {
         case .getSearchGames(let searchText):
             return [URLQueryItem(name: "search", value: "\(searchText)"),
                     URLQueryItem(name: "search_exact", value: "true")]
-        case .getGameDetails:
+        case .getGame:
             return []
         }
     }
@@ -60,7 +60,7 @@ extension GamesEndpoint: Endpoint {
     var headers: [String: String]? {
         let accessToken = ""
         switch self {
-        case .getCoomingGames, .getNewReleasedGames, .getPopularGames, .getSearchGames, .getGameDetails:
+        case .getCoomingGames, .getNewReleasedGames, .getPopularGames, .getSearchGames, .getGame:
             return [
                 "Authorization": "Bearer \(accessToken)",
                 "Content-Type": "application/json;charset=utf-8"
@@ -72,7 +72,7 @@ extension GamesEndpoint: Endpoint {
         switch self {
         case .getCoomingGames, .getNewReleasedGames, .getPopularGames, .getSearchGames:
             return "/api/games"
-        case .getGameDetails(let id):
+        case .getGame(let id):
             return "/api/games/\(id)"
         }
     }

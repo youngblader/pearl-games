@@ -12,7 +12,7 @@ protocol GameService {
     func fetchNewReleasedGames(page: Int, size: Int) async throws -> [Game]
     func fetchPopularGames(page: Int, size: Int) async throws -> [Game]
     func fetchSearchGames(_ value: String) async throws -> [Game]
-    func fetchGameDetails(_ id: Int) async throws -> GameDetails
+    func fetchGame(_ id: Int) async throws -> GameDetails
     func fetchCategoryGames(_ category: GameCategory) async throws -> [Game]
 }
 
@@ -33,7 +33,7 @@ final class GameServiceImpl: GameService, API {
         return try await request(endpoint: GamesEndpoint.getSearchGames(searchText: value), responseModel: GamesResponse.self).results
     }
     
-    func fetchGameDetails(_ id: Int) async throws -> GameDetails {
+    func fetchGame(_ id: Int) async throws -> GameDetails {
         return try await request(endpoint: GamesEndpoint.getGameDetails(gameId: id), responseModel: GameDetails.self)
     }
     

@@ -136,7 +136,7 @@ extension GameDetailsHeaderCell {
         }
         
         descriptionLabel.snp.makeConstraints { make in
-            make.top.equalTo(aboutSubTitleLabel.snp.bottom)
+            make.top.equalTo(aboutSubTitleLabel.snp.bottom).offset(10)
             make.left.right.equalTo(aboutGameView).inset(16)
             make.bottom.equalTo(aboutGameView)
         }

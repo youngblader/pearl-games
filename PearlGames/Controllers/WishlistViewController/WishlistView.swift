@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 //State Pattern
-enum WishlistState { // это надо будет вынести в controller
+enum WishlistState {
     case loaded([GameDetails], [GameDetails], Bool)
     case filtred([GameDetails], [GameDetails], Bool)
     case noData(GamesStateError)

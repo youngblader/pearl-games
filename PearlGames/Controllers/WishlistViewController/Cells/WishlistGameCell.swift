@@ -44,7 +44,6 @@ final class WishlistGameCell: UITableViewCell {
     //MARK: Public update
     func update(_ game: GameDetails) {
         gameNameLabel.text = game.name
-        
         gameImageView.sd_setImage(with: URL(string: game.backgroundImage ))
         
         if let genre = game.genres.first?.name {

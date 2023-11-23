@@ -27,7 +27,7 @@ final class GameDetailsMetaCell: UITableViewCell {
     }()
     
     private let metacriticScoreView = MetacriticScoreView()
-
+    
     private lazy var platformsView = GamesDetailsMetaView(title: "Platforms")
     private lazy var genresView = GamesDetailsMetaView(title: "Genres")
     private lazy var releaseDateView = GamesDetailsMetaView(title: "Release date")
@@ -47,22 +47,24 @@ final class GameDetailsMetaCell: UITableViewCell {
     }
     
     //MARK: Public update
-    func update(_ game: GameDetails) {    
-        let platfroms = convertArrayOfString(game.platforms.map ({ $0.platform.name }))
+    func update(_ game: GameDetails) {
+        if let platforms = game.platforms {
+            let platformsString = convertArrayOfString(platforms.map ({ $0.platform.name }))
+            
+            platformsView.update(platformsString)
+        }
         
         let genres = convertArrayOfString(game.genres.map ({ $0.name }))
         let developers = convertArrayOfString(game.developers.map ({ $0.name }))
         let publishers = convertArrayOfString(game.publishers.map ({ $0.name }))
-        
         let tags = game.tags.map ({ "#\($0.name)" }).joined(separator: ", ")
         
         publishersView.update(publishers)
         developersView.update(developers)
-        platformsView.update(platfroms)
         genresView.update(genres)
-        releaseDateView.update(game.released ?? "")
         tagsView.update(tags)
         
+        releaseDateView.update(game.released ?? "")
         metacriticScoreView.update(game.metacritic ?? 0)
     }
     

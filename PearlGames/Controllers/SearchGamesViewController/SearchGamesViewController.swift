@@ -75,8 +75,8 @@ final class SearchGamesViewController: UIViewController {
                 self.previewSearchGames = games
                 searchGameView.update(games, searchGames, isFiltering)
             } catch {
-                searchGameView.state = .error(.failed)
                 print("ERROR", error)
+                searchGameView.state = .error(.failed)
             }
         }
     }

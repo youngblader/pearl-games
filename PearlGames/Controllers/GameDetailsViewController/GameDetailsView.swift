@@ -15,7 +15,7 @@ enum GameDetailsState {
 }
 
 final class GameDetailsView: UIView {
-    var onUrlButtonTapped: ((String)->())?
+    var onWebsiteUrlTapped: ((String)->())?
     var onSaveGameTapped: ((GameDetails)->())?
     
     private let gameDetailsTableView = GameDetailsTableView()
@@ -57,8 +57,8 @@ final class GameDetailsView: UIView {
         setupViews()
         setupConstraints()
         
-        gameDetailsTableView.onUrlButtonTapped = { url in
-            self.onUrlButtonTapped?(url)
+        gameDetailsTableView.onWebsiteUrlTapped = { url in
+            self.onWebsiteUrlTapped?(url)
         }
         
         gameDetailsTableView.onSaveGameTapped = { game in

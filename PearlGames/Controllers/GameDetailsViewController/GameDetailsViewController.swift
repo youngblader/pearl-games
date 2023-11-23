@@ -39,7 +39,7 @@ final class GameDetailsViewController: UIViewController {
             gameInWishlist = checkGameInWishlist(id)
         }
         
-        gameDetailsView.onUrlButtonTapped = { url in
+        gameDetailsView.onWebsiteUrlTapped = { url in
             self.presentWebViewController(url)
         }
         

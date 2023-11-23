@@ -11,9 +11,8 @@ import SnapKit
 final class GameDetailsFooterCell: UITableViewCell {
     static var reuseId = "GameDetailsFooterCell"
     
-    #warning("REFACTOR URL")
-    var websiteUrl: String? // make property
-    var onUrlButtonTapped: ((String)->())?
+    var websiteUrl: String?
+    var onWebsiteUrlTapped: ((String)->())?
 
     private let containerStack: UIStackView = {
         let stack = UIStackView()
@@ -87,7 +86,7 @@ final class GameDetailsFooterCell: UITableViewCell {
     //MARK: Actions
     @objc private func onWebsiteButtonTapped() {
         if let url = websiteUrl {
-            self.onUrlButtonTapped?(url)
+            self.onWebsiteUrlTapped?(url)
         }
     }
 }

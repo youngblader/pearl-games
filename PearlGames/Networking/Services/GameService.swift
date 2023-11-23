@@ -34,7 +34,7 @@ final class GameServiceImpl: GameService, API {
     }
     
     func fetchGame(_ id: Int) async throws -> GameDetails {
-        return try await request(endpoint: GamesEndpoint.getGameDetails(gameId: id), responseModel: GameDetails.self)
+        return try await request(endpoint: GamesEndpoint.getGame(gameId: id), responseModel: GameDetails.self)
     }
     
     func fetchCategoryGames(_ category: GameCategory) async throws -> [Game] {

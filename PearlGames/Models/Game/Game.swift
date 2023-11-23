@@ -72,7 +72,8 @@ struct AddedByStatus: Codable {
 // MARK: - EsrbRating
 struct EsrbRating: Codable {
     let id: Int
-    let name, slug, nameEn, nameRu: String
+    let name, slug: String
+    let nameEn, nameRu: String?
     
     enum CodingKeys: String, CodingKey {
         case id, name, slug

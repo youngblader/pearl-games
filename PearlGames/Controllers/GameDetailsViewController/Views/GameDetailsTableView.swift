@@ -8,14 +8,14 @@
 import UIKit
 
 private enum GameDetailsSections: Int, CaseIterable {
-    case gameHeader, gameAbout, gameMeta, gameFooter
+    case gameHeader, gameMeta, gameFooter
 }
 
 final class GameDetailsTableView: UITableView {
     private var game: GameDetails?
     private var gameInWishlist: Bool = false
     
-    var onUrlButtonTapped: ((String)->())?
+    var onWebsiteUrlTapped: ((String)->())?
     var onSaveGameTapped: ((GameDetails)->())?
     
     private let gameDetailsTableHeaderView = GameDetailsTableHeaderView (frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 250))
@@ -34,7 +34,6 @@ final class GameDetailsTableView: UITableView {
         self.allowsSelection = false
         
         self.register(GameDetailsHeaderCell.self, forCellReuseIdentifier: GameDetailsHeaderCell.reuseId)
-        self.register(GameDetailsAboutCell.self, forCellReuseIdentifier: GameDetailsAboutCell.reuseId)
         self.register(GameDetailsMetaCell.self, forCellReuseIdentifier: GameDetailsMetaCell.reuseId)
         self.register(GameDetailsFooterCell.self, forCellReuseIdentifier: GameDetailsFooterCell.reuseId)
     }
@@ -49,7 +48,6 @@ final class GameDetailsTableView: UITableView {
         self.gameInWishlist = gameInWishlist
         
         self.gameDetailsTableHeaderView.update(game.backgroundImage)
-        
         self.reloadData()
     }
 }
@@ -64,51 +62,40 @@ extension GameDetailsTableView: UITableViewDelegate, UITableViewDataSource, UISc
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let gameDetails = game else { return UITableViewCell() }
+        
         let section = GameDetailsSections.init(rawValue: indexPath.section)
         
-        //        guard let gameDetails = game else { return UITableViewCell() }
-        
-        if let gameDetails = game { #warning("не уверен")
-            switch section {
-            case .gameHeader:
-                let cell = tableView.dequeueReusableCell(withIdentifier: GameDetailsHeaderCell.reuseId, for: indexPath) as! GameDetailsHeaderCell
-                
-                cell.onSaveGameTapped = {
-                    self.onSaveGameTapped?(gameDetails)
-                }
-                
-                cell.update(gameDetails, gameInWishlist)
-                
-                return cell
-            case .gameAbout:
-                let cell = tableView.dequeueReusableCell(withIdentifier: GameDetailsAboutCell.reuseId, for: indexPath) as! GameDetailsAboutCell
-                
-                cell.update(gameDetails)
-                
-                return cell
-            case .gameMeta:
-                let cell = tableView.dequeueReusableCell(withIdentifier: GameDetailsMetaCell.reuseId, for: indexPath) as! GameDetailsMetaCell
-                
-                cell.update(gameDetails)
-                
-                return cell
-            case .gameFooter:
-                let cell = tableView.dequeueReusableCell(withIdentifier: GameDetailsFooterCell.reuseId, for: indexPath) as! GameDetailsFooterCell
-                
-                cell.update(gameDetails)
-                
-                cell.onUrlButtonTapped = { url in
-                    self.onUrlButtonTapped?(url)
-#warning("rename")
-                }
-                
-                return cell
-            default:
-                return UITableViewCell()
+        switch section {
+        case .gameHeader:
+            let cell = tableView.dequeueReusableCell(withIdentifier: GameDetailsHeaderCell.reuseId, for: indexPath) as! GameDetailsHeaderCell
+            
+            cell.onSaveGameTapped = {
+                self.onSaveGameTapped?(gameDetails)
             }
+            
+            cell.update(gameDetails, gameInWishlist)
+            
+            return cell
+        case .gameMeta:
+            let cell = tableView.dequeueReusableCell(withIdentifier: GameDetailsMetaCell.reuseId, for: indexPath) as! GameDetailsMetaCell
+            
+            cell.update(gameDetails)
+            
+            return cell
+        case .gameFooter:
+            let cell = tableView.dequeueReusableCell(withIdentifier: GameDetailsFooterCell.reuseId, for: indexPath) as! GameDetailsFooterCell
+            
+            cell.onWebsiteUrlTapped = { url in
+                self.onWebsiteUrlTapped?(url)
+            }
+            
+            cell.update(gameDetails)
+            
+            return cell
+        default:
+            return UITableViewCell()
         }
-        
-        return UITableViewCell()
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

@@ -15,16 +15,20 @@ final class GameDetailsHeaderCell: UITableViewCell {
     
     private var gameInWishlist: Bool = false {
         didSet {
-            let image = self.gameInWishlist ? "bookmark.fill" : "bookmark"
-            favouriteButton.setImage(UIImage(systemName: image), for: .normal)
+            let nameImage = self.gameInWishlist ? "bookmark.fill" : "bookmark"
+            favouriteButton.setImage(UIImage(systemName: nameImage), for: .normal)
         }
     }
     
-    private let ratingDistributionCollectionView =  RatingDistributionCollectionView()
-    
     private let gameNameLabel = TextLabel(size: 16, color: .white, typeLabel: .semiBold, linesNumber: 2)
     
-    private let averagePlayTimeLabel = TextLabel(size: 12, color: .white, typeLabel: .regular)
+    private let playTimeLabel = TextLabel(size: 12, color: .white, typeLabel: .regular)
+    
+    private let aboutSubTitleLabel = TextLabel(label: "About", size: 18, color: .white, typeLabel: .semiBold)
+    
+    private let descriptionLabel = TextLabel(size: 14, color: .white, typeLabel: .regular)
+    
+    private let ratingDistributionView = RatingDistributionView()
     
     private let headerStackView: UIStackView = {
         let stack = UIStackView()
@@ -33,6 +37,19 @@ final class GameDetailsHeaderCell: UITableViewCell {
         stack.distribution = .equalSpacing
         stack.spacing = 12
         stack.alignment = .top
+        
+        return stack
+    }()
+    
+    private let aboutStackView: UIStackView = {
+        let stack = UIStackView()
+        
+        stack.distribution = .equalSpacing
+        stack.axis = .vertical
+        stack.spacing = 10
+        
+        stack.layoutMargins = UIEdgeInsets(top: 10, left: 16, bottom: 0, right: 16)
+        stack.isLayoutMarginsRelativeArrangement = true
         
         return stack
     }()
@@ -64,12 +81,13 @@ final class GameDetailsHeaderCell: UITableViewCell {
         self.gameInWishlist = gameInWishlist
         
         gameNameLabel.text = game.name
-        ratingDistributionCollectionView.update(game.ratings)
+        ratingDistributionView.update(game.ratings)
+        descriptionLabel.text = game.descriptionRaw
         
         if game.playtime == 0 {
-            averagePlayTimeLabel.isHidden = true
+            playTimeLabel.isHidden = true
         } else {
-            averagePlayTimeLabel.text = "AVERAGE PLAYTIME: \(game.playtime) HOURS"
+            playTimeLabel.text = "AVERAGE PLAYTIME: \(game.playtime) HOURS"
         }
     }
     
@@ -84,27 +102,36 @@ final class GameDetailsHeaderCell: UITableViewCell {
 
 extension GameDetailsHeaderCell {
     private func setupViews() {
-        contentView.addSubview(averagePlayTimeLabel)
+        contentView.addSubview(playTimeLabel)
         contentView.addSubview(headerStackView)
         
         headerStackView.addArrangedSubview(gameNameLabel)
         headerStackView.addArrangedSubview(favouriteButton)
         
-        contentView.addSubview(ratingDistributionCollectionView)
+        contentView.addSubview(ratingDistributionView)
+        contentView.addSubview(aboutStackView)
+        
+        aboutStackView.addArrangedSubview(aboutSubTitleLabel)
+        aboutStackView.addArrangedSubview(descriptionLabel)
     }
     
     private func setupConstraints() {
-        averagePlayTimeLabel.snp.makeConstraints { make in
+        playTimeLabel.snp.makeConstraints { make in
             make.top.left.right.equalTo(contentView).inset(16)
         }
         
         headerStackView.snp.makeConstraints { make in
             make.left.right.equalTo(contentView).inset(16)
-            make.top.equalTo(averagePlayTimeLabel.snp.bottom).offset(10)
+            make.top.equalTo(playTimeLabel.snp.bottom).offset(10)
         }
         
-        ratingDistributionCollectionView.snp.makeConstraints { make in
+        ratingDistributionView.snp.makeConstraints { make in
             make.top.equalTo(gameNameLabel.snp.bottom).offset(10)
+            make.left.right.equalTo(contentView)
+        }
+        
+        aboutStackView.snp.makeConstraints { make in
+            make.top.equalTo(ratingDistributionView.snp.bottom)
             make.left.right.bottom.equalTo(contentView)
         }
     }

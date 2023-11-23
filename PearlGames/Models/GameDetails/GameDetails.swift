@@ -36,8 +36,8 @@ struct GameDetails: Codable {
     let userGame: String?
     let reviewsCount: Int
     let saturatedColor, dominantColor: String
-    let parentPlatforms: [ParentPlatform]
-    let platforms: [PlatformElement]
+    let parentPlatforms: [ParentPlatform]?
+    let platforms: [PlatformElement]?
     let stores: [DetailGameStores]
     let developers, genres, tags, publishers: [Developer]
     let esrbRating: DetailGameEsrbRating?

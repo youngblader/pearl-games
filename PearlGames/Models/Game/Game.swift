@@ -11,7 +11,7 @@ import Foundation
 struct Game: Codable {
     let slug, name: String
     let playtime: Int
-    let platforms: [Platform]
+    let platforms: [Platform]?
     let stores: [Store]?
     let released: String?
     let tba: Bool
@@ -32,7 +32,7 @@ struct Game: Codable {
     let reviewsCount: Int
     let saturatedColor, dominantColor: String //Color
     let shortScreenshots: [ShortScreenshot]?
-    let parentPlatforms: [Platform]
+    let parentPlatforms: [Platform]?
     let genres: [Genre]
     
     enum CodingKeys: String, CodingKey {

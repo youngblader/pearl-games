@@ -59,9 +59,10 @@ extension WishlistTableView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isFiltering {
-            return filtredGames.count
+            return filtredGames.isEmpty ? 0 : filtredGames.count
+        } else {
+            return wishlistGames.isEmpty ? 0 : wishlistGames.count
         }
-        return wishlistGames.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

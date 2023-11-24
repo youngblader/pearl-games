@@ -7,16 +7,6 @@
 
 import UIKit
 
-//State Pattern
-enum SearchGamesState {
-    case loading
-    case loaded([Game], [Game], Bool)
-    case filtred([Game], [Game], Bool)
-    case noFiltredData(GamesStateError)
-    case error(GamesStateError)
-}
-
-#warning("Fix state pattern bugs")
 final class SearchGamesViewController: UIViewController {
     private let searchGamesProvider: SearchGamesProvider
     
@@ -82,8 +72,6 @@ final class SearchGamesViewController: UIViewController {
     }
     
     private func fetchSearchGames(_ searchText: String) {
-        guard !searchText.isEmpty else { return }
-        
         Task {
             searchGameView.state = .loading
             do {
@@ -107,7 +95,6 @@ extension SearchGamesViewController {
     private func setup() {
         self.title = "Explore"
         
-        self.definesPresentationContext = true
         self.navigationItem.searchController = searchGameView.searchController
         
         self.navigationItem.largeTitleDisplayMode = .always

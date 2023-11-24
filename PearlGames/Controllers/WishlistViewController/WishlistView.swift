@@ -11,7 +11,6 @@ import SnapKit
 //State Pattern
 enum WishlistState {
     case loaded([GameDetails], [GameDetails], Bool)
-    case filtred([GameDetails], [GameDetails], Bool)
     case noData(GamesStateError)
     case noFiltredData(GamesStateError)
 }
@@ -28,7 +27,7 @@ final class WishlistView: UIView {
     var state: WishlistState = .noData(.noData) {
         didSet {
             switch state {
-            case .loaded(let wishlistGames, let filtredGames, let isFiltering), .filtred(let wishlistGames, let filtredGames, let isFiltering):
+            case .loaded(let wishlistGames, let filtredGames, let isFiltering):
                 wishlistTableView.backgroundView = nil
                 wishlistTableView.update(wishlistGames, filtredGames, isFiltering)
             case .noData(let value), .noFiltredData(let value):
@@ -59,15 +58,15 @@ final class WishlistView: UIView {
     
     //MARK: Public update
     func update(_ wishlistGames: [GameDetails], _ filtredGames: [GameDetails], _ isFiltering: Bool) {
+        state = .loaded(wishlistGames, filtredGames, isFiltering)
+        
         if wishlistGames.isEmpty {
             state = .noData(.noData)
-        } else {
-            state = .loaded(wishlistGames, filtredGames, isFiltering)
+            return
         }
         
-        if filtredGames.isEmpty && isFiltering {
+        if isFiltering && filtredGames.isEmpty {
             state = .noFiltredData(.noResults)
-            return
         }
     }
 }

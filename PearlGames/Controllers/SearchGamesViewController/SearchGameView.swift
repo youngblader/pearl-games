@@ -8,6 +8,14 @@
 import UIKit
 import SnapKit
 
+//State Pattern
+enum SearchGamesState {
+    case loading
+    case loaded([Game], [Game], Bool)
+    case noFiltredData(GamesStateError)
+    case error(GamesStateError)
+}
+
 final class SearchGameView: UIView {
     lazy var searchController = SearchController(searchResultsController: nil)
     let searchGamesTableView = SearchGamesTableView()
@@ -29,7 +37,7 @@ final class SearchGameView: UIView {
             switch state {
             case .loading:
                 searchGamesTableView.backgroundView = acitvityIndicator
-            case .loaded(let games, let searchedGames, let isFiltering), .filtred(let games, let searchedGames, let isFiltering):
+            case .loaded(let games, let searchedGames, let isFiltering):
                 searchGamesTableView.backgroundView = nil
                 searchGamesTableView.update(games, searchedGames, isFiltering)
             case .noFiltredData(let value), .error(let value):
@@ -56,16 +64,15 @@ final class SearchGameView: UIView {
     
     //MARK: Public update
     func update(_ games: [Game], _ searchGames: [Game], _ isFiltering: Bool) {
-        print("HERE1")
+        state = .loaded(games, searchGames, isFiltering)
         
-        if isFiltering && searchGames.isEmpty {
-            state = .noFiltredData(.noResults)
-        } else {
-            state = .filtred(games, searchGames, isFiltering)
+        if games.isEmpty {
             return
         }
         
-        state = .loaded(games, searchGames, isFiltering)
+        if isFiltering && searchGames.isEmpty {
+            state = .noFiltredData(.noResults)
+        }
     }
 }
 

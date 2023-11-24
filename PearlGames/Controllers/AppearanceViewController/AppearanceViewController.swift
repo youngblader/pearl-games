@@ -29,6 +29,5 @@ extension AppearanceViewController {
         self.title = "Appearance"
         
         self.navigationItem.largeTitleDisplayMode = .never
-        self.navigationController?.navigationBar.prefersLargeTitles = false
     }
 }

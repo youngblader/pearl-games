@@ -17,6 +17,7 @@ final class GamesDetailsMetaView: UIStackView {
         self.titleLabel.text = title
         super.init(frame: frame)
         
+        setupStyleSubviews()
         setupViews()
     }
     
@@ -36,11 +37,13 @@ final class GamesDetailsMetaView: UIStackView {
 }
 
 extension GamesDetailsMetaView {
-    private func setupViews() {
+    private func setupStyleSubviews() {
         self.distribution = .equalSpacing
         self.axis = .vertical
         self.spacing = 8
-        
+    }
+    
+    private func setupViews() {
         self.addArrangedSubview(titleLabel)
         self.addArrangedSubview(subTitleLabel)
     }

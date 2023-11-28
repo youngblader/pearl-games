@@ -15,6 +15,7 @@ final class AppearanceView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        setupStyleView()
         setupViews()
         setupConstraints()
     }
@@ -25,9 +26,11 @@ final class AppearanceView: UIView {
 }
 
 extension AppearanceView {
-    private func setupViews() {
+    private func setupStyleView() {
         self.backgroundColor = .black
-        
+    }
+    
+    private func setupViews() {
         self.addSubview(appIconsTitleLabel)
         self.addSubview(appIconsCollectionView)
     }

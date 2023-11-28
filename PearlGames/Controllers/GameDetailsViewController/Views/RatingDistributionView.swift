@@ -35,11 +35,7 @@ final class RatingDistributionView: UIView {
 }
 
 extension RatingDistributionView {
-    private func setupViews() {
-//        self.distribution = .equalSpacing
-//        self.axis = .vertical
-//        self.spacing = 8
-        
+    private func setupViews() {        
         self.addSubview(titleLabel)
         self.addSubview(ratingDistributionCollectionView)
     }

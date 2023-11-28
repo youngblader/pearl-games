@@ -27,7 +27,6 @@ final class AppearanceViewController: UIViewController {
 extension AppearanceViewController {
     private func setup() {
         self.title = "Appearance"
-        
         self.navigationItem.largeTitleDisplayMode = .never
     }
 }

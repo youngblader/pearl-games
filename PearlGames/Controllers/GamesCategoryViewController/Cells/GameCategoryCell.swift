@@ -33,6 +33,7 @@ final class GameCategoryCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        setupStyleCell()
         setupViews()
         setupConstraints()
     }
@@ -53,18 +54,19 @@ final class GameCategoryCell: UICollectionViewCell {
 }
 
 extension GameCategoryCell {
-    private func setupViews() {
-        contentView.addSubview(gameImageView)
-        contentView.addSubview(gameNameLabel)
-        contentView.addSubview(genreGameLabel)
-        
+    private func setupStyleCell() {
         contentView.backgroundColor = .lightBlack
         contentView.layer.borderColor = UIColor.borderButtonColor.withAlphaComponent(0.2).cgColor
         
         contentView.layer.borderWidth = 0.5
-        
         contentView.layer.cornerRadius = 16
         contentView.layer.masksToBounds = true
+    }
+    
+    private func setupViews() {
+        contentView.addSubview(gameImageView)
+        contentView.addSubview(gameNameLabel)
+        contentView.addSubview(genreGameLabel)
     }
     
     private func setupConstraints() {

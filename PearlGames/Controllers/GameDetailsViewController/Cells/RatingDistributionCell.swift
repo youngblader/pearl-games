@@ -19,6 +19,7 @@ final class RatingDistributionCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        setupStyleCell()
         setupViews()
         setupConstraints()
     }
@@ -35,13 +36,14 @@ final class RatingDistributionCell: UICollectionViewCell {
 }
 
 extension RatingDistributionCell {
-    private func setupViews() {
-        contentView.backgroundColor = .lightBlack
-        contentView.layer.borderColor = UIColor.borderButtonColor.withAlphaComponent(0.2).cgColor
-        
+    private func setupStyleCell() {
         contentView.layer.cornerRadius = 14
         contentView.layer.borderWidth = 1
-        
+        contentView.backgroundColor = .lightBlack
+        contentView.layer.borderColor = UIColor.borderButtonColor.withAlphaComponent(0.2).cgColor
+    }
+    
+    private func setupViews() {
         contentView.addSubview(ratingTitle)
         contentView.addSubview(ratingNumber)
     }

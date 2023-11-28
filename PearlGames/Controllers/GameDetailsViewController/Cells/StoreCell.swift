@@ -16,6 +16,7 @@ final class StoreCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        setupStyleCell()
         setupViews()
         setupConstraints()
     }
@@ -31,10 +32,12 @@ final class StoreCell: UICollectionViewCell {
 }
 
 extension StoreCell {
-    private func setupViews() {
+    private func setupStyleCell() {
         contentView.backgroundColor = .lightBlack
         contentView.layer.cornerRadius = 16
-        
+    }
+
+    private func setupViews() {
         contentView.addSubview(storeLabel)
     }
     

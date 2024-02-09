@@ -20,7 +20,7 @@ final class AppIconsCollectionView: UICollectionView {
         
         layout.scrollDirection = .horizontal
         layout.itemSize = CGSize(width: 80, height: 90)
-        layout.sectionInset = UIEdgeInsets(top: 15, left: 10, bottom: 15, right: 10)
+        layout.sectionInset = UIEdgeInsets(top: 15, left: 8, bottom: 15, right: 8)
         
         super.init(frame: .zero, collectionViewLayout: layout)
         

@@ -19,7 +19,6 @@ final class GameDetailsView: UIView {
     var onSaveGameTapped: ((GameDetails)->())?
     
     private let gameDetailsTableView = GameDetailsTableView()
-    
     private let errorLabel = TextLabel(size: 14, color: .textGray, typeLabel: .semiBold, aligment: .center)
     
     private let acitvityIndicator: UIActivityIndicatorView = {

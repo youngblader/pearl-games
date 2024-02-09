@@ -7,7 +7,7 @@
 
 import Foundation
 
-fileprivate let KEY = "6ad384039a514e32aa7c4de0f541e1e3"
+fileprivate let key = "6ad384039a514e32aa7c4de0f541e1e3"
 
 protocol API {
     func request<T: Decodable>(endpoint: Endpoint, responseModel: T.Type) async throws -> T
@@ -21,8 +21,7 @@ extension API {
         urlComponents.host = endpoint.host
         urlComponents.path = endpoint.path
         urlComponents.queryItems = endpoint.parameters
-        
-        urlComponents.queryItems?.append(URLQueryItem(name: "key", value: KEY))
+        urlComponents.queryItems?.append(URLQueryItem(name: "key", value: key))
         
         guard let url = urlComponents.url else {
             throw NetworkError.invalidURL

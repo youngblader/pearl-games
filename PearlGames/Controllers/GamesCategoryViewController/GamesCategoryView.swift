@@ -92,7 +92,7 @@ final class GamesCategoryView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func showingArrowUpButton(_ action: ButtonEvent) {
+    private func showingArrowUpButton(_ action: ButtonEvent) {
         switch action {
         case .show:
             // delay for the half screen button bug

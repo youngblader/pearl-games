@@ -11,7 +11,7 @@ import SnapKit
 final class AppIconCell: UICollectionViewCell {
     static var reuseId = "AppIconCell"
     
-    private let appIconNameLabel = TextLabel(size: 12, typeLabel: .regular, aligment: .center, linesNumber: 1)
+    private let appIconNameLabel = TextLabel(size: 12, fontLabel: .regular, aligment: .center, linesNumber: 1)
     
     private let appIconImageView: UIImageView = {
         let imageView = UIImageView()

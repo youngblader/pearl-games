@@ -9,9 +9,9 @@ import UIKit
 import SnapKit
 
 final class GamesDetailsMetaView: UIStackView {
-    private let titleLabel = TextLabel(size: 14, color: .gray, typeLabel: .semiBold)
+    private let titleLabel = TextLabel(size: 14, color: .gray, fontLabel: .semiBold)
     
-    private let subTitleLabel = TextLabel(size: 14, color: .white, typeLabel: .regular)
+    private let subTitleLabel = TextLabel(size: 14, color: .white, fontLabel: .regular)
     
     init(frame: CGRect = .zero, title: String) {
         self.titleLabel.text = title

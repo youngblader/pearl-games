@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum TypeLabel {
+enum FontLabel {
     case regular
     case semiBold
     case bold
@@ -31,19 +31,19 @@ enum ColorStyle {
 }
 
 final class TextLabel: UILabel {
-    private(set) var textLabel: String
-    private(set) var color: ColorStyle
-    private(set) var typeLabel: TypeLabel
-    private(set) var size: CGFloat
-    private(set) var aligment: NSTextAlignment
-    private(set) var linesNumber: Int
+    private var textLabel: String
+    private var size: CGFloat
+    private var aligment: NSTextAlignment
+    private var linesNumber: Int
+    private var color: ColorStyle
+    private var fontLabel: FontLabel
     
-    init(label: String = "", size: CGFloat = 16, color: ColorStyle = .white, typeLabel: TypeLabel = .semiBold, aligment: NSTextAlignment = .left, linesNumber: Int = 0) {
+    init(label: String = "", size: CGFloat = 16, color: ColorStyle = .white, fontLabel: FontLabel = .semiBold, aligment: NSTextAlignment = .left, linesNumber: Int = 0) {
         
         self.textLabel = label
         self.size = size
         self.color = color
-        self.typeLabel = typeLabel
+        self.fontLabel = fontLabel
         self.aligment = aligment
         self.linesNumber = linesNumber
         
@@ -86,7 +86,7 @@ extension TextLabel {
     }
     
     private func configureLabelStyle() {
-        switch typeLabel {
+        switch fontLabel {
         case .regular:
             self.font = UIFont(name: "Poppins-Regular", size: size)
         case .semiBold:

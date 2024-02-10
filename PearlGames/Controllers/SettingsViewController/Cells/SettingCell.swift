@@ -13,7 +13,7 @@ final class SettingCell: UITableViewCell {
     static var reuseId = "SettingCell"
     
     private let iconImageView = UIImageView()
-    private let settingsLabel = TextLabel(size: 14, typeLabel: .medium, linesNumber: 1)
+    private let settingsLabel = TextLabel(size: 14, fontLabel: .medium, linesNumber: 1)
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

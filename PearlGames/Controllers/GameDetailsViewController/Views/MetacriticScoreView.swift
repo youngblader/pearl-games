@@ -20,9 +20,9 @@ final class MetacriticScoreView: UIView {
         }
     }
     
-    private let metascoreTitleLabel = TextLabel(label: "Metascore", size: 14, color: .gray, typeLabel: .semiBold)
+    private let metascoreTitleLabel = TextLabel(label: "Metascore", size: 14, color: .gray, fontLabel: .semiBold)
     
-    private var metaScoreLabel = TextLabel(size: 14, typeLabel: .medium, aligment: .center)
+    private var metaScoreLabel = TextLabel(size: 14, fontLabel: .medium, aligment: .center)
     
     private let metaScoreContainer: UIView = {
         let view = UIView()

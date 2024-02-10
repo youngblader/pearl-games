@@ -20,7 +20,7 @@ final class SearchGameView: UIView {
     lazy var searchController = SearchController(searchResultsController: nil)
     let searchGamesTableView = SearchGamesTableView()
     
-    private let errorLabel = TextLabel(size: 14, color: .textGray, typeLabel: .semiBold, aligment: .center)
+    private let errorLabel = TextLabel(size: 14, color: .textGray, fontLabel: .semiBold, aligment: .center)
     
     private let acitvityIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView()

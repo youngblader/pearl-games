@@ -21,7 +21,7 @@ final class WishlistView: UIView {
     lazy var searchController = SearchController(searchResultsController: nil)
     private let wishlistTableView = WishlistTableView()
     
-    private let errorLabel = TextLabel(size: 14, color: .textGray, typeLabel: .semiBold, aligment: .center)
+    private let errorLabel = TextLabel(size: 14, color: .textGray, fontLabel: .semiBold, aligment: .center)
     
     //State
     var state: WishlistState = .noData(.noData) {

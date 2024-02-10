@@ -41,8 +41,8 @@ final class GameDetailsFooterCell: UITableViewCell {
 
     private let storesCollectionView = StoresCollectionView()
 
-    private let titleLabel = TextLabel(label: "Where to buy", size: 14, color: .gray, typeLabel: .semiBold)
-    private let websiteLabel = TextLabel(label: "Website", size: 14, color: .gray, typeLabel: .semiBold)
+    private let titleLabel = TextLabel(label: "Where to buy", size: 14, color: .gray, fontLabel: .semiBold)
+    private let websiteLabel = TextLabel(label: "Website", size: 14, color: .gray, fontLabel: .semiBold)
     
     private lazy var websiteButton: UIButton = {
         let button = UIButton()

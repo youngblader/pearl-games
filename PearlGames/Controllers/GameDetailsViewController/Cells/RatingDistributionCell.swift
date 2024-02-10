@@ -11,8 +11,8 @@ import SnapKit
 final class RatingDistributionCell: UICollectionViewCell {
     static var reuseId = "RatingDistributionCell"
     
-    private let ratingTitle = TextLabel(size: 14, color: .white, typeLabel: .semiBold, linesNumber: 1)
-    private let ratingNumber = TextLabel(size: 12, color: .textGray, typeLabel: .regular)
+    private let ratingTitle = TextLabel(size: 14, color: .white, fontLabel: .semiBold, linesNumber: 1)
+    private let ratingNumber = TextLabel(size: 12, color: .textGray, fontLabel: .regular)
     
     private let ratingContentView = UIView()
 

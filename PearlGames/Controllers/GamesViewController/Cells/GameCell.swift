@@ -27,7 +27,7 @@ final class GameCell: UICollectionViewCell {
     
     private let containerImageView = UIView()
     
-    private let titleGameLabel = TextLabel(size: 14, color: .white, typeLabel: .medium, aligment: .left, linesNumber: 1)
+    private let titleGameLabel = TextLabel(size: 14, color: .white, fontLabel: .medium, aligment: .left, linesNumber: 1)
     
     override init(frame: CGRect) {
         super.init(frame: frame)

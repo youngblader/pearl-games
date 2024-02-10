@@ -11,7 +11,7 @@ import SnapKit
 final class DividerView: UIView {
     var onGameCategoryTapped: (()->())?
     
-    private let titleLabel = TextLabel(size: 18, color: .white, typeLabel: .semiBold)
+    private let titleLabel = TextLabel(size: 18, color: .white, fontLabel: .semiBold)
     
     private lazy var navigateButton: UIButton = {
         let button = UIButton()

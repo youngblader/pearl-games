@@ -11,7 +11,7 @@ import SnapKit
 final class StoreCell: UICollectionViewCell {
     static var reuseId = "StoreCell"
     
-    private let storeLabel = TextLabel(size: 14, color: .white, typeLabel: .semiBold, linesNumber: 1)
+    private let storeLabel = TextLabel(size: 14, color: .white, fontLabel: .semiBold, linesNumber: 1)
 
     override init(frame: CGRect) {
         super.init(frame: frame)

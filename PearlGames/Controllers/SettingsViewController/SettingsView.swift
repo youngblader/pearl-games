@@ -12,7 +12,7 @@ final class SettingsView: UIView {
     var onSettingsCellTapped: ((SettingOptionType)->())?
     
     private let settingsTableView = SettingsTableView()
-    private let versionLabel = TextLabel(size: 12, color: .lightGray, typeLabel: .regular, aligment: .center)
+    private let versionLabel = TextLabel(size: 12, color: .lightGray, fontLabel: .regular, aligment: .center)
     
     override init(frame: CGRect) {
         super.init(frame: frame)

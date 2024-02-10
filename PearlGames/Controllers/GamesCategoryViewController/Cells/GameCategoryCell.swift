@@ -12,8 +12,8 @@ import SDWebImage
 final class GameCategoryCell: UICollectionViewCell {
     static var reuseId = "GameCategoryCell"
     
-    private let gameNameLabel = TextLabel(size: 14, typeLabel: .semiBold, linesNumber: 1)
-    private let genreGameLabel = TextLabel(size: 12, color: .gray, typeLabel: .medium)
+    private let gameNameLabel = TextLabel(size: 14, fontLabel: .semiBold, linesNumber: 1)
+    private let genreGameLabel = TextLabel(size: 12, color: .gray, fontLabel: .medium)
     
     private let gameImageView: UIImageView = {
         let imageView = UIImageView()

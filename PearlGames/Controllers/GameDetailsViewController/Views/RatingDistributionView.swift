@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 final class RatingDistributionView: UIView {
-    private let titleLabel = TextLabel(label: "Rating Distribution", size: 14, color: .gray, typeLabel: .semiBold)
+    private let titleLabel = TextLabel(label: "Rating Distribution", size: 14, color: .gray, fontLabel: .semiBold)
     
     private let ratingDistributionCollectionView =  RatingDistributionCollectionView()
     

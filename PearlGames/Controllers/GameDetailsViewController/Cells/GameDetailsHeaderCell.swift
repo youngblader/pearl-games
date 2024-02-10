@@ -20,13 +20,13 @@ final class GameDetailsHeaderCell: UITableViewCell {
         }
     }
     
-    private let gameNameLabel = TextLabel(size: 16, color: .white, typeLabel: .semiBold, linesNumber: 2)
+    private let gameNameLabel = TextLabel(size: 16, color: .white, fontLabel: .semiBold, linesNumber: 2)
     
-    private let playTimeLabel = TextLabel(size: 12, color: .white, typeLabel: .regular)
+    private let playTimeLabel = TextLabel(size: 12, color: .white, fontLabel: .regular)
     
-    private let aboutSubTitleLabel = TextLabel(label: "About", size: 18, color: .white, typeLabel: .semiBold)
+    private let aboutSubTitleLabel = TextLabel(label: "About", size: 18, color: .white, fontLabel: .semiBold)
     
-    private let descriptionLabel = TextLabel(size: 14, color: .white, typeLabel: .regular)
+    private let descriptionLabel = TextLabel(size: 14, color: .white, fontLabel: .regular)
     
     private let aboutGameView = UIView()
     private let ratingDistributionView = RatingDistributionView()

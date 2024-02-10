@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 final class AppearanceView: UIView {
-    private let appIconsTitleLabel = TextLabel(label: "APP ICON", size: 12, color: .textGray, typeLabel: .regular)
+    private let appIconsTitleLabel = TextLabel(label: "APP ICON", size: 12, color: .textGray, fontLabel: .regular)
     private let appIconsCollectionView = AppIconsCollectionView()
     
     override init(frame: CGRect) {

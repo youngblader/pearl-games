@@ -25,8 +25,4 @@ extension Endpoint {
     var host: String {
         return "api.rawg.io"
     }
-    
-    //    var path: String {
-    //        return "/api/rest"
-    //    }
 }

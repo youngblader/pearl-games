@@ -11,7 +11,7 @@ import SnapKit
 final class WishlistGameCell: UITableViewCell {
     static var reuseId = "WishlistGameCell"
     
-    private let gameNameLabel = TextLabel(size: 14, color: .white, fontLabel: .semiBold, linesNumber: 0)
+    private let gameNameLabel = TextLabel(size: 14, color: .white, fontLabel: .semiBold)
     private let genreGameLabel = TextLabel(size: 12, color: .gray, fontLabel: .medium)
     
     private let containerView =  UIView()
@@ -24,7 +24,7 @@ final class WishlistGameCell: UITableViewCell {
         imageView.layer.cornerRadius = 20
         imageView.layer.masksToBounds = true
         
-        imageView.widthAnchor.constraint(equalToConstant: 90).isActive = true
+        imageView.widthAnchor.constraint(equalToConstant: 85).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: 85).isActive = true
         
         return imageView

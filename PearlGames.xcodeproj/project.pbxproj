@@ -85,7 +85,6 @@
 		448390FD2B08F5CA00D2C4DD /* SettingsIconGenerator in Frameworks */ = {isa = PBXBuildFile; productRef = 448390FC2B08F5CA00D2C4DD /* SettingsIconGenerator */; };
 		448391072B0E30E700D2C4DD /* GamesPreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448391062B0E30E700D2C4DD /* GamesPreviewData.swift */; };
 		448391092B0F466E00D2C4DD /* RatingDistributionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448391082B0F466E00D2C4DD /* RatingDistributionView.swift */; };
-		4483911F2B0F725400D2C4DD /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 4483911E2B0F725400D2C4DD /* Alamofire */; };
 		44D9764E2AEBD1F4003D5DAB /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D9764D2AEBD1F4003D5DAB /* Game.swift */; };
 		44D976502AEBD8C6003D5DAB /* GamesCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D9764F2AEBD8C6003D5DAB /* GamesCollectionView.swift */; };
 		44D976522AEBD8E3003D5DAB /* GamesPreviewTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D976512AEBD8E3003D5DAB /* GamesPreviewTableView.swift */; };
@@ -196,7 +195,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				448390FD2B08F5CA00D2C4DD /* SettingsIconGenerator in Frameworks */,
-				4483911F2B0F725400D2C4DD /* Alamofire in Frameworks */,
 				447F24A32AD14EE200119BA6 /* SDWebImage in Frameworks */,
 				447F24A02AD14EB500119BA6 /* SnapKit in Frameworks */,
 			);
@@ -663,7 +661,6 @@
 				447F249F2AD14EB500119BA6 /* SnapKit */,
 				447F24A22AD14EE200119BA6 /* SDWebImage */,
 				448390FC2B08F5CA00D2C4DD /* SettingsIconGenerator */,
-				4483911E2B0F725400D2C4DD /* Alamofire */,
 			);
 			productName = PearlGames;
 			productReference = 447F247F2AD14C2800119BA6 /* PearlGames.app */;
@@ -697,7 +694,6 @@
 				447F249E2AD14EB400119BA6 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				447F24A12AD14EE200119BA6 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				448390FB2B08F5CA00D2C4DD /* XCRemoteSwiftPackageReference "SettingsIconGenerator" */,
-				4483911D2B0F725400D2C4DD /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 447F24802AD14C2800119BA6 /* Products */;
 			projectDirPath = "";
@@ -1058,14 +1054,6 @@
 				minimumVersion = 1.0.0;
 			};
 		};
-		4483911D2B0F725400D2C4DD /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire";
-			requirement = {
-				kind = upToNextMinorVersion;
-				minimumVersion = 5.8.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1083,11 +1071,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 448390FB2B08F5CA00D2C4DD /* XCRemoteSwiftPackageReference "SettingsIconGenerator" */;
 			productName = SettingsIconGenerator;
-		};
-		4483911E2B0F725400D2C4DD /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4483911D2B0F725400D2C4DD /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -31,14 +31,10 @@ final class WishlistView: UIView {
                 wishlistTableView.backgroundView = nil
                 wishlistTableView.update(wishlistGames, filtredGames, isFiltering)
             case .noData(let value), .noFiltredData(let value):
-                updateTableViewBackgroundView(value.rawValue)
+                errorLabel.text = value.rawValue
+                wishlistTableView.backgroundView = errorLabel
             }
         }
-    }
-    
-    private func updateTableViewBackgroundView(_ text: String) {
-        errorLabel.text = text
-        wishlistTableView.backgroundView = errorLabel
     }
     
     override init(frame: CGRect) {

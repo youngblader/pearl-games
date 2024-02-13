@@ -41,14 +41,10 @@ final class SearchGameView: UIView {
                 searchGamesTableView.backgroundView = nil
                 searchGamesTableView.update(games, searchedGames, isFiltering)
             case .noFiltredData(let value), .error(let value):
-                updateTableViewBackgroundView(value.rawValue)
+                errorLabel.text = value.rawValue
+                searchGamesTableView.backgroundView = errorLabel
             }
         }
-    }
-    
-    private func updateTableViewBackgroundView(_ text: String) {
-        errorLabel.text = text
-        searchGamesTableView.backgroundView = errorLabel
     }
     
     override init(frame: CGRect) {

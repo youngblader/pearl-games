@@ -67,14 +67,10 @@ final class GamesCategoryView: UIView {
                 gamesCategoryCollectionView.backgroundView = nil
                 gamesCategoryCollectionView.update(data)
             case .error(let value), .noData(let value):
-                updateTableViewBackgroundView(value.rawValue)
+                errorLabel.text = value.rawValue
+                gamesCategoryCollectionView.backgroundView = errorLabel
             }
         }
-    }
-    
-    private func updateTableViewBackgroundView(_ text: String) {
-        errorLabel.text = text
-        gamesCategoryCollectionView.backgroundView = errorLabel
     }
     
     override init(frame: CGRect) {

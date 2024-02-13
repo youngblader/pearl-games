@@ -40,14 +40,10 @@ final class GameDetailsView: UIView {
                 gameDetailsTableView.backgroundView = nil
                 gameDetailsTableView.update(game, gameInWishlist)
             case .error(let value):
-                updateBackgroundTableView(value.rawValue)
+                errorLabel.text = value.rawValue
+                gameDetailsTableView.backgroundView = errorLabel
             }
         }
-    }
-    
-    private func updateBackgroundTableView(_ text: String) {
-        errorLabel.text = text
-        gameDetailsTableView.backgroundView = errorLabel
     }
     
     override init(frame: CGRect) {

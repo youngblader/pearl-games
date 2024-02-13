@@ -39,14 +39,10 @@ final class GamesView: UIView {
             case .loaded(let data):
                 gamePreviewTableView.update(data)
             case .error(let value), .noData(let value):
-                updateTableViewBackgroundView(value.rawValue)
+                errorLabel.text = value.rawValue
+                gamePreviewTableView.backgroundView = errorLabel
             }
         }
-    }
-    
-    private func updateTableViewBackgroundView(_ text: String) {
-        errorLabel.text = text
-        gamePreviewTableView.backgroundView = errorLabel
     }
     
     override init(frame: CGRect) {

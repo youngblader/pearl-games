@@ -291,8 +291,8 @@
 				44D976612AED071A003D5DAB /* GameDetailsViewController.swift */,
 				44D976632AED0740003D5DAB /* GameDetailsView.swift */,
 				4483445B2AF3D7B200C481CA /* GameDetailsProvider.swift */,
-				4483445E2AF3D81900C481CA /* Cells */,
 				4483445D2AF3D80F00C481CA /* Views */,
+				4483445E2AF3D81900C481CA /* Cells */,
 			);
 			path = GameDetailsViewController;
 			sourceTree = "<group>";

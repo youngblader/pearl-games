@@ -22,6 +22,10 @@ final class GameDetailsTableHeaderView: UIView {
         image.clipsToBounds = true
         image.contentMode = .scaleAspectFill
         
+        image.layer.cornerRadius = 20
+        
+        image.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
+
         return image
     }()
     
@@ -51,7 +55,6 @@ final class GameDetailsTableHeaderView: UIView {
     }
 }
 
-#warning("Переписать layout на constraints")
 extension GameDetailsTableHeaderView {
     func setupViews() {
         self.addSubview(containerView)

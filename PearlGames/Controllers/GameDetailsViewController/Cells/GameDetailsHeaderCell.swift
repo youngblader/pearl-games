@@ -117,7 +117,8 @@ extension GameDetailsHeaderCell {
     
     private func setupConstraints() {
         playTimeLabel.snp.makeConstraints { make in
-            make.top.left.right.equalTo(contentView).inset(16)
+            make.left.right.equalTo(contentView).inset(16)
+            make.top.equalTo(contentView).inset(25)
         }
         
         headerStackView.snp.makeConstraints { make in

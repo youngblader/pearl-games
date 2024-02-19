@@ -11,16 +11,16 @@ final class GamesCategoryCollectionView: UICollectionView {
     private var games: [Game] = []
     
     var onGameCellTapped: ((Int)->())?
-    var onShowingArrowUpButton: ((ButtonEvent)->())?
+    var onHandlingButtonEvent: ((ButtonEvent)->())?
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         let layout = UICollectionViewFlowLayout()
         
         let leftAndRightPaddings: CGFloat = 45.0
         let numberOfItemsRow: CGFloat = 2.0
-    
+        
         let width = (UIScreen.main.bounds.width - leftAndRightPaddings) / numberOfItemsRow
-          
+        
         layout.itemSize = CGSize(width: width, height: 180)
         
         layout.scrollDirection = .vertical
@@ -50,14 +50,14 @@ extension GamesCategoryCollectionView: UICollectionViewDelegate, UICollectionVie
         let contentOffsetY = scrollView.contentOffset.y
         
         if contentOffsetY > 200 {
-            onShowingArrowUpButton?(.show)
+            onHandlingButtonEvent?(.show)
         } else {
-            onShowingArrowUpButton?(.hide)
+            onHandlingButtonEvent?(.hide)
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath)        
+        let cell = collectionView.cellForItem(at: indexPath)
         
         let game = games[indexPath.row]
         
@@ -65,7 +65,7 @@ extension GamesCategoryCollectionView: UICollectionViewDelegate, UICollectionVie
             self.onGameCellTapped?(game.id)
         }
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return games.count
     }

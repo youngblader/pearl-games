@@ -52,7 +52,7 @@ final class GamesCategoryView: UIView {
         
         button.transform = CGAffineTransform(scaleX: 0.001, y: 0.001)
         
-        button.addTarget(self, action: #selector(arrowUpButtonTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(didButtonTapped), for: .touchUpInside)
         
         return button
     }()
@@ -79,8 +79,8 @@ final class GamesCategoryView: UIView {
         setupViews()
         setupConstraints()
         
-        gamesCategoryCollectionView.onShowingArrowUpButton = { action in
-            self.showingArrowUpButton(action)
+        gamesCategoryCollectionView.onHandlingButtonEvent = { action in
+            self.onHandlingButtonEvent(action)
         }
     }
     
@@ -88,7 +88,7 @@ final class GamesCategoryView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func showingArrowUpButton(_ action: ButtonEvent) {
+    private func onHandlingButtonEvent(_ action: ButtonEvent) {
         switch action {
         case .show:
             // delay for the half screen button bug
@@ -108,7 +108,7 @@ final class GamesCategoryView: UIView {
     }
     
     //MARK: Actions
-    @objc private func arrowUpButtonTapped() {
+    @objc private func didButtonTapped() {
         gamesCategoryCollectionView.scrollToItem(at: [0,0], at: .top, animated: true)
     }
 }

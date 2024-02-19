@@ -10,7 +10,7 @@ import UIKit
 final class GamesCategoryViewController: UIViewController {
     private let gamesCategoryProvider: GamesCategoryProvider
     private let category: GameCategory
-
+    
     // LoadView
     private var gamesCategoryView: GamesCategoryView {
         return self.view as! GamesCategoryView

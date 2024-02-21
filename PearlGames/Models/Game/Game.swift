@@ -34,29 +34,6 @@ struct Game: Codable {
     let shortScreenshots: [ShortScreenshot]?
     let parentPlatforms: [Platform]?
     let genres: [Genre]
-    
-    enum CodingKeys: String, CodingKey {
-        case slug, name, playtime, platforms, stores, released, tba
-        case backgroundImage = "background_image"
-        case rating
-        case ratingTop = "rating_top"
-        case ratings
-        case ratingsCount = "ratings_count"
-        case reviewsTextCount = "reviews_text_count"
-        case added
-        case addedByStatus = "added_by_status"
-        case metacritic
-        case suggestionsCount = "suggestions_count"
-        case updated, id, score, clip, tags
-        case esrbRating = "esrb_rating"
-        case userGame = "user_game"
-        case reviewsCount = "reviews_count"
-        case saturatedColor = "saturated_color"
-        case dominantColor = "dominant_color"
-        case shortScreenshots = "short_screenshots"
-        case parentPlatforms = "parent_platforms"
-        case genres
-    }
 }
 
 // MARK: - AddedByStatus
@@ -65,21 +42,11 @@ struct AddedByStatus: Codable {
     let dropped, playing: Int?
 }
 
-//enum Color: String, Codable {
-//    case string
-//}
-
 // MARK: - EsrbRating
 struct EsrbRating: Codable {
     let id: Int
     let name, slug: String
     let nameEn, nameRu: String?
-    
-    enum CodingKeys: String, CodingKey {
-        case id, name, slug
-        case nameEn = "name_en"
-        case nameRu = "name_ru"
-    }
 }
 
 // MARK: - Genre
@@ -126,12 +93,6 @@ struct Tag: Codable {
     let language: Language
     let gamesCount: Int
     let imageBackground: String?
-    
-    enum CodingKeys: String, CodingKey {
-        case id, name, slug, language
-        case gamesCount = "games_count"
-        case imageBackground = "image_background"
-    }
 }
 
 // MARK: - Language

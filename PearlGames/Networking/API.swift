@@ -41,6 +41,8 @@ extension API {
         let session = URLSession(configuration: .default)
         let decoder = JSONDecoder()
         
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        
         do {
             let (data, response) = try await session.data(for: request)
             

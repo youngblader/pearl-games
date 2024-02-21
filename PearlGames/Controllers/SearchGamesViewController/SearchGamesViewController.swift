@@ -75,7 +75,7 @@ final class SearchGamesViewController: UIViewController {
         Task {
             searchGameView.state = .loading
             do {
-                let games = try await searchGamesProvider.gameService.fetchSearchGames(searchText)
+                let games = try await searchGamesProvider.gameService.fetchSearchGames(searchText: searchText)
                 
                 self.searchGames = games
                 searchGameView.update(previewSearchGames, games, isFiltering)

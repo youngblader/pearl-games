@@ -46,7 +46,7 @@ final class GamesCategoryViewController: UIViewController {
         Task {
             gamesCategoryView.state = .loading
             do {
-                let games = try await  gamesCategoryProvider.gameService.fetchCategoryGames(category)
+                let games = try await  gamesCategoryProvider.gameService.fetchCategoryGames(category: category)
                 
                 gamesCategoryView.update(games)
             } catch {

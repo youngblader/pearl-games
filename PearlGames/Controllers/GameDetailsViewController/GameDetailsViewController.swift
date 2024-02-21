@@ -52,7 +52,7 @@ final class GameDetailsViewController: UIViewController {
         Task {
             gameDetailsView.state = .loading
             do {
-                let game = try await gameDetailsProvider.gameService.fetchGame(gameId)
+                let game = try await gameDetailsProvider.gameService.fetchGame(id: gameId)
                 
                 gameDetailsView.update(game, gameInWishlist)
             } catch {

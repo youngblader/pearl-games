@@ -10,7 +10,7 @@ import Foundation
 enum NetworkError: Error {
     case urlInvalid
     case requestInvalid
-    case decode
+    case decode(error: String)
     case invalidURL
     case noResponse
     case unauthorized
@@ -23,8 +23,8 @@ enum NetworkError: Error {
             return "URL invalid"
         case .requestInvalid:
             return "Request invalid"
-        case .decode:
-            return "Decode error"
+        case .decode(let error):
+            return "!!!!ERROR, KEY NOT FOUND: \(error)"
         case .unauthorized:
             return "Session expired"
         default:

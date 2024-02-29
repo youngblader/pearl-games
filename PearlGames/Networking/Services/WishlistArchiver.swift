@@ -24,7 +24,7 @@ final class WishlistArchiverImpl: WishlistArchiver {
             let data = try encoder.encode(game)
             UserDefaults.standard.set(data, forKey: key)
         } catch {
-            print("ERROR", error)
+            print("!!!!ERROR", error)
         }
     }
     
@@ -36,7 +36,7 @@ final class WishlistArchiverImpl: WishlistArchiver {
             
             return array
         } catch {
-            print("ERROR", error)
+            print("!!!!ERROR", error)
         }
         
         return []

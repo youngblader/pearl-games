@@ -56,9 +56,8 @@ extension API {
                     let decodedResponse = try decoder.decode(responseModel, from: data)
                     
                     return decodedResponse
-                } catch {
-                    print("!!!!ERROR", error)
-                    throw NetworkError.decode
+                } catch DecodingError.keyNotFound(let key, _) {
+                    throw NetworkError.decode(error: key.stringValue)
                 }
             case 401:
                 throw NetworkError.unauthorized

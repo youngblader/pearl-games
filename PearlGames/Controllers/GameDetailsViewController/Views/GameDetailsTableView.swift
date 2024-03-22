@@ -18,7 +18,7 @@ final class GameDetailsTableView: UITableView {
     var onWebsiteUrlTapped: ((String)->())?
     var onSaveGameTapped: ((GameDetails)->())?
     
-    private let gameDetailsTableHeaderView = GameDetailsTableHeaderView (frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 250))
+    private let gameDetailsTableHeaderView = GameDetailsTableHeaderView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 250))
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: .plain)

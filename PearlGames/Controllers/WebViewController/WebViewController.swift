@@ -11,7 +11,7 @@ import SnapKit
 final class WebViewController: UIViewController {
     private let webviewProvider: WebViewProvider
     
-    var gameUrl: String?
+    private var gameUrl: String
     
     // LoadView
     private var webView: WebView {
@@ -25,13 +25,13 @@ final class WebViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let url = gameUrl {
-            loadUrl(url)
-        }
+        loadUrl(gameUrl)
     }
     
-    init(provider: WebViewProvider) {
+    init(url: String, provider: WebViewProvider) {
         self.webviewProvider = provider
+        self.gameUrl =  url
+        
         super.init(nibName: nil, bundle: nil)
     }
     

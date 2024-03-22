@@ -10,7 +10,7 @@ import UIKit
 final class GameDetailsViewController: UIViewController {
     private let gameDetailsProvider: GameDetailsProvider
     
-    var gameId: Int?
+    private var gameId: Int
     private var gameInWishlist: Bool = false
     
     // LoadView
@@ -22,8 +22,10 @@ final class GameDetailsViewController: UIViewController {
         self.view = GameDetailsView(frame: UIScreen.main.bounds)
     }
     
-    init(provider: GameDetailsProvider) {
+    init(gameId: Int, provider: GameDetailsProvider) {
         self.gameDetailsProvider = provider
+        self.gameId = gameId
+        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -34,10 +36,8 @@ final class GameDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let id = gameId {
-            fetchGameById(id)
-            gameInWishlist = checkGameInWishlist(id)
-        }
+        fetchGameById(gameId)
+        checkGameInWishlist(gameId)
         
         gameDetailsView.onWebsiteUrlTapped = { url in
             self.presentWebViewController(url)
@@ -61,7 +61,7 @@ final class GameDetailsViewController: UIViewController {
             }
         }
     }
-
+    
     private func saveGameInWishlist(_ game: GameDetails) {
         var wishlistGames = gameDetailsProvider.wishlistArchiver.retrieve()
         
@@ -76,10 +76,10 @@ final class GameDetailsViewController: UIViewController {
         gameDetailsProvider.wishlistArchiver.save(wishlistGames)
     }
     
-    private func checkGameInWishlist(_ gameId: Int) -> Bool {
+    private func checkGameInWishlist(_ gameId: Int) {
         let wishlistGames = gameDetailsProvider.wishlistArchiver.retrieve()
         
-        return wishlistGames.contains { $0.id == gameId }
+        gameInWishlist = wishlistGames.contains { $0.id == gameId }
     }
     
     private func presentWebViewController(_ url: String) {

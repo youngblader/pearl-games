@@ -25,16 +25,13 @@ final class RouterImpl: Router {
         let vc = di.screenFactory.createGamesCategoryController(category)
         
         vc.hidesBottomBarWhenPushed = true
-        
         from.navigationController?.pushViewController(vc, animated: true)
     }
     
     func navigateToGameDetailsController(_ gameId: Int, _ from: UIViewController) {
-        let vc = di.screenFactory.createGameDetailsController()
-        vc.gameId = gameId
+        let vc = di.screenFactory.createGameDetailsController(gameId)
         
         vc.hidesBottomBarWhenPushed = true
-        
         from.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -42,7 +39,6 @@ final class RouterImpl: Router {
         let vc = di.screenFactory.createAppearanceController()
         
         vc.hidesBottomBarWhenPushed = true
-        
         from.navigationController?.pushViewController(vc, animated: true)
     }
     

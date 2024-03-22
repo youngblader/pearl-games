@@ -16,7 +16,7 @@ protocol ScreenFactory {
     func createSettingsController() -> SettingsViewController
     func createWishlistController() -> WishlistViewController
     func createAppearanceController() -> AppearanceViewController
-    func createGameDetailsController() -> GameDetailsViewController
+    func createGameDetailsController(_ gameId: Int) -> GameDetailsViewController
     func createGamesCategoryController(_ category: GameCategory) -> GamesCategoryViewController
     func createWebViewController(_ url: String) -> WebViewController
 }
@@ -48,8 +48,8 @@ final class ScreenFactoryImpl: ScreenFactory {
         return AppearanceViewController()
     }
     
-    func createGameDetailsController() -> GameDetailsViewController {
-        return GameDetailsViewController(provider: di.gameDetailsProvider)
+    func createGameDetailsController(_ gameId: Int) -> GameDetailsViewController {
+        return GameDetailsViewController(gameId: gameId, provider: di.gameDetailsProvider)
     }
     
     func createGamesCategoryController(_ category: GameCategory) -> GamesCategoryViewController {
@@ -57,10 +57,6 @@ final class ScreenFactoryImpl: ScreenFactory {
     }
     
     func createWebViewController(_ url: String) -> WebViewController {
-        let vc = WebViewController(provider: di.webViewProvider)
-        
-        vc.gameUrl = url
-        
-        return vc
+        return WebViewController(url: url, provider: di.webViewProvider)
     }
 }
